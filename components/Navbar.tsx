@@ -1,11 +1,15 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-card/92 backdrop-blur-md border-b border-line">
       <div className="max-w-[1080px] mx-auto px-8 py-3.5 flex items-center justify-between">
-        <Link href="/" className="font-serif text-[26px] font-semibold text-ink no-underline tracking-tight">
-          Qrio<span className="text-accent">.</span>
+        <Link href="/" className="flex items-center gap-2 no-underline">
+          <Image src="/logo.png" alt="Qrio" width={32} height={32} className="rounded-lg" />
+          <span className="font-serif text-[24px] font-semibold text-ink tracking-tight">
+            rio<span className="text-accent">.</span>
+          </span>
         </Link>
         <div className="flex items-center gap-7">
           <Link href="/" className="text-sm text-muted font-medium hover:text-ink transition-colors no-underline">
