@@ -23,13 +23,18 @@ export const metadata: Metadata = {
   },
   description:
     'Carefully picked topics on geopolitics, business, finance, tech and more - explained in plain English. Brief in 30 seconds. Deep dive in 3 minutes.',
-  metadataBase: new URL('https://curioapp.in'),
+  metadataBase: new URL('https://qrioapp.in'),
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     type: 'website',
     siteName: 'Qrio',
     title: 'Qrio - Get Smarter Every Day',
     description:
       'Carefully picked topics explained in plain English. Brief in 30 seconds. Deep dive in 3 minutes.',
+    images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
