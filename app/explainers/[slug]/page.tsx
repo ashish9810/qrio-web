@@ -150,7 +150,7 @@ export default async function TopicPage({ params }: PageProps) {
         {topic.deep_dive_md && (
           <div className="mb-8">
             <div className="text-[11px] font-bold tracking-wider uppercase text-warm mb-4 flex items-center gap-1.5">
-              <span>&#128218;</span> THE DEEP DIVE - 3 minutes
+              <span>&#128218;</span> THE DEEP DIVE
             </div>
             <div className="prose">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
@@ -224,18 +224,26 @@ export default async function TopicPage({ params }: PageProps) {
                   href={`/explainers/${r.slug}`}
                   className="flex gap-4 py-4 border-t border-line-soft no-underline text-inherit group"
                 >
-                  <div
-                    className="w-20 h-[60px] rounded-[10px] shrink-0 flex items-center justify-center"
-                    style={{ background: rColors.bg }}
-                  >
-                    <span className="text-xl opacity-40">
-                      {r.category.toLowerCase().includes('geo') ? '🌐' :
-                       r.category.toLowerCase().includes('tech') ? '🤖' :
-                       r.category.toLowerCase().includes('biz') || r.category.toLowerCase().includes('business') ? '📈' :
-                       r.category.toLowerCase().includes('india') ? '🇮🇳' :
-                       r.category.toLowerCase().includes('fin') ? '💰' : '📰'}
-                    </span>
-                  </div>
+                  {r.cover_image_url ? (
+                    <img
+                      src={r.cover_image_url}
+                      alt={r.headline}
+                      className="w-20 h-[60px] rounded-[10px] shrink-0 object-cover"
+                    />
+                  ) : (
+                    <div
+                      className="w-20 h-[60px] rounded-[10px] shrink-0 flex items-center justify-center"
+                      style={{ background: rColors.bg }}
+                    >
+                      <span className="text-xl opacity-40">
+                        {r.category.toLowerCase().includes('geo') ? '🌐' :
+                         r.category.toLowerCase().includes('tech') ? '🤖' :
+                         r.category.toLowerCase().includes('biz') || r.category.toLowerCase().includes('business') ? '📈' :
+                         r.category.toLowerCase().includes('india') ? '🇮🇳' :
+                         r.category.toLowerCase().includes('fin') ? '💰' : '📰'}
+                      </span>
+                    </div>
+                  )}
                   <div>
                     <h4 className="font-serif text-[15px] font-semibold leading-snug group-hover:text-accent transition-colors">
                       {r.headline}
@@ -270,7 +278,7 @@ function generateFAQs(topic: Topic): { q: string; a: string }[] {
     },
     {
       q: `How long does it take to read this explainer?`,
-      a: `The brief takes about 30 seconds. The full deep dive takes about 3 minutes. You can choose how deep you want to go.`,
+      a: `The brief takes about 30 seconds. The full deep dive takes just a few minutes. You can choose how deep you want to go.`,
     },
   ]
 }

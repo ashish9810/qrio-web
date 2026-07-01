@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Newsreader } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import './globals.css'
@@ -63,6 +64,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
+      <GoogleAnalytics gaId="G-4Y2TCG9TLQ" />
     </html>
   )
 }
