@@ -9,16 +9,45 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Check for overdue scheduled topics
+        run: |
+          echo "=== Checking scheduled topics ==="
+          RESPONSE=$(curl -s -w "\n%{http_code}" \
+            "https://ksfezfjiouiqkuyhztxw.supabase.co/rest/v1/topics?status=eq.scheduled&scheduled_for=lte.$(date -u +%Y-%m-%dT%H:%M:%S)&select=id,headline,scheduled_for" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
+          STATUS=$(echo "$RESPONSE" | tail -1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+          echo "Overdue topics (HTTP $STATUS):"
+          echo "$BODY" | python3 -m json.tool 2>/dev/null || echo "$BODY"
+
       - name: Publish overdue scheduled topics
         run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+          echo "=== Calling auto_publish_scheduled_topics RPC ==="
+          RESPONSE=$(curl -s -w "\n%{http_code}" \
             -X POST "https://ksfezfjiouiqkuyhztxw.supabase.co/rest/v1/rpc/auto_publish_scheduled_topics" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
             -H "Content-Type: application/json" \
             -d '{}')
-          echo "Response: $STATUS"
+          STATUS=$(echo "$RESPONSE" | tail -1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+          echo "RPC response (HTTP $STATUS): $BODY"
           if [ "$STATUS" -ne 204 ] && [ "$STATUS" -ne 200 ]; then
-            echo "Failed with status $STATUS"
+            echo "::error::Auto-publish RPC failed with HTTP $STATUS"
+            echo "Response body: $BODY"
             exit 1
           fi
           echo "Auto-publish check complete"
+
+      - name: Verify published topics
+        run: |
+          echo "=== Verifying recently published topics ==="
+          RESPONSE=$(curl -s -w "\n%{http_code}" \
+            "https://ksfezfjiouiqkuyhztxw.supabase.co/rest/v1/topics?status=eq.published&order=published_at.desc&limit=3&select=id,headline,published_at,scheduled_for" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
+          STATUS=$(echo "$RESPONSE" | tail -1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+          echo "Latest published (HTTP $STATUS):"
+          echo "$BODY" | python3 -m json.tool 2>/dev/null || echo "$BODY"
