@@ -7,7 +7,7 @@ export const revalidate = 60
 
 async function getTopics(): Promise<Topic[]> {
   // Auto-publish any overdue scheduled topics (SECURITY DEFINER, bypasses RLS)
-  try { await supabase.rpc('auto_publish_scheduled') } catch {}
+  try { await supabase.rpc('auto_publish_scheduled_topics') } catch {}
 
   const { data, error } = await supabase
     .from('topic_with_stats')

@@ -1,0 +1,24 @@
+name: Auto-publish scheduled topics
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # Every 10 minutes
+  workflow_dispatch: {}      # Manual trigger for testing
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish overdue scheduled topics
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -X POST "https://ksfezfjiouiqkuyhztxw.supabase.co/rest/v1/rpc/auto_publish_scheduled_topics" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{}')
+          echo "Response: $STATUS"
+          if [ "$STATUS" -ne 204 ] && [ "$STATUS" -ne 200 ]; then
+            echo "Failed with status $STATUS"
+            exit 1
+          fi
+          echo "Auto-publish check complete"
