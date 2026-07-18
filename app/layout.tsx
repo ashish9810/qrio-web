@@ -3,6 +3,7 @@ import { Inter, Newsreader } from 'next/font/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import MobileAppBanner from '@/components/MobileAppBanner'
 import './globals.css'
 
 const inter = Inter({
@@ -61,8 +62,9 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
       <body className="min-h-screen flex flex-col antialiased">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pb-16 md:pb-0">{children}</main>
         <Footer />
+        <MobileAppBanner />
       </body>
       <GoogleAnalytics gaId="G-4Y2TCG9TLQ" />
     </html>
