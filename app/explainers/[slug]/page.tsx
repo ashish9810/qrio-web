@@ -202,14 +202,14 @@ export default async function TopicPage({ params }: PageProps) {
           <p className="text-sm text-white/60 mt-1.5">
             New topics like this, delivered fresh. Free, no noise.
           </p>
-          <div className="relative group inline-block mt-4">
-            <span className="inline-block bg-accent text-white px-7 py-3 rounded-xl text-sm font-semibold cursor-pointer hover:-translate-y-0.5 transition-transform">
-              Download Qrio
-            </span>
-            <span className="invisible opacity-0 group-hover:visible group-hover:opacity-100 absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 bg-white text-ink text-xs font-medium px-3.5 py-2 rounded-lg whitespace-nowrap transition-opacity z-50">
-              Coming soon to Play Store &#127881;
-            </span>
-          </div>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.qrio.qrio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-accent text-white px-7 py-3 rounded-xl text-sm font-semibold cursor-pointer hover:-translate-y-0.5 transition-transform no-underline mt-4"
+          >
+            Download Qrio
+          </a>
         </div>
 
         {/* Related */}
