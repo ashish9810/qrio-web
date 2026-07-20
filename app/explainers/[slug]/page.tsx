@@ -1,8 +1,7 @@
 import { supabase } from '@/lib/supabase'
 import { Topic, getCategoryColor, categoryLabel, formatDate, readTime } from '@/lib/types'
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import ArticleMarkdown from '@/components/ArticleMarkdown'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 
@@ -153,9 +152,7 @@ export default async function TopicPage({ params }: PageProps) {
               <span>&#128218;</span> THE DEEP DIVE
             </div>
             <div className="prose">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {topic.deep_dive_md}
-              </ReactMarkdown>
+              <ArticleMarkdown markdown={topic.deep_dive_md} />
             </div>
           </div>
         )}
