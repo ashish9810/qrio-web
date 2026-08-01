@@ -1,15 +1,28 @@
-import Link from 'next/link'
 import { Topic, getCategoryColor, categoryLabel, formatDate, readTime } from '@/lib/types'
+import TrackedLink from './TrackedLink'
+import { QrioEvent } from '@/lib/analytics'
 
-export default function TopicCard({ topic }: { topic: Topic }) {
+export default function TopicCard({
+  topic,
+  position,
+}: {
+  topic: Topic
+  position?: number
+}) {
   const colors = getCategoryColor(topic.category)
   const coverBg = topic.cover_image_url
     ? undefined
     : `linear-gradient(135deg, ${colors.bg}, #F0EBE2)`
 
   return (
-    <Link
+    <TrackedLink
       href={`/explainers/${topic.slug}`}
+      event={QrioEvent.topicCardClick}
+      params={{
+        slug: topic.slug,
+        category: topic.category,
+        ...(position ? { position } : {}),
+      }}
       className="group bg-card border border-line rounded-[14px] overflow-hidden no-underline text-inherit flex flex-col transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1"
     >
       {/* Image */}
@@ -70,6 +83,6 @@ export default function TopicCard({ topic }: { topic: Topic }) {
           </div>
         </div>
       </div>
-    </Link>
+    </TrackedLink>
   )
 }

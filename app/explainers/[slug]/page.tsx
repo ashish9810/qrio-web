@@ -2,6 +2,9 @@ import { supabase } from '@/lib/supabase'
 import { Topic, getCategoryColor, categoryLabel, formatDate, readTime } from '@/lib/types'
 import Link from 'next/link'
 import ArticleMarkdown from '@/components/ArticleMarkdown'
+import ArticleTracker from '@/components/ArticleTracker'
+import TrackedLink from '@/components/TrackedLink'
+import { QrioEvent } from '@/lib/analytics'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 
@@ -107,6 +110,8 @@ export default async function TopicPage({ params }: PageProps) {
         />
       )}
 
+      <ArticleTracker slug={topic.slug} category={topic.category} />
+
       <article className="max-w-[680px] mx-auto px-6 pt-8 pb-16">
         {/* Back */}
         <Link
@@ -160,22 +165,22 @@ export default async function TopicPage({ params }: PageProps) {
         {/* Share */}
         <div className="flex items-center gap-3 pt-5 border-t border-line mt-8">
           <span className="text-[13px] text-muted font-medium">Share this:</span>
-          <a
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(topic.headline + ' - read on Qrio')}&url=${encodeURIComponent(`https://curioapp.in/explainers/${topic.slug}`)}`}
-            target="_blank"
-            rel="noopener"
+          <TrackedLink
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(topic.headline + ' - read on Qrio')}&url=${encodeURIComponent(`https://qrioapp.in/explainers/${topic.slug}`)}`}
+            event={QrioEvent.shareClick}
+            params={{ network: 'twitter', slug: topic.slug }}
             className="w-9 h-9 rounded-[10px] border border-line bg-card flex items-center justify-center text-muted hover:bg-ink hover:text-white hover:border-ink transition-all no-underline text-sm"
           >
             &#120143;
-          </a>
-          <a
-            href={`https://wa.me/?text=${encodeURIComponent(topic.headline + ' - read on Qrio: https://curioapp.in/explainers/' + topic.slug)}`}
-            target="_blank"
-            rel="noopener"
+          </TrackedLink>
+          <TrackedLink
+            href={`https://wa.me/?text=${encodeURIComponent(topic.headline + ' - read on Qrio: https://qrioapp.in/explainers/' + topic.slug)}`}
+            event={QrioEvent.shareClick}
+            params={{ network: 'whatsapp', slug: topic.slug }}
             className="w-9 h-9 rounded-[10px] border border-line bg-card flex items-center justify-center text-muted hover:bg-ink hover:text-white hover:border-ink transition-all no-underline text-sm"
           >
             &#128172;
-          </a>
+          </TrackedLink>
         </div>
 
         {/* FAQ for SEO/GEO */}
@@ -199,14 +204,14 @@ export default async function TopicPage({ params }: PageProps) {
           <p className="text-sm text-white/60 mt-1.5">
             New topics like this, delivered fresh. Free, no noise.
           </p>
-          <a
+          <TrackedLink
             href="https://play.google.com/store/apps/details?id=com.qrio.qrio"
-            target="_blank"
-            rel="noopener noreferrer"
+            event={QrioEvent.appDownloadClick}
+            params={{ location: 'article_cta', slug: topic.slug }}
             className="inline-block bg-accent text-white px-7 py-3 rounded-xl text-sm font-semibold cursor-pointer hover:-translate-y-0.5 transition-transform no-underline mt-4"
           >
             Download Qrio
-          </a>
+          </TrackedLink>
         </div>
 
         {/* Related */}
@@ -216,9 +221,11 @@ export default async function TopicPage({ params }: PageProps) {
             {related.map((r) => {
               const rColors = getCategoryColor(r.category)
               return (
-                <Link
+                <TrackedLink
                   key={r.id}
                   href={`/explainers/${r.slug}`}
+                  event={QrioEvent.relatedTopicClick}
+                  params={{ slug: r.slug, from: topic.slug }}
                   className="flex gap-4 py-4 border-t border-line-soft no-underline text-inherit group"
                 >
                   {r.cover_image_url ? (
@@ -249,7 +256,7 @@ export default async function TopicPage({ params }: PageProps) {
                       {categoryLabel(r.category)} &middot; {readTime(r.deep_dive_md || r.brief)}
                     </div>
                   </div>
-                </Link>
+                </TrackedLink>
               )
             })}
           </section>

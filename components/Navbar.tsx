@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import TrackedLink from './TrackedLink'
+import { QrioEvent } from '@/lib/analytics'
 
 export default function Navbar() {
   return (
@@ -14,14 +16,14 @@ export default function Navbar() {
           <Link href="/about" className="text-sm text-muted font-medium hover:text-ink transition-colors no-underline">
             About
           </Link>
-          <a
+          <TrackedLink
             href="https://play.google.com/store/apps/details?id=com.qrio.qrio"
-            target="_blank"
-            rel="noopener noreferrer"
+            event={QrioEvent.appDownloadClick}
+            params={{ location: 'navbar' }}
             className="bg-ink text-white px-5 py-2.5 rounded-[10px] text-[13px] font-semibold cursor-pointer hover:-translate-y-0.5 hover:shadow-lg transition-all inline-block no-underline"
           >
             Get the app
-          </a>
+          </TrackedLink>
         </div>
       </div>
     </nav>
