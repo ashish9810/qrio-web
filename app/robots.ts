@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { absoluteUrl } from '@/lib/site'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -13,6 +14,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'Google-Extended', allow: '/' },
       { userAgent: 'ClaudeBot', allow: '/' },
     ],
-    sitemap: 'https://curioapp.in/sitemap.xml',
+    sitemap: absoluteUrl('/sitemap.xml'),
   }
 }

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { supabase } from '@/lib/supabase'
+import { absoluteUrl } from '@/lib/site'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch all published topic slugs
@@ -10,7 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .order('published_at', { ascending: false })
 
   const topicEntries: MetadataRoute.Sitemap = (topics || []).map((t) => ({
-    url: `https://curioapp.in/explainers/${t.slug}`,
+    url: absoluteUrl(`/explainers/${t.slug}`),
     lastModified: t.published_at || new Date().toISOString(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
@@ -18,13 +19,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: 'https://curioapp.in',
+      url: absoluteUrl('/'),
       lastModified: new Date().toISOString(),
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
-      url: 'https://curioapp.in/about',
+      url: absoluteUrl('/about'),
       lastModified: new Date().toISOString(),
       changeFrequency: 'monthly',
       priority: 0.5,

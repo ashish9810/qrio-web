@@ -4,6 +4,7 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import MobileAppBanner from '@/components/MobileAppBanner'
+import { SITE_URL, SITE_NAME } from '@/lib/site'
 import './globals.css'
 
 const inter = Inter({
@@ -25,14 +26,16 @@ export const metadata: Metadata = {
   },
   description:
     'Carefully picked topics on geopolitics, business, finance, tech and more - explained in plain English. Brief in 30 seconds. Deep dive in 3 minutes.',
-  metadataBase: new URL('https://qrioapp.in'),
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: '/' },
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
     type: 'website',
-    siteName: 'Qrio',
+    url: SITE_URL,
+    siteName: SITE_NAME,
     title: 'Qrio - Get Smarter Every Day',
     description:
       'Carefully picked topics explained in plain English. Brief in 30 seconds. Deep dive in 3 minutes.',

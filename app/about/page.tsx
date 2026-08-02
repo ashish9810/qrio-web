@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'About',
   description: 'Why Qrio exists, how it works, and who is building it.',
+  alternates: { canonical: '/about' },
 }
 
 export default function AboutPage() {

@@ -2,6 +2,7 @@ import { supabase } from '@/lib/supabase'
 import { Topic, getCategoryColor } from '@/lib/types'
 import TopicCard from '@/components/TopicCard'
 import Link from 'next/link'
+import { SITE_NAME, SITE_URL, absoluteUrl } from '@/lib/site'
 
 export const revalidate = 60
 
@@ -35,6 +36,30 @@ export default async function HomePage() {
 
   return (
     <>
+      {/* JSON-LD: Organization + WebSite */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: SITE_NAME,
+              url: SITE_URL,
+              logo: absoluteUrl('/apple-touch-icon.png'),
+              description:
+                'Carefully picked topics on geopolitics, business, finance, tech and more, explained in plain English.',
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: SITE_NAME,
+              url: SITE_URL,
+            },
+          ]),
+        }}
+      />
+
       {/* Page header */}
       <section className="text-center py-14 px-8 max-w-[1080px] mx-auto animate-fade-up">
         <p className="text-[13px] font-semibold text-accent tracking-wide mb-2.5">

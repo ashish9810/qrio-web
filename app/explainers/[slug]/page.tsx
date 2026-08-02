@@ -5,6 +5,7 @@ import ArticleMarkdown from '@/components/ArticleMarkdown'
 import ArticleTracker from '@/components/ArticleTracker'
 import TrackedLink from '@/components/TrackedLink'
 import { QrioEvent } from '@/lib/analytics'
+import { absoluteUrl, SITE_NAME, SITE_URL } from '@/lib/site'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 
@@ -41,11 +42,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const topic = await getTopic(slug)
   if (!topic) return { title: 'Topic not found' }
 
+  const url = absoluteUrl(`/explainers/${slug}`)
+
   return {
     title: topic.headline,
     description: topic.brief.slice(0, 160),
+    alternates: { canonical: `/explainers/${slug}` },
     openGraph: {
       type: 'article',
+      url,
+      siteName: SITE_NAME,
       title: topic.headline,
       description: topic.brief.slice(0, 160),
       publishedTime: topic.published_at || undefined,
@@ -56,6 +62,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: 'summary_large_image',
       title: topic.headline,
       description: topic.brief.slice(0, 160),
+      ...(topic.cover_image_url ? { images: [topic.cover_image_url] } : {}),
     },
   }
 }
@@ -81,12 +88,28 @@ export default async function TopicPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'Article',
+            '@type': 'NewsArticle',
             headline: topic.headline,
             description: topic.brief,
             datePublished: topic.published_at || topic.scheduled_for,
-            author: { '@type': 'Organization', name: 'Qrio' },
-            publisher: { '@type': 'Organization', name: 'Qrio', url: 'https://curioapp.in' },
+            dateModified: topic.published_at || topic.scheduled_for,
+            inLanguage: 'en',
+            articleSection: categoryLabel(topic.category),
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': absoluteUrl(`/explainers/${topic.slug}`),
+            },
+            url: absoluteUrl(`/explainers/${topic.slug}`),
+            author: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+            publisher: {
+              '@type': 'Organization',
+              name: SITE_NAME,
+              url: SITE_URL,
+              logo: {
+                '@type': 'ImageObject',
+                url: absoluteUrl('/apple-touch-icon.png'),
+              },
+            },
             ...(topic.cover_image_url ? { image: topic.cover_image_url } : {}),
           }),
         }}
