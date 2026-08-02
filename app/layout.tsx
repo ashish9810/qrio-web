@@ -28,6 +28,11 @@ export const metadata: Metadata = {
     'Carefully picked topics on geopolitics, business, finance, tech and more - explained in plain English. Brief in 30 seconds. Deep dive in 3 minutes.',
   metadataBase: new URL(SITE_URL),
   alternates: { canonical: '/' },
+  // Search Console ownership. The GA tag is injected client-side, so Google's
+  // verifier cannot see it — this meta tag ships in the server HTML instead.
+  verification: {
+    google: '4YFn791t9-5S82JkbJophHdzOID-JaL_CQO_KR_8s5k',
+  },
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
