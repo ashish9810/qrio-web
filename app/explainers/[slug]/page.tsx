@@ -185,6 +185,29 @@ export default async function TopicPage({ params }: PageProps) {
           </div>
         )}
 
+        {/* Sources — only for articles that have them */}
+        {topic.sources_urls && topic.sources_urls.length > 0 && (
+          <div className="mt-8 pt-5 border-t border-line">
+            <div className="text-[11px] font-bold tracking-wider uppercase text-muted mb-3">
+              Sources
+            </div>
+            <ul className="space-y-1.5">
+              {topic.sources_urls.map((url, i) => (
+                <li key={i} className="text-[13px] leading-relaxed">
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                    className="text-accent hover:underline break-all"
+                  >
+                    {sourceHostname(url)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {/* Share */}
         <div className="flex items-center gap-3 pt-5 border-t border-line mt-8">
           <span className="text-[13px] text-muted font-medium">Share this:</span>
@@ -287,6 +310,14 @@ export default async function TopicPage({ params }: PageProps) {
       </article>
     </>
   )
+}
+
+function sourceHostname(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '')
+  } catch {
+    return url
+  }
 }
 
 function generateFAQs(topic: Topic): { q: string; a: string }[] {
