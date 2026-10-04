@@ -2,6 +2,8 @@ import type { NextConfig } from 'next'
 import { LEGAL_LINKS } from './lib/content'
 
 const nextConfig: NextConfig = {
+  // Photos sit under dark overlays, so a lower quality is invisible and saves bytes.
+  images: { qualities: [60, 75] },
   async redirects() {
     return [
       // The previous site was article based. Send its old URLs to the new landing page.

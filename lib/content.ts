@@ -64,7 +64,12 @@ export const HERO = {
   sub: 'Swipe through quick stories on business, startups and the world. Made by invited creators. Every video worth your time.',
 }
 
-/** Illustrative sample content for the phone mockup and sample cards. Not real videos. */
+/**
+ * Illustrative sample content for the phone mockup and sample cards. Not real
+ * videos or people. The photos are free-licence stock photos from Pexels
+ * (see README, "Sample photos"). Replace with real creator thumbnails later.
+ * `caption` marks the highlighted word with *asterisks*.
+ */
 export const SAMPLE_VIDEOS = [
   {
     tone: 'r1',
@@ -72,6 +77,12 @@ export const SAMPLE_VIDEOS = [
     title: 'Why Zepto keeps raising money',
     creator: '@creator.one',
     length: '58 sec',
+    likes: '12.4K',
+    caption: "Here's the *part* nobody explains",
+    image: '/samples/creator-1.jpg',
+    avatar: '/samples/creator-1-avatar.jpg',
+    focus: '50% 40%',
+    progress: '38%',
   },
   {
     tone: 'r2',
@@ -79,6 +90,12 @@ export const SAMPLE_VIDEOS = [
     title: 'What the US tariffs mean for India',
     creator: '@creator.two',
     length: '61 sec',
+    likes: '8.9K',
+    caption: "It's not what the *headlines* say",
+    image: '/samples/creator-2.jpg',
+    avatar: '/samples/creator-2-avatar.jpg',
+    focus: '50% 30%',
+    progress: '54%',
   },
   {
     tone: 'r3',
@@ -86,6 +103,12 @@ export const SAMPLE_VIDEOS = [
     title: 'How Jio priced its way to the top',
     creator: '@creator.three',
     length: '54 sec',
+    likes: '21.7K',
+    caption: 'The *real* trick was the price',
+    image: '/samples/creator-3.jpg',
+    avatar: '/samples/creator-3-avatar.jpg',
+    focus: '85% 20%',
+    progress: '22%',
   },
   {
     tone: 'c4',
@@ -93,6 +116,12 @@ export const SAMPLE_VIDEOS = [
     title: 'The startup that sold for 10x in 2 years',
     creator: '@creator.four',
     length: '49 sec',
+    likes: '5.2K',
+    caption: 'Two years. *Ten* times.',
+    image: '/samples/creator-4.jpg',
+    avatar: '/samples/creator-4-avatar.jpg',
+    focus: '45% 30%',
+    progress: '61%',
   },
 ] as const
 

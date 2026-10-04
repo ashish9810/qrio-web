@@ -149,6 +149,7 @@ Only these events are sent, with no emails or phone numbers:
 - [ ] Set `SUPABASE_URL`, `SUPABASE_ANON_KEY` (and `POSTHOG_KEY`) in Vercel
 - [ ] Update the hosted privacy policy to also cover the website forms (waitlist email/WhatsApp, creator applications, site analytics)
 - [ ] Fill `SOCIAL_LINKS` and confirm `CONTACT_EMAIL` in `lib/content.ts` (empty social links are hidden in the footer)
+- [ ] Swap the stock sample photos for real creator thumbnails once you have consented creators (see Sample photos)
 - [ ] Replace the placeholder favicon (`app/icon.svg`, `app/apple-icon.tsx`) with the final Qrio mark
 - [ ] Submit the new sitemap in Search Console (the verification tag is already in `app/layout.tsx`)
 
@@ -158,6 +159,23 @@ Only these events are sent, with no emails or phone numbers:
 2. Add the environment variables above under **Settings > Environment Variables** for Production (and Preview if you want).
 3. Push to `main`. Vercel builds and deploys on every push.
 4. Domain: `qrioapp.in` should redirect to `www.qrioapp.in`, which is the canonical host used in `lib/content.ts`.
+
+## Sample photos
+
+The phone mockup and sample cards use four free stock photos from [Pexels](https://www.pexels.com) (Pexels License: free for
+commercial use, no attribution required). They show real models and are used purely as illustration. The handles
+(`@creator.one` and so on), titles and counts are made up. Files live in `public/samples/` (`creator-N.jpg` plus a face-crop
+`creator-N-avatar.jpg`), and are wired up in `SAMPLE_VIDEOS` in `lib/content.ts`.
+
+| File | Pexels photo |
+| --- | --- |
+| `creator-1` | https://www.pexels.com/photo/man-speaking-into-the-microphone-23221000/ |
+| `creator-2` | https://www.pexels.com/photo/woman-wearing-striped-long-sleeves-at-the-podium-8369690/ |
+| `creator-3` | https://www.pexels.com/photo/businesswoman-with-smartphone-in-broadcasting-studio-6953834/ |
+| `creator-4` | https://www.pexels.com/photo/photograph-of-a-man-with-facial-hair-wearing-a-beige-shirt-6878177/ |
+
+To swap in real creator thumbnails: drop 1000x1500 portrait JPEGs into `public/samples/`, then update `image`, `avatar` and
+`focus` (the CSS `object-position` of the face) for that entry. Only use a real creator's face with their consent.
 
 ## Notes
 
