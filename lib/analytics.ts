@@ -1,37 +1,57 @@
-import { sendGAEvent } from '@next/third-parties/google'
-
-/**
- * Qrio website events. Keep names snake_case — GA4 convention — and stable,
- * since renaming one starts a fresh series in GA reports.
- */
-export const QrioEvent = {
-  /** Any "Get the app" / "Download Qrio" click. Param: location */
-  appDownloadClick: 'app_download_click',
-  /** Explainer page opened. Params: slug, category */
-  articleView: 'article_view',
-  /** Scrolled far enough to count as a real read. Params: slug, percent */
-  articleRead: 'article_read',
-  /** Topic card clicked on the homepage. Params: slug, category, position */
-  topicCardClick: 'topic_card_click',
-  /** "More from Qrio" link at the bottom of an article. Param: slug */
-  relatedTopicClick: 'related_topic_click',
-  /** Share button on an article. Params: network, slug */
-  shareClick: 'share_click',
+/** Event names. Keep them stable: renaming one starts a fresh series. */
+export const Events = {
+  pageView: 'page_view',
+  ctaClick: 'cta_click',
+  modalOpen: 'modal_open',
+  waitlistSubmit: 'waitlist_submit',
+  creatorFormSubmit: 'creator_form_submit',
 } as const
 
-export type QrioEventName = (typeof QrioEvent)[keyof typeof QrioEvent]
+export type CtaLocation = 'header' | 'hero' | 'final'
 
-export function track(
-  event: QrioEventName,
-  params: Record<string, string | number> = {}
-) {
-  if (typeof window === 'undefined') return
+type Props = Record<string, string | number | boolean>
+type PostHog = typeof import('posthog-js').default
 
-  // Events fired on mount can beat the GA script, and sendGAEvent drops them
-  // when the queue is missing. gtag drains whatever is already queued once it
-  // initialises, so make sure the queue exists first.
-  const w = window as unknown as { dataLayer?: unknown[] }
-  w.dataLayer ??= []
+let started = false
+let client: PostHog | null = null
+const queue: [string, Props | undefined][] = []
 
-  sendGAEvent('event', event, params)
+/**
+ * No-op unless POSTHOG_KEY is set. posthog-js is loaded lazily once the browser
+ * is idle, so it never competes with the hero for bandwidth. Events fired
+ * before it is ready are queued and sent afterwards.
+ *
+ * Autocapture and session recording are off and storage is localStorage only,
+ * so no cookies are set and no banner is needed. We send only the explicit
+ * events above, never emails or numbers.
+ */
+export function initAnalytics(key?: string, host?: string) {
+  if (started || !key || typeof window === 'undefined') return
+  started = true
+
+  const start = async () => {
+    const { default: posthog } = await import('posthog-js')
+    posthog.init(key, {
+      api_host: host || 'https://us.i.posthog.com',
+      capture_pageview: false,
+      autocapture: false,
+      disable_session_recording: true,
+      persistence: 'localStorage',
+      person_profiles: 'identified_only',
+    })
+    client = posthog
+    for (const [event, props] of queue.splice(0)) posthog.capture(event, props)
+  }
+
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(() => void start(), { timeout: 3000 })
+  } else {
+    setTimeout(() => void start(), 1500)
+  }
+}
+
+export function track(event: string, props?: Props) {
+  if (!started) return
+  if (client) client.capture(event, props)
+  else queue.push([event, props])
 }

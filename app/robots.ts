@@ -1,19 +1,9 @@
 import type { MetadataRoute } from 'next'
-import { absoluteUrl } from '@/lib/site'
+import { SITE_URL } from '@/lib/content'
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-      },
-      // Explicitly allow AI crawlers
-      { userAgent: 'ChatGPT-User', allow: '/' },
-      { userAgent: 'PerplexityBot', allow: '/' },
-      { userAgent: 'Google-Extended', allow: '/' },
-      { userAgent: 'ClaudeBot', allow: '/' },
-    ],
-    sitemap: absoluteUrl('/sitemap.xml'),
+    rules: [{ userAgent: '*', allow: '/', disallow: '/api/' }],
+    sitemap: `${SITE_URL}/sitemap.xml`,
   }
 }

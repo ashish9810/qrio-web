@@ -1,14 +1,49 @@
 import Link from 'next/link'
+import { CONTACT_EMAIL, FOOTER, SOCIAL_LINKS } from '@/lib/content'
 
 export default function Footer() {
+  const social = [
+    { label: 'Instagram', href: SOCIAL_LINKS.instagram },
+    { label: 'YouTube', href: SOCIAL_LINKS.youtube },
+    { label: 'X', href: SOCIAL_LINKS.x },
+  ].filter((link) => link.href)
+
   return (
-    <footer className="max-w-[1080px] mx-auto px-8 py-7 text-center text-xs text-muted2 border-t border-line mt-4">
-      <p>Qrio &copy; {new Date().getFullYear()}</p>
-      <p className="mt-1.5">
-        <Link href="/about" className="text-muted hover:text-ink no-underline mx-2">About</Link>
-        <a href="https://ashish9810.github.io/qrio-privacy/" target="_blank" rel="noopener" className="text-muted hover:text-ink no-underline mx-2">Privacy</a>
-        <a href="mailto:info.ak.ashish@gmail.com" className="text-muted hover:text-ink no-underline mx-2">Feedback</a>
-      </p>
+    <footer className="border-t border-line py-10 text-sm text-muted">
+      <div className="mx-auto flex max-w-[1100px] flex-wrap justify-between gap-5 px-5">
+        <div>
+          <strong className="text-ink">Qrio.</strong> {FOOTER.tagline}
+        </div>
+        <ul className="flex flex-wrap gap-5">
+          {social.map((link) => (
+            <li key={link.label}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-ink"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-ink">
+              Contact
+            </a>
+          </li>
+          <li>
+            <Link href="/privacy" className="hover:text-ink">
+              Privacy
+            </Link>
+          </li>
+          <li>
+            <Link href="/terms" className="hover:text-ink">
+              Terms
+            </Link>
+          </li>
+        </ul>
+      </div>
     </footer>
   )
 }

@@ -1,80 +1,84 @@
-import type { Metadata } from 'next'
-import { Inter, Newsreader } from 'next/font/google'
-import { GoogleAnalytics } from '@next/third-parties/google'
-import Navbar from '@/components/Navbar'
+import type { Metadata, Viewport } from 'next'
+import { Fraunces, Inter } from 'next/font/google'
+import EarlyAccessProvider from '@/components/EarlyAccessProvider'
+import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import MobileAppBanner from '@/components/MobileAppBanner'
-import { SITE_URL, SITE_NAME } from '@/lib/site'
+import { SEO, SITE_NAME, SITE_URL } from '@/lib/content'
 import './globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-inter',
   display: 'swap',
 })
 
-const newsreader = Newsreader({
+const fraunces = Fraunces({
   subsets: ['latin'],
-  variable: '--font-serif',
+  style: ['normal', 'italic'],
+  axes: ['opsz'],
+  variable: '--font-fraunces',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Qrio - Get Smarter Every Day',
-    template: '%s | Qrio',
-  },
-  description:
-    'Carefully picked topics on geopolitics, business, finance, tech and more - explained in plain English. Brief in 30 seconds. Deep dive in 3 minutes.',
   metadataBase: new URL(SITE_URL),
+  title: { default: SEO.title, template: `%s | ${SITE_NAME}` },
+  description: SEO.description,
   alternates: { canonical: '/' },
-  // Search Console ownership. The GA tag is injected client-side, so Google's
-  // verifier cannot see it — this meta tag ships in the server HTML instead.
-  verification: {
-    google: '4YFn791t9-5S82JkbJophHdzOID-JaL_CQO_KR_8s5k',
-  },
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-  },
+  // Search Console ownership, kept from the previous site so it stays verified.
+  verification: { google: '4YFn791t9-5S82JkbJophHdzOID-JaL_CQO_KR_8s5k' },
   openGraph: {
     type: 'website',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: 'Qrio - Get Smarter Every Day',
-    description:
-      'Carefully picked topics explained in plain English. Brief in 30 seconds. Deep dive in 3 minutes.',
-    images: ['/og-image.png'],
+    title: SEO.title,
+    description: SEO.description,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Qrio - Get Smarter Every Day',
-    description:
-      'Carefully picked topics explained in plain English. Brief in 30 seconds. Deep dive in 3 minutes.',
+    title: SEO.title,
+    description: SEO.description,
   },
-  robots: {
-    index: true,
-    follow: true,
-    'max-image-preview': 'large',
-    'max-snippet': -1,
-    googleBot: { index: true, follow: true },
-  },
+  robots: { index: true, follow: true },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export const viewport: Viewport = {
+  themeColor: '#FAFAF7',
+}
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: SITE_URL,
+    description: SEO.description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: SITE_URL,
+  },
+]
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
-      <body className="min-h-screen flex flex-col antialiased">
-        <Navbar />
-        <main className="flex-1 pb-16 md:pb-0">{children}</main>
-        <Footer />
-        <MobileAppBanner />
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+      <body className="flex min-h-screen flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <EarlyAccessProvider
+          posthogKey={process.env.POSTHOG_KEY}
+          posthogHost={process.env.POSTHOG_HOST}
+        >
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </EarlyAccessProvider>
       </body>
-      <GoogleAnalytics gaId="G-4Y2TCG9TLQ" />
     </html>
   )
 }
