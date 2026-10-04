@@ -10,7 +10,8 @@ Stack: Next.js (App Router) + TypeScript + Tailwind CSS v4, Supabase for storage
 | Route | What it is |
 | --- | --- |
 | `/` | Landing page: hero, how it works, topics, creators form, FAQ, final CTA |
-| `/privacy`, `/terms`, `/delete-account` | Legal pages. **Placeholder text with visible TODO boxes for you to review.** `/delete-account` is required by Google Play |
+| `/delete-account` | Account and data deletion steps (required by Google Play) |
+| `/privacy`, `/terms` | Redirect to the policies hosted on GitHub Pages (`LEGAL_LINKS` in `lib/content.ts`) |
 | `/api/waitlist`, `/api/creators` | Form endpoints. Validate on the server, then insert into Supabase |
 | `/sitemap.xml`, `/robots.txt`, `/opengraph-image`, `/twitter-image` | SEO and sharing, all generated |
 | `/get` | Short link that redirects (temporarily) to the Play Store listing |
@@ -146,7 +147,7 @@ Only these events are sent, with no emails or phone numbers:
 
 - [ ] Run the Supabase SQL above
 - [ ] Set `SUPABASE_URL`, `SUPABASE_ANON_KEY` (and `POSTHOG_KEY`) in Vercel
-- [ ] Review `/privacy`, `/terms`, `/delete-account` and remove the TODO boxes
+- [ ] Update the hosted privacy policy to also cover the website forms (waitlist email/WhatsApp, creator applications, site analytics)
 - [ ] Fill `SOCIAL_LINKS` and confirm `CONTACT_EMAIL` in `lib/content.ts` (empty social links are hidden in the footer)
 - [ ] Replace the placeholder favicon (`app/icon.svg`, `app/apple-icon.tsx`) with the final Qrio mark
 - [ ] Submit the new sitemap in Search Console (the verification tag is already in `app/layout.tsx`)

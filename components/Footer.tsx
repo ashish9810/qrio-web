@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import { CONTACT_EMAIL, FOOTER, SOCIAL_LINKS } from '@/lib/content'
+import { CONTACT_EMAIL, FOOTER, LEGAL_LINKS, SOCIAL_LINKS } from '@/lib/content'
 
 export default function Footer() {
   const social = [
@@ -33,14 +32,14 @@ export default function Footer() {
             </a>
           </li>
           <li>
-            <Link href="/privacy" className="hover:text-ink">
+            <a href={LEGAL_LINKS.privacy} className="hover:text-ink">
               Privacy
-            </Link>
+            </a>
           </li>
           <li>
-            <Link href="/terms" className="hover:text-ink">
+            <a href={LEGAL_LINKS.terms} className="hover:text-ink">
               Terms
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

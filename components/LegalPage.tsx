@@ -19,12 +19,3 @@ export default function LegalPage({
     </article>
   )
 }
-
-/** Visible marker for text the owner still has to review before launch. */
-export function Todo({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="rounded-xl border border-dashed border-accent/40 bg-accent-soft px-4 py-3 text-sm text-deep">
-      <strong>TODO:</strong> {children}
-    </p>
-  )
-}

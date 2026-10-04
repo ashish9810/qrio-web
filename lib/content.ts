@@ -23,6 +23,12 @@ export const SITE_NAME = 'Qrio'
 // TODO: confirm the public contact address (this is the one the app already uses).
 export const CONTACT_EMAIL = 'info.ak.ashish@gmail.com'
 
+/** Privacy policy and terms are hosted on GitHub Pages. /privacy and /terms redirect here. */
+export const LEGAL_LINKS = {
+  privacy: 'https://ashish9810.github.io/qrio-privacy/',
+  terms: 'https://ashish9810.github.io/qrio-privacy/terms.html',
+}
+
 // TODO: add the real profile URLs. A link with an empty URL is hidden in the footer.
 export const SOCIAL_LINKS = {
   instagram: '',
