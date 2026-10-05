@@ -26,7 +26,7 @@ export async function renderOgImage() {
       >
         <div style={{ fontSize: 168, letterSpacing: -6, lineHeight: 1 }}>Qrio</div>
         <div style={{ marginTop: 28, fontSize: 44, color: '#3B3BD6' }}>
-          Short videos that make you smarter every day.
+          Short videos that make you smarter every day
         </div>
       </div>
     ),

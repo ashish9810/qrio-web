@@ -60,74 +60,79 @@ export const HERO = {
   // The word "smarter" is rendered in italic accent colour by the Hero component.
   headlineBefore: 'Short videos that make you ',
   headlineAccent: 'smarter',
-  headlineAfter: ' every day.',
+  headlineAfter: ' every day',
   sub: 'Swipe through quick stories on business, startups and the world. Made by invited creators. Every video worth your time.',
 }
 
 /**
  * Illustrative sample content for the phone mockup and sample cards. Not real
- * videos or people. The photos are free-licence stock photos from Pexels
- * (see README, "Sample photos"). Replace with real creator thumbnails later.
- * `caption` marks the highlighted word with *asterisks*.
+ * videos or people: the clips are free-licence stock footage from Pexels (see
+ * README, "Sample videos") and the channel names are made up. Replace with real
+ * creator clips later. `caption` marks the highlighted word with *asterisks*.
+ * `focus` is the CSS object-position that keeps the face in frame when cropped.
  */
 export const SAMPLE_VIDEOS = [
   {
     tone: 'r1',
     topic: 'Startups',
     title: 'Why Zepto keeps raising money',
-    creator: '@creator.one',
+    name: 'Startup Diaries',
     length: '58 sec',
     likes: '12.4K',
     caption: "Here's the *part* nobody explains",
-    image: '/samples/creator-1.jpg',
-    avatar: '/samples/creator-1-avatar.jpg',
-    focus: '50% 40%',
+    video: '/samples/video/clip-1.mp4',
+    poster: '/samples/video/clip-1-poster.jpg',
+    avatar: '/samples/video/clip-1-avatar.jpg',
+    focus: '50% 30%',
     progress: '38%',
   },
   {
     tone: 'r2',
     topic: 'Geopolitics',
     title: 'What the US tariffs mean for India',
-    creator: '@creator.two',
+    name: 'Geopolitics 101',
     length: '61 sec',
     likes: '8.9K',
     caption: "It's not what the *headlines* say",
-    image: '/samples/creator-2.jpg',
-    avatar: '/samples/creator-2-avatar.jpg',
-    focus: '50% 30%',
+    video: '/samples/video/clip-2.mp4',
+    poster: '/samples/video/clip-2-poster.jpg',
+    avatar: '/samples/video/clip-2-avatar.jpg',
+    focus: '40% 30%',
     progress: '54%',
   },
   {
     tone: 'r3',
     topic: 'Business',
     title: 'How Jio priced its way to the top',
-    creator: '@creator.three',
+    name: 'Business Brief',
     length: '54 sec',
     likes: '21.7K',
     caption: 'The *real* trick was the price',
-    image: '/samples/creator-3.jpg',
-    avatar: '/samples/creator-3-avatar.jpg',
-    focus: '85% 20%',
+    video: '/samples/video/clip-3.mp4',
+    poster: '/samples/video/clip-3-poster.jpg',
+    avatar: '/samples/video/clip-3-avatar.jpg',
+    focus: '55% 50%',
     progress: '22%',
   },
   {
     tone: 'c4',
     topic: 'Startups',
     title: 'The startup that sold for 10x in 2 years',
-    creator: '@creator.four',
+    name: 'Founder Notes',
     length: '49 sec',
     likes: '5.2K',
     caption: 'Two years. *Ten* times.',
-    image: '/samples/creator-4.jpg',
-    avatar: '/samples/creator-4-avatar.jpg',
-    focus: '45% 30%',
+    video: '/samples/video/clip-4.mp4',
+    poster: '/samples/video/clip-4-poster.jpg',
+    avatar: '/samples/video/clip-4-avatar.jpg',
+    focus: '50% 40%',
     progress: '61%',
   },
 ] as const
 
 export const HOW = {
   eyebrow: 'How it works',
-  heading: 'As easy as the apps you already scroll.',
+  heading: 'As easy as the apps you already scroll',
   steps: [
     { title: 'Open', body: 'Fresh videos every day, ready when you are.' },
     {
@@ -143,7 +148,7 @@ export const HOW = {
 
 export const TOPICS = {
   eyebrow: "What you'll watch",
-  heading: 'Topics worth your time.',
+  heading: 'Topics worth your time',
   active: ['Business', 'Startups', 'Geopolitics'],
   soon: ['Tech', 'AI', 'Science'],
   soonLabel: 'soon',
@@ -152,7 +157,7 @@ export const TOPICS = {
 
 export const CREATORS = {
   eyebrow: 'For creators',
-  heading: 'Make smart videos? Become a Founding Creator.',
+  heading: 'Make smart videos? Become a Founding Creator',
   lead: 'Reach a new audience that is here for exactly the kind of videos you make.',
   perks: [
     {
@@ -191,7 +196,7 @@ export const CREATOR_TOPICS = [
 
 export const FAQ = {
   eyebrow: 'Questions',
-  heading: 'Good to know.',
+  heading: 'Good to know',
   items: [
     { q: 'Is Qrio free?', a: 'Yes. Every video is free to watch.' },
     {
@@ -211,7 +216,7 @@ export const FAQ = {
 }
 
 export const FINAL_CTA = {
-  heading: 'Give your scrolling a better payoff.',
+  heading: 'Give your scrolling a better payoff',
 }
 
 export const FOOTER = {
@@ -229,7 +234,7 @@ export const MODAL = {
   whatsappPlaceholder: '+91 98765 43210',
   submit: 'Get early access',
   sending: 'Sending...',
-  successTitle: 'Early access reserved.',
+  successTitle: 'Early access reserved',
   successBody: 'We will notify you once we launch.',
   close: 'Close',
 }

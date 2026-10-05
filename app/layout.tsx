@@ -27,6 +27,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   // Search Console ownership, kept from the previous site so it stays verified.
   verification: { google: '4YFn791t9-5S82JkbJophHdzOID-JaL_CQO_KR_8s5k' },
+  icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
   openGraph: {
     type: 'website',
     url: SITE_URL,

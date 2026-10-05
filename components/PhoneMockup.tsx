@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { SAMPLE_VIDEOS } from '@/lib/content'
+import SampleVideo from './SampleVideo'
 
 const iconProps = {
   width: 28,
@@ -60,9 +61,9 @@ function Caption({ text }: { text: string }) {
 }
 
 /**
- * Phone mockup built from HTML and CSS. The frames, titles, creator handles and
- * counts are illustrative sample content, not real videos or people (the photos
- * are stock). The auto-scroll is pure CSS and stops under prefers-reduced-motion.
+ * Phone mockup built from HTML and CSS. The frames, titles, channel names and
+ * counts are illustrative sample content, not real videos or people (the clips
+ * are stock footage). The auto-scroll is pure CSS and stops under prefers-reduced-motion.
  */
 export default function PhoneMockup() {
   const frames = SAMPLE_VIDEOS.slice(0, 3)
@@ -74,15 +75,13 @@ export default function PhoneMockup() {
         <div className="reel-track">
           {frames.map((video, index) => (
             <div key={video.title} className={`reel tone-${video.tone}`}>
-              <Image
-                src={video.image}
-                alt=""
-                fill
+              <SampleVideo
+                src={video.video}
+                poster={video.poster}
+                focus={video.focus}
                 sizes="270px"
-                quality={60}
                 fetchPriority={index === 0 ? 'auto' : 'low'}
-                className="object-cover"
-                style={{ objectPosition: video.focus }}
+                eager={index === 0}
               />
               <div className="reel-shade" />
 
@@ -117,11 +116,11 @@ export default function PhoneMockup() {
                   <Image
                     src={video.avatar}
                     alt=""
-                    width={30}
-                    height={30}
+                    width={26}
+                    height={26}
                     className="reel-avatar"
                   />
-                  <span className="reel-handle">{video.creator}</span>
+                  <span className="reel-handle">{video.name}</span>
                   <span className="reel-follow">Follow</span>
                 </div>
                 <h3 className="reel-title">{video.title}</h3>

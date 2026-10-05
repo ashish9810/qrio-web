@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { CREATORS, FAQ, FINAL_CTA, HOW, SAMPLE_VIDEOS, TOPICS } from '@/lib/content'
 import CtaButton from './CtaButton'
 import CreatorForm from './CreatorForm'
+import SampleVideo from './SampleVideo'
 import Reveal from './Reveal'
 
 const h2Class =
@@ -70,15 +71,11 @@ export function Topics() {
             <li key={video.title}>
               <Reveal>
                 <div className={`vcard tone-${video.tone}`}>
-                  <Image
-                    src={video.image}
-                    alt=""
-                    fill
+                  <SampleVideo
+                    src={video.video}
+                    poster={video.poster}
+                    focus={video.focus}
                     sizes="(max-width: 768px) 46vw, 260px"
-                    quality={60}
-                    fetchPriority="low"
-                    className="object-cover"
-                    style={{ objectPosition: video.focus }}
                   />
                   <div className="vcard-shade" />
                   <div className="vcard-play" aria-hidden="true">
@@ -93,7 +90,7 @@ export function Topics() {
                         height={22}
                         className="vcard-avatar"
                       />
-                      {video.creator}
+                      {video.name}
                     </div>
                     <div className="font-serif text-[19px] leading-[1.2]">{video.title}</div>
                     <div className="mt-2 text-xs opacity-80">
