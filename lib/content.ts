@@ -14,7 +14,7 @@ import featured from './featured.json'
  * "Get it on Google Play" (linking to PLAY_STORE_URL). iPhone visitors still
  * see the early-access modal, titled "iPhone coming soon".
  */
-export const APP_LIVE = false
+export const APP_LIVE = true
 
 export const PLAY_STORE_URL =
   'https://play.google.com/store/apps/details?id=com.qrio.qrio'
@@ -73,7 +73,7 @@ export const SEO = {
 
 export const CTA = {
   earlyAccess: 'Get early access',
-  playStore: 'Get it on Google Play',
+  playStore: 'Download Android app',
 }
 
 export const HERO = {
@@ -139,7 +139,7 @@ export const CREATORS = {
     },
     {
       bold: 'Founding Creator perks.',
-      body: 'A special badge, plus first access to paid deals and partnerships when we launch.',
+      body: 'A special badge, plus first access to paid deals and partnerships as they roll out.',
     },
   ],
   form: {
@@ -194,7 +194,7 @@ export const FAQ = {
       q: 'How is this different from Instagram or YouTube?',
       a: 'Same swipe, different feed. Every video on Qrio is a short, smart story on business, startups or the world. Nothing else.',
     },
-    { q: 'When does it launch?', a: 'November 2026 on Google Play.' },
+    { q: 'Where can I get it?', a: 'Qrio is live on Google Play for Android. Tap Download Android app to install it.' },
   ],
 }
 
@@ -222,6 +222,7 @@ export const MODAL = {
   title: 'Get early access',
   titleIphone: 'iPhone coming soon',
   sub: 'Be the first to try Qrio when it launches.',
+  subIphone: 'Leave your email or WhatsApp number and we will tell you the moment Qrio is on iPhone.',
   email: 'Email',
   emailPlaceholder: 'you@email.com',
   or: 'or',
@@ -231,6 +232,7 @@ export const MODAL = {
   sending: 'Sending...',
   successTitle: 'Early access reserved',
   successBody: 'We will notify you once we launch.',
+  successBodyIphone: 'We will tell you as soon as Qrio is on iPhone.',
   close: 'Close',
 }
 

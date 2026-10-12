@@ -123,12 +123,12 @@ Where the data goes: every early-access signup is a row in `waitlist`, every cre
 `creator_applications`. Both store `utm_source` / `utm_campaign` when the visitor arrived through a tagged link,
 for example `https://qrioapp.in/?utm_source=instagram&utm_campaign=launch`.
 
-## Going live: flipping `APP_LIVE`
+## The `APP_LIVE` flag (currently `true`, the app is live)
 
 1. Open `lib/content.ts` and set `export const APP_LIVE = true`. Check `PLAY_STORE_URL` is right.
 2. Commit and push. Vercel redeploys automatically.
 
-When `APP_LIVE` is `true`, every "Get early access" button becomes "Get it on Google Play". iPhone visitors
+When `APP_LIVE` is `true` (the current state), every "Get early access" button becomes "Download Android app" and links to Google Play with an install referrer. iPhone visitors
 (detected from the user agent) still get the early-access modal, titled "iPhone coming soon", so you keep collecting iOS demand.
 Also update the FAQ answer to "When does it launch?" in the same file.
 

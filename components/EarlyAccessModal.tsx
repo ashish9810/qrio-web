@@ -145,7 +145,7 @@ export default function EarlyAccessModal({
             >
               {MODAL.successTitle}
             </h3>
-            <p className="mt-1.5 text-muted">{MODAL.successBody}</p>
+            <p className="mt-1.5 text-muted">{iphoneComingSoon ? MODAL.successBodyIphone : MODAL.successBody}</p>
           </div>
         ) : (
           <form onSubmit={onSubmit} noValidate>
@@ -155,7 +155,7 @@ export default function EarlyAccessModal({
             >
               {title}
             </h3>
-            <p className="mb-[22px] text-[15px] text-muted">{MODAL.sub}</p>
+            <p className="mb-[22px] text-[15px] text-muted">{iphoneComingSoon ? MODAL.subIphone : MODAL.sub}</p>
 
             <label className="mb-3 grid gap-1.5 text-sm font-medium">
               {MODAL.email}
