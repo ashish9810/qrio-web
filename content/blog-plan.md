@@ -32,7 +32,7 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 
 | # | Slug | Working title | Category | Target search intent | Status |
 | --- | --- | --- | --- | --- | --- |
-| 1 | alternative-to-doomscrolling | Alternative to doomscrolling: 7 things to do when you reach for your phone | Doomscrolling | alternative to doomscrolling | drafted |
+| 1 | alternative-to-doomscrolling | Alternative to doomscrolling: 7 things to do when you reach for your phone | Doomscrolling | alternative to doomscrolling | published |
 | 2 | how-to-stop-doomscrolling | How to stop doomscrolling: steps that work without deleting your apps | Doomscrolling | how to stop doomscrolling | todo |
 | 3 | why-we-doomscroll | Why you cannot stop doomscrolling: the psychology in plain English | Doomscrolling | why do we doomscroll | todo |
 | 4 | is-doomscrolling-bad-for-you | Is doomscrolling bad for you? What the research actually says | Doomscrolling | is doomscrolling bad | todo |

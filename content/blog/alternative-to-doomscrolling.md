@@ -3,7 +3,7 @@ title: "Alternative to doomscrolling: 7 things to do when you reach for your pho
 description: "The best alternative to doomscrolling is not quitting your phone, it is swapping what you scroll. Seven options that work, what research says, and a plan."
 date: 2026-10-12
 category: Doomscrolling
-status: draft
+status: published
 faq:
   - q: What is the best alternative to doomscrolling?
     a: "Swap the feed, not the phone. Pick something that gives you the same easy swipe but ends, such as a short daily briefing, a set of short videos on a topic you care about, or a podcast. Decide on it before the urge hits, so you are not choosing in the moment."

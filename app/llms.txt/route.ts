@@ -1,3 +1,4 @@
+import { getStories } from '@/lib/archive'
 import { getAllPosts } from '@/lib/blog'
 import { APP_LIVE, BLOG, CONTACT_EMAIL, FAQ, PLAY_STORE_URL, SEO, SITE_URL } from '@/lib/content'
 
@@ -26,6 +27,7 @@ export function GET() {
     '## Pages',
     '',
     `- [Home](${SITE_URL}): what Qrio is, how it works, topics, creator applications and FAQ`,
+    `- [Stories](${SITE_URL}/explainers): ${getStories().length} sourced write-ups on business, startups, the Indian economy, tech and geopolitics`,
     `- [Get the app on Google Play](${PLAY_STORE_URL})`,
     `- [Delete your account and data](${SITE_URL}/delete-account)`,
     ...(posts.length > 0 ? [`- [${BLOG.title}](${SITE_URL}/blog): ${BLOG.description}`] : []),

@@ -23,6 +23,9 @@ export default function Header() {
           <Link href="/#creators" className="hover:text-ink">
             For creators
           </Link>
+          <Link href="/explainers" className="hidden hover:text-ink md:inline">
+            Stories
+          </Link>
           {hasBlog && (
             <Link href="/blog" className="hidden hover:text-ink md:inline">
               Blog

@@ -15,7 +15,9 @@ Stack: Next.js (App Router) + TypeScript + Tailwind CSS v4, Supabase for storage
 | `/api/waitlist`, `/api/creators` | Form endpoints. Validate on the server, then insert into Supabase |
 | `/sitemap.xml`, `/robots.txt`, `/opengraph-image`, `/twitter-image` | SEO and sharing, all generated |
 | `/get` | Short link that redirects (temporarily) to the Play Store listing |
-| `/about`, `/explainers/*` | Old article URLs. 301 redirect to `/` |
+| `/explainers`, `/explainers/<slug>` | Stories: the archived articles on their original URLs |
+| `/blog` | Blog (appears once the first post is published) |
+| `/about` | Old page. 301 redirect to `/` |
 | `/v/[id]` | **Reserved** for future shareable video pages. Not built. Do not use this path for anything else |
 
 All copy, links and flags live in one file: [`lib/content.ts`](lib/content.ts).
@@ -149,7 +151,7 @@ Only these events are sent, with no emails or phone numbers:
 - [ ] Set `SUPABASE_URL`, `SUPABASE_ANON_KEY` (and `POSTHOG_KEY`) in Vercel
 - [ ] Update the hosted privacy policy to also cover the website forms (waitlist email/WhatsApp, creator applications, site analytics)
 - [ ] Fill `SOCIAL_LINKS` and confirm `CONTACT_EMAIL` in `lib/content.ts` (empty social links are hidden in the footer)
-- [ ] Swap the stock sample videos for real creator clips once you have consented creators (see Sample videos)
+- [ ] Confirm each featured creator has agreed to appear on the website (see Featured creator videos)
 - [ ] Submit the new sitemap in Search Console (the verification tag is already in `app/layout.tsx`)
 
 ## Deploy on Vercel
@@ -159,28 +161,28 @@ Only these events are sent, with no emails or phone numbers:
 3. Push to `main`. Vercel builds and deploys on every push.
 4. Domain: `qrioapp.in` should redirect to `www.qrioapp.in`, which is the canonical host used in `lib/content.ts`.
 
-## Sample videos
+## Featured creator videos
 
-The phone mockup and the sample cards play four short looping clips. They are free stock footage from [Pexels](https://www.pexels.com)
-(Pexels License: free for commercial use, no attribution required) and show real models, used purely as illustration. The channel
-names, titles, captions and counts are made up. Files are in `public/samples/video/`: `clip-N.mp4` (8 second, silent, 540px wide,
-about 200 to 550 KB each), a `clip-N-poster.jpg` taken from its first frame, and a face-crop `clip-N-avatar.jpg`. Everything is wired
-up in `SAMPLE_VIDEOS` in `lib/content.ts`.
+The phone mockup and the cards on the homepage play short silent preview loops cut from real Qrio reels, with each creator's real
+name and avatar. They are generated from your reels data, not hand-made:
 
-| Clip | Pexels video |
-| --- | --- |
-| `clip-1` | https://www.pexels.com/video/a-man-talking-7261920/ |
-| `clip-2` | https://www.pexels.com/video/female-vlogger-taking-a-video-wearing-her-leather-jacket-6965116/ |
-| `clip-3` | https://www.pexels.com/video/man-sitting-while-talking-4994156/ |
-| `clip-4` | https://www.pexels.com/video/a-woman-vlogging-using-her-mobile-phone-and-ring-light-8993487/ |
+```bash
+node scripts/featured.mjs      # needs ffmpeg, reads reels from Supabase, writes public/featured/ and lib/featured.json
+```
 
-How playback works (`components/SampleVideo.tsx`): clips are muted and loop, and only play while on screen. They start after the page has
-finished loading, so they never delay the first paint. Visitors with reduced motion or data saver on just see the poster image.
+Edit `scripts/featured.config.json` to choose which reels appear (`reelId`, the card `title`, `start` second, and `focus` for where
+the face sits when the frame is cropped), then re-run the script and push. Previews are 8 seconds, silent and about 400 to 600 KB each.
+Playback (`components/SampleVideo.tsx`) only starts once the page has loaded, only while a clip is on screen, and never for visitors
+with reduced motion or data saver on (they see the poster image).
 
-To swap in real creator clips: encode a short vertical MP4 with no audio, for example
-`ffmpeg -i in.mp4 -t 8 -an -vf "scale=540:960,fps=25,format=yuv420p" -c:v libx264 -crf 28 -movflags +faststart clip-1.mp4`,
-export the poster with `ffmpeg -i clip-1.mp4 -frames:v 1 clip-1-poster.jpg`, then update the entry's `video`, `poster`, `avatar`, `name`
-and `focus` (the CSS `object-position` that keeps the face in frame). Only use a real creator's face with their consent.
+Only feature creators who have agreed to be shown on the website, not just in the app.
+
+## Stories (the old articles)
+
+The earlier written stories are kept as a snapshot in `content/archive/` (86 articles, made by `node scripts/export-archive.mjs` from
+the old `topics` table). They keep their original URLs, `/explainers/<slug>`, so the search rankings they earned carry over. The site
+calls this section "Stories": hub at `/explainers`, topic pages at `/explainers/topic/<category>`. Because they are static files, they
+keep working even if the Supabase project is unavailable. Slugs must never change. Only the old `/about` page redirects to the home page.
 
 ## Blog
 

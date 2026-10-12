@@ -1,0 +1,46 @@
+[
+  {
+    "tone": "r1",
+    "topic": "Startups",
+    "title": "A 16-year-old built AI technology to help dogs",
+    "name": "Day1 Startup",
+    "length": "1:08",
+    "video": "/featured/day1-startup-cccb1b.mp4",
+    "poster": "/featured/day1-startup-cccb1b-poster.jpg",
+    "avatar": "/featured/day1-startup-cccb1b-avatar.jpg",
+    "focus": "50% 35%"
+  },
+  {
+    "tone": "r2",
+    "topic": "Geopolitics",
+    "title": "China is building the world's biggest dam on the Brahmaputra",
+    "name": "Aman Thakur",
+    "length": "1:27",
+    "video": "/featured/realgeolol-784317.mp4",
+    "poster": "/featured/realgeolol-784317-poster.jpg",
+    "avatar": "/featured/realgeolol-784317-avatar.jpg",
+    "focus": "50% 35%"
+  },
+  {
+    "tone": "r3",
+    "topic": "Business",
+    "title": "Hate is earned",
+    "name": "yieveberlins",
+    "length": "1:58",
+    "video": "/featured/yieveberlins-b87004.mp4",
+    "poster": "/featured/yieveberlins-b87004-poster.jpg",
+    "avatar": "/featured/yieveberlins-b87004-avatar.jpg",
+    "focus": "50% 35%"
+  },
+  {
+    "tone": "c4",
+    "topic": "Geopolitics",
+    "title": "Why does India never offer to mediate between countries?",
+    "name": "Kartike Garg",
+    "length": "1:47",
+    "video": "/featured/kahani-on-the-run-749719.mp4",
+    "poster": "/featured/kahani-on-the-run-749719-poster.jpg",
+    "avatar": "/featured/kahani-on-the-run-749719-avatar.jpg",
+    "focus": "50% 35%"
+  }
+]

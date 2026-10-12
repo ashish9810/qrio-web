@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { SAMPLE_VIDEOS } from '@/lib/content'
+import { FEATURED_VIDEOS } from '@/lib/content'
 import SampleVideo from './SampleVideo'
 
 const iconProps = {
@@ -43,30 +43,13 @@ function SoundIcon() {
   )
 }
 
-/** Renders "a *word* b" with the starred word highlighted, like auto-captions. */
-function Caption({ text }: { text: string }) {
-  return (
-    <>
-      {text.split(/\*(.+?)\*/).map((part, i) =>
-        i % 2 === 1 ? (
-          <span key={i} className="reel-caption-hl">
-            {part}
-          </span>
-        ) : (
-          part
-        ),
-      )}
-    </>
-  )
-}
-
 /**
- * Phone mockup built from HTML and CSS. The frames, titles, channel names and
- * counts are illustrative sample content, not real videos or people (the clips
- * are stock footage). The auto-scroll is pure CSS and stops under prefers-reduced-motion.
+ * Phone mockup showing real Qrio creator videos. Each frame is a short silent
+ * preview loop that plays while it is on screen (see SampleVideo). The
+ * auto-scroll is pure CSS and stops under prefers-reduced-motion.
  */
 export default function PhoneMockup() {
-  const frames = SAMPLE_VIDEOS.slice(0, 3)
+  const frames = FEATURED_VIDEOS.slice(0, 3)
 
   return (
     <div className="phone" aria-hidden="true">
@@ -92,14 +75,10 @@ export default function PhoneMockup() {
                 </span>
               </div>
 
-              <p className="reel-caption">
-                <Caption text={video.caption} />
-              </p>
-
               <div className="reel-side">
                 <div>
                   <HeartIcon />
-                  <span>{video.likes}</span>
+                  <span>Like</span>
                 </div>
                 <div>
                   <BookmarkIcon />
@@ -126,7 +105,6 @@ export default function PhoneMockup() {
                 <h3 className="reel-title">{video.title}</h3>
               </div>
 
-              <div className="reel-progress" style={{ ['--p' as string]: video.progress }} />
             </div>
           ))}
         </div>

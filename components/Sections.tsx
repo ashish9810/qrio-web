@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ABOUT, CREATORS, FAQ, FINAL_CTA, HOW, SAMPLE_VIDEOS, TOPICS } from '@/lib/content'
+import { ABOUT, CREATORS, FAQ, FINAL_CTA, HOW, FEATURED_VIDEOS, TOPICS } from '@/lib/content'
 import CtaButton from './CtaButton'
 import CreatorForm from './CreatorForm'
 import SampleVideo from './SampleVideo'
@@ -67,7 +67,7 @@ export function Topics() {
           ))}
         </ul>
         <ul className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          {SAMPLE_VIDEOS.map((video) => (
+          {FEATURED_VIDEOS.map((video) => (
             <li key={video.title}>
               <Reveal>
                 <div className={`vcard tone-${video.tone}`}>
