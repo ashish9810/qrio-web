@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import BlogCard from '@/components/BlogCard'
 import BlogCta from '@/components/BlogCta'
 import BlogMarkdown from '@/components/BlogMarkdown'
 import { formatDate, getAllPosts, getPost } from '@/lib/blog'
@@ -43,6 +44,7 @@ export default async function BlogPost({ params }: PageProps) {
   if (!post) notFound()
 
   const url = `${SITE_URL}/blog/${post.slug}`
+  const more = getAllPosts().filter((p) => p.slug !== post.slug && p.status === 'published').slice(0, 2)
   const author = { '@type': 'Organization', name: BLOG.author, url: SITE_URL }
 
   const jsonLd: object[] = [
@@ -132,6 +134,19 @@ export default async function BlogPost({ params }: PageProps) {
       )}
 
       <BlogCta />
+
+      {more.length > 0 && (
+        <section>
+          <h2 className="font-serif text-[26px] leading-[1.15] font-medium">More from the blog</h2>
+          <ul className="mt-5 grid gap-5 sm:grid-cols-2">
+            {more.map((p) => (
+              <li key={p.slug}>
+                <BlogCard post={p} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </article>
   )
 }
