@@ -1,12 +1,18 @@
 'use client'
 
-import { CTA, PLAY_STORE_URL } from '@/lib/content'
+import { useSyncExternalStore } from 'react'
+import { CTA, playStoreUrl } from '@/lib/content'
 import { Events, track, type CtaLocation } from '@/lib/analytics'
+import { getUtm } from '@/lib/utm'
 import { useEarlyAccess } from './EarlyAccessProvider'
+
+const subscribeNoop = () => () => {}
 
 /**
  * The one call to action used everywhere. Opens the early-access modal, or,
  * once APP_LIVE is true, links to Google Play (iPhone visitors keep the modal).
+ * The Play link carries an install referrer so Play Console can attribute
+ * installs to this site, and to the campaign the visitor arrived from.
  */
 export default function CtaButton({
   location,
@@ -18,13 +24,16 @@ export default function CtaButton({
   const { showPlayStore, openModal } = useEarlyAccess()
   const className = `btn${small ? ' btn-sm' : ''}`
 
+  // The plain link on the server, the campaign-tagged link once in the browser.
+  const href = useSyncExternalStore(
+    subscribeNoop,
+    () => playStoreUrl(location, getUtm()),
+    () => playStoreUrl(location),
+  )
+
   if (showPlayStore) {
     return (
-      <a
-        href={PLAY_STORE_URL}
-        className={className}
-        onClick={() => track(Events.ctaClick, { location })}
-      >
+      <a href={href} className={className} onClick={() => track(Events.ctaClick, { location })}>
         {CTA.playStore}
       </a>
     )

@@ -7,7 +7,7 @@ export const Events = {
   creatorFormSubmit: 'creator_form_submit',
 } as const
 
-export type CtaLocation = 'header' | 'hero' | 'final'
+export type CtaLocation = 'header' | 'hero' | 'final' | 'blog'
 
 type Props = Record<string, string | number | boolean>
 type PostHog = typeof import('posthog-js').default

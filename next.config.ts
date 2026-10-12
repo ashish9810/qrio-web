@@ -12,12 +12,6 @@ const nextConfig: NextConfig = {
       // Policies are hosted on GitHub Pages. Kept temporary so the host can change.
       { source: '/privacy', destination: LEGAL_LINKS.privacy, permanent: false },
       { source: '/terms', destination: LEGAL_LINKS.terms, permanent: false },
-      // Short link used in posts and bios.
-      {
-        source: '/get',
-        destination: 'https://play.google.com/store/apps/details?id=com.qrio.qrio',
-        permanent: false,
-      },
     ]
   },
 }

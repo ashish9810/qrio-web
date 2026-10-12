@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import { CONTACT_EMAIL, FOOTER, LEGAL_LINKS, SOCIAL_LINKS } from '@/lib/content'
+import { hasPublishedPosts } from '@/lib/blog'
 
 export default function Footer() {
   const social = [
@@ -26,6 +28,13 @@ export default function Footer() {
               </a>
             </li>
           ))}
+          {hasPublishedPosts() && (
+            <li>
+              <Link href="/blog" className="hover:text-ink">
+                Blog
+              </Link>
+            </li>
+          )}
           <li>
             <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-ink">
               Contact

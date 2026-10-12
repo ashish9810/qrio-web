@@ -182,6 +182,33 @@ To swap in real creator clips: encode a short vertical MP4 with no audio, for ex
 export the poster with `ffmpeg -i clip-1.mp4 -frames:v 1 clip-1-poster.jpg`, then update the entry's `video`, `poster`, `avatar`, `name`
 and `focus` (the CSS `object-position` that keeps the face in frame). Only use a real creator's face with their consent.
 
+## Blog
+
+Posts are markdown files in `content/blog/`, one per post, with frontmatter (title, description, date, category, status, faq).
+The queue of upcoming topics and the editorial rules live in `content/blog-plan.md`.
+
+- **Drafts are hidden in production.** A post with `status: draft` only shows in `npm run dev` (with a "Draft preview" banner). It
+  goes live when its `status` is changed to `published` and the change is pushed.
+- **Until the first post is published**, `/blog` returns 404 and is left out of the sitemap, nav and footer. After that they appear
+  automatically.
+- `npm run blog:check` checks every post against the rules (description length, no em dashes, no banned words, no full stop in
+  headings, sources present, at least 3 FAQ items). `npm run blog:check <slug>` checks one.
+- Each post gets Article, Breadcrumb and FAQ structured data, a share image, an RSS feed at `/blog/feed.xml`, and an end-of-post
+  call to action. `/llms.txt` lists the site and the published posts for AI assistants.
+- A scheduled task (`qrio-blog-daily-draft`, mornings) drafts the next queue item and presents it for review in chat. It never publishes.
+
+To publish a reviewed post: set `status: published` (and adjust `date` if needed), set its row in `content/blog-plan.md` to
+`published`, then commit and push.
+
+## Tracking installs from the website
+
+Every Google Play link on the site carries an install referrer (`utm_source`, `utm_medium=site_<where>`, `utm_campaign`), so Play
+Console's acquisition reports show which installs came from the website. If a visitor arrived through a tagged link such as
+`qrioapp.in/?utm_source=instagram&utm_campaign=launch`, those tags are passed through to Play.
+
+`qrioapp.in/get` is a short link that redirects to Google Play with a referrer. Use it in bios and posts, and add tags:
+`qrioapp.in/get?utm_source=instagram&utm_campaign=launch`.
+
 ## Notes
 
 - Spam protection is a hidden honeypot field on both forms. If you see abuse, add rate limiting (for example Vercel WAF or Upstash).

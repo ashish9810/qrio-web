@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { CREATORS, FAQ, FINAL_CTA, HOW, SAMPLE_VIDEOS, TOPICS } from '@/lib/content'
+import { ABOUT, CREATORS, FAQ, FINAL_CTA, HOW, SAMPLE_VIDEOS, TOPICS } from '@/lib/content'
 import CtaButton from './CtaButton'
 import CreatorForm from './CreatorForm'
 import SampleVideo from './SampleVideo'
@@ -134,6 +134,24 @@ export function ForCreators() {
         </Reveal>
         <Reveal>
           <CreatorForm />
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+export function About() {
+  return (
+    <section className="py-[72px] md:py-24">
+      <div className="mx-auto max-w-[1100px] px-5">
+        <Reveal className="max-w-[760px]">
+          <div className="eyebrow">{ABOUT.eyebrow}</div>
+          <h2 className={h2Class}>{ABOUT.heading}</h2>
+          {ABOUT.paragraphs.map((text) => (
+            <p key={text} className="mt-4 text-[19px] text-muted">
+              {text}
+            </p>
+          ))}
         </Reveal>
       </div>
     </section>

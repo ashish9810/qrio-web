@@ -17,6 +17,24 @@ export const APP_LIVE = false
 export const PLAY_STORE_URL =
   'https://play.google.com/store/apps/details?id=com.qrio.qrio'
 
+/**
+ * Play Store link with an install referrer, so Play Console's acquisition
+ * reports show which installs came from this website. `medium` is where the
+ * click happened (header, hero, blog and so on). A visitor's own utm_source and
+ * utm_campaign (for example from an Instagram link) are passed through.
+ */
+export function playStoreUrl(
+  medium: string,
+  utm?: { source?: string | null; campaign?: string | null },
+) {
+  const referrer = new URLSearchParams({
+    utm_source: utm?.source || 'website',
+    utm_medium: `site_${medium}`,
+    utm_campaign: utm?.campaign || 'organic',
+  })
+  return `${PLAY_STORE_URL}&referrer=${encodeURIComponent(referrer.toString())}`
+}
+
 export const SITE_URL = 'https://www.qrioapp.in'
 export const SITE_NAME = 'Qrio'
 
@@ -194,6 +212,16 @@ export const CREATOR_TOPICS = [
   'Other',
 ] as const
 
+/** Short text block that tells search engines and AI tools what Qrio is. */
+export const ABOUT = {
+  eyebrow: 'What is Qrio',
+  heading: 'A doomscrolling alternative for curious people',
+  paragraphs: [
+    'Qrio is a free Android app of short vertical videos about business, startups and the world. If you are going to scroll anyway, Qrio gives that habit something worth watching.',
+    'Every video is about a minute long and explains one idea, so you can follow what is happening and talk about it with confidence. Videos come from our own small team and from creators we invite, and nobody else can post.',
+  ],
+}
+
 export const FAQ = {
   eyebrow: 'Questions',
   heading: 'Good to know',
@@ -213,6 +241,18 @@ export const FAQ = {
     },
     { q: 'When does it launch?', a: 'November 2026 on Google Play.' },
   ],
+}
+
+/** Shown on blog posts and in feeds. Swap for a real person's name to build trust. */
+export const BLOG = {
+  title: 'Qrio Blog',
+  description:
+    'Practical guides on doomscrolling, staying informed on business, startups and world news, and getting smarter in minutes a day.',
+  author: 'Qrio',
+  cta: {
+    heading: 'Get smarter in a minute a day',
+    body: 'Qrio is a free Android app of short videos on business, startups and the world. Fresh videos every day, nothing to read.',
+  },
 }
 
 export const FINAL_CTA = {
