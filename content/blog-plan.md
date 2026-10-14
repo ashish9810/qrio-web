@@ -33,8 +33,8 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | # | Slug | Working title | Category | Target search intent | Status |
 | --- | --- | --- | --- | --- | --- |
 | 1 | alternative-to-doomscrolling | Alternative to doomscrolling: 7 things to do when you reach for your phone | Doomscrolling | alternative to doomscrolling | published |
-| 2 | how-to-stop-doomscrolling | How to stop doomscrolling: steps that work without deleting your apps | Doomscrolling | how to stop doomscrolling | todo |
-| 3 | why-we-doomscroll | Why you cannot stop doomscrolling: the psychology in plain English | Doomscrolling | why do we doomscroll | todo |
+| 2 | how-to-stop-doomscrolling | How to stop doomscrolling: steps that work without deleting your apps | Doomscrolling | how to stop doomscrolling | drafted |
+| 3 | why-we-doomscroll | Why we doomscroll: the psychology of why you cannot stop | Doomscrolling | why do we doomscroll | published |
 | 4 | is-doomscrolling-bad-for-you | Is doomscrolling bad for you? What the research actually says | Doomscrolling | is doomscrolling bad | todo |
 | 5 | doomscrolling-at-night | Doomscrolling at night: how to break the bedtime scroll | Doomscrolling | stop doomscrolling at night | todo |
 | 6 | are-short-videos-bad-for-you | Are short videos bad for you? Separating the research from the panic | Doomscrolling | are short videos bad for you | todo |
