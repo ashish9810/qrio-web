@@ -38,7 +38,7 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | 4 | is-doomscrolling-bad-for-you | Is doomscrolling bad for you? What the research actually says | Doomscrolling | is doomscrolling bad | published |
 | 5 | doomscrolling-at-night | Doomscrolling at night: how to break the bedtime scroll | Doomscrolling | stop doomscrolling at night | published |
 | 6 | are-short-videos-bad-for-you | Are short videos bad for you? Separating the research from the panic | Doomscrolling | are short videos bad for you | published |
-| 7 | follow-the-news-without-the-anxiety | How to follow the news without the anxiety | Staying informed | news anxiety, stay informed | todo |
+| 7 | follow-the-news-without-the-anxiety | How to follow the news without the anxiety | Staying informed | news anxiety, stay informed | published |
 | 8 | stay-informed-in-5-minutes-a-day | How to stay informed in 5 minutes a day | Staying informed | how to stay informed quickly | todo |
 | 9 | best-ways-to-follow-indian-business-news | The best ways to follow Indian business news without the noise | Staying informed | indian business news | todo |
 | 10 | how-to-follow-geopolitics | How to follow geopolitics without reading the news all day | Staying informed | understand geopolitics | todo |
