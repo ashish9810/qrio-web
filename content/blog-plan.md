@@ -40,7 +40,7 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | 6 | are-short-videos-bad-for-you | Are short videos bad for you? Separating the research from the panic | Doomscrolling | are short videos bad for you | published |
 | 7 | follow-the-news-without-the-anxiety | How to follow the news without the anxiety | Staying informed | news anxiety, stay informed | published |
 | 8 | stay-informed-in-5-minutes-a-day | How to stay informed in 5 minutes a day | Staying informed | how to stay informed quickly | published |
-| 9 | best-ways-to-follow-indian-business-news | The best ways to follow Indian business news without the noise | Staying informed | indian business news | todo |
+| 9 | best-ways-to-follow-indian-business-news | The best ways to follow Indian business news without the noise | Staying informed | indian business news | published |
 | 10 | how-to-follow-geopolitics | How to follow geopolitics without reading the news all day | Staying informed | understand geopolitics | todo |
 | 11 | how-to-follow-indian-startup-news | How to keep up with Indian startup news | Staying informed | indian startup news | todo |
 | 12 | apps-to-replace-instagram-reels | Apps to replace Instagram Reels when you want to feel smarter | Doomscrolling | alternatives to reels | todo |
