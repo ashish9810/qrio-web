@@ -44,7 +44,7 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | 10 | how-to-follow-geopolitics | How to follow geopolitics without reading the news all day | Staying informed | understand geopolitics | published |
 | 11 | how-to-follow-indian-startup-news | How to keep up with Indian startup news | Staying informed | indian startup news | published |
 | 12 | apps-to-replace-instagram-reels | Apps to replace Instagram Reels when you want to feel smarter | Doomscrolling | alternatives to reels | published |
-| 13 | news-diet | What a healthy news diet looks like | Staying informed | healthy news diet | todo |
+| 13 | news-diet | What a healthy news diet looks like | Staying informed | healthy news diet | published |
 | 14 | why-we-are-building-qrio | Why we are building Qrio | Behind Qrio | brand, trust | todo |
 | 15 | how-we-pick-topics | How we pick what goes into a Qrio video | Behind Qrio | trust | todo |
 | 16 | become-a-qrio-creator | How to become a Founding Creator on Qrio | Behind Qrio | creator recruiting | todo |
