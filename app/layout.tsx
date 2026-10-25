@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Fraunces, Inter } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import EarlyAccessProvider from '@/components/EarlyAccessProvider'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -79,6 +80,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-1">{children}</main>
           <Footer />
         </EarlyAccessProvider>
+        {/* Vercel Web Analytics: cookieless page views, visitors and referrers (free Hobby tier) */}
+        <Analytics />
       </body>
     </html>
   )
