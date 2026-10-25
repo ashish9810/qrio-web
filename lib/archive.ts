@@ -50,6 +50,25 @@ function categoryFor(key: string): ArchiveCategory {
   )
 }
 
+/**
+ * Search-result snippet (about 155 characters) built from the full brief.
+ * The stored descriptions were cut mid-word at 160, so rebuild from the brief:
+ * keep whole sentences while they fit, otherwise cut at a word boundary.
+ */
+export function snippet(brief: string, fallback = ''): string {
+  const text = (brief || fallback).replace(/\s+/g, ' ').trim()
+  if (text.length <= 155) return text
+  const sentences = text.match(/.+?[.!?](?=\s+[A-Z"“]|$)\s*/g) ?? []
+  let out = ''
+  for (const sentence of sentences) {
+    if ((out + sentence).trim().length > 155) break
+    out += sentence
+  }
+  if (out.trim().length >= 70) return out.trim()
+  const cut = text.slice(0, 154)
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:\s]+$/, '') + '…'
+}
+
 let cache: Story[] | null = null
 
 export function getStories(): Story[] {
@@ -67,7 +86,7 @@ export function getStories(): Story[] {
         title: String(data.title),
         category: categoryFor(String(data.category)),
         date: String(data.date),
-        description: String(data.description ?? '').trim(),
+        description: snippet(String(data.brief ?? ''), String(data.description ?? '')),
         brief: String(data.brief ?? '').trim(),
         cover: String(data.cover ?? ''),
         sources: Array.isArray(data.sources) ? data.sources : [],

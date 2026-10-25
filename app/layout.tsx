@@ -4,7 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import EarlyAccessProvider from '@/components/EarlyAccessProvider'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { SEO, SITE_NAME, SITE_URL } from '@/lib/content'
+import { SEO, SITE_NAME, SITE_URL, SOCIAL_LINKS } from '@/lib/content'
 import './globals.css'
 
 const inter = Inter({
@@ -55,6 +55,8 @@ const jsonLd = [
     name: SITE_NAME,
     url: SITE_URL,
     description: SEO.description,
+    logo: `${SITE_URL}/apple-touch-icon.png`,
+    sameAs: Object.values(SOCIAL_LINKS).filter(Boolean),
   },
   {
     '@context': 'https://schema.org',

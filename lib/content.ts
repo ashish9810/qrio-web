@@ -49,9 +49,9 @@ export const LEGAL_LINKS = {
   terms: 'https://ashish9810.github.io/qrio-privacy/terms.html',
 }
 
-// TODO: add the real profile URLs. A link with an empty URL is hidden in the footer.
+// Instagram is @be_qrio. TODO: add YouTube and X when they exist. A link with an empty URL is hidden in the footer.
 export const SOCIAL_LINKS = {
-  instagram: '',
+  instagram: 'https://www.instagram.com/be_qrio/',
   youtube: '',
   x: '',
 }
