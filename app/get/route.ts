@@ -6,6 +6,14 @@ import { playStoreUrl, SITE_NAME, SITE_URL } from '@/lib/content'
  * tags are carried through, so Play Console shows where each install came from.
  * A route handler (not a config redirect) so the referrer keeps its encoding.
  *
+ * Already have Qrio? On Android the verified link (public/.well-known/
+ * assetlinks.json + the app's intent filter) opens the app directly, before
+ * this page is ever requested. When it did not (in-app browsers such as
+ * Instagram's, or the app is not installed), Android visitors get a small page
+ * that tries to open the app and, if that does not work within about two
+ * seconds, goes to Google Play with the same tags. Everyone else is
+ * redirected to Play straight away.
+ *
  * Link previews: WhatsApp, LinkedIn, X, Telegram and the like fetch the link
  * to build the preview card. If they were redirected they would show Google
  * Play's card, so they get a small page with Qrio's own title and image
@@ -63,14 +71,61 @@ function previewPage(target: string) {
   })
 }
 
-export function GET(request: Request) {
-  const params = new URL(request.url).searchParams
-  const target = playStoreUrl('short_link', {
-    source: params.get('utm_source'),
-    campaign: params.get('utm_campaign'),
+/**
+ * Tries to open the installed app, then falls back to Google Play. The intent
+ * link names the app's package, so Chrome opens it only if it is installed and
+ * otherwise goes to browser_fallback_url (Play). The timer covers browsers that
+ * ignore intent links: after two seconds, if the page is still showing, Play.
+ */
+function openAppPage(intent: string, target: string) {
+  const html = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Opening Qrio</title>
+</head>
+<body style="font-family:system-ui,sans-serif;background:#111;color:#fff;text-align:center;padding:64px 20px">
+<p style="font-size:20px">Opening Qrio...</p>
+<p><a id="play" href="${esc(target)}" style="color:#f0a030;font-size:18px">Get Qrio on Google Play</a></p>
+<script>
+var t = setTimeout(function () { location.replace(${JSON.stringify(target)}) }, 2000)
+function stop() { clearTimeout(t) }
+document.addEventListener('visibilitychange', function () { if (document.hidden) stop() })
+addEventListener('pagehide', stop)
+location.href = ${JSON.stringify(intent)}
+</script>
+</body>
+</html>`
+  return new Response(html, {
+    headers: {
+      'content-type': 'text/html; charset=utf-8',
+      'cache-control': 'no-store',
+    },
   })
-  if (PREVIEW_BOTS.test(request.headers.get('user-agent') ?? '')) {
+}
+
+export function GET(request: Request) {
+  const url = new URL(request.url)
+  const params = url.searchParams
+  const source = params.get('utm_source')
+  const campaign = params.get('utm_campaign')
+  const target = playStoreUrl('short_link', { source, campaign })
+  const ua = request.headers.get('user-agent') ?? ''
+  if (PREVIEW_BOTS.test(ua)) {
     return previewPage(target)
+  }
+  if (/android/i.test(ua)) {
+    // Only the tags travel to the app; nothing else from the query string.
+    const tags = new URLSearchParams()
+    if (source) tags.set('utm_source', source.slice(0, 60))
+    if (campaign) tags.set('utm_campaign', campaign.slice(0, 60))
+    const query = tags.toString() ? `?${tags}` : ''
+    const intent =
+      `intent://www.qrioapp.in/get${query}#Intent;scheme=https;package=com.qrio.qrio;` +
+      `S.browser_fallback_url=${encodeURIComponent(target)};end`
+    return openAppPage(intent, target)
   }
   return Response.redirect(target, 307)
 }

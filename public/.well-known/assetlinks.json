@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.qrio.qrio",
+      "sha256_cert_fingerprints": [
+        "ED:DD:51:87:A4:69:3F:39:36:D8:B7:7A:A6:ED:31:51:12:D8:51:1C:E6:0F:00:E6:F4:E0:EC:83:1C:D0:26:69",
+        "9D:85:3E:8A:FA:B5:4B:FA:BF:7F:7B:F9:A1:41:6D:60:58:EA:97:76:C6:C9:F1:28:DD:1B:DE:41:89:AA:BA:D1"
+      ]
+    }
+  }
+]
