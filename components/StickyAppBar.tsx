@@ -1,7 +1,7 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState, useSyncExternalStore } from 'react'
 import { playStoreUrl } from '@/lib/content'
 import { Events, getWebId, track } from '@/lib/analytics'
@@ -10,6 +10,22 @@ import { useEarlyAccess } from './EarlyAccessProvider'
 
 const DISMISS_KEY = 'qrio_app_bar_dismissed'
 const subscribeNoop = () => () => {}
+
+/**
+ * A/B test of the bar's line. A visitor always gets the same variant (from
+ * their web_id). The weekly check compares "Web Sticky Bar Shown" with
+ * "Web Download Click" (location sticky) per variant; keep the winner.
+ */
+const VARIANTS = {
+  a: 'Stories like this as 1-minute videos. Free.',
+  b: 'Get smarter in a minute a day. Free on Android.',
+} as const
+type Variant = keyof typeof VARIANTS
+
+function readVariant(): Variant {
+  const id = getWebId()
+  return id && parseInt(id.slice(-1), 16) % 2 === 1 ? 'b' : 'a'
+}
 
 function readDismissed(): boolean {
   try {
@@ -35,12 +51,16 @@ export default function StickyAppBar() {
   // Hidden on the server and during hydration; afterwards, unless dismissed recently.
   const dismissedEarlier = useSyncExternalStore(subscribeNoop, readDismissed, () => true)
   const [closed, setClosed] = useState(false)
+  const variant = useSyncExternalStore<Variant>(subscribeNoop, readVariant, () => 'a')
 
   const href = useSyncExternalStore(
     subscribeNoop,
     () => playStoreUrl('sticky', getUtm(), getWebId()),
     () => playStoreUrl('sticky'),
   )
+
+  const onArticle = /^\/(blog|explainers)\/[^/]+/.test(pathname) && !pathname.startsWith('/explainers/topic/')
+  const visible = platform === 'android' && !dismissedEarlier && !closed && onArticle
 
   useEffect(() => {
     const onPrompt = (e: Event) => {
@@ -51,11 +71,15 @@ export default function StickyAppBar() {
     return () => window.removeEventListener('beforeinstallprompt', onPrompt)
   }, [])
 
-  const onArticle = /^\/(blog|explainers)\/[^/]+/.test(pathname) && !pathname.startsWith('/explainers/topic/')
-  if (platform !== 'android' || dismissedEarlier || closed || !onArticle) return null
+  useEffect(() => {
+    if (visible) track(Events.stickyShown, { variant })
+  }, [visible, variant, pathname])
+
+  if (!visible) return null
 
   const dismiss = () => {
     setClosed(true)
+    track(Events.stickyDismissed, { variant })
     try {
       localStorage.setItem(DISMISS_KEY, String(Date.now() + 7 * 24 * 60 * 60 * 1000))
     } catch {
@@ -70,13 +94,13 @@ export default function StickyAppBar() {
         <p className="flex-1 text-[14px] leading-snug">
           <strong>Qrio app</strong>
           <br />
-          <span className="text-muted">Stories like this as 1-minute videos. Free.</span>
+          <span className="text-muted">{VARIANTS[variant]}</span>
         </p>
         <a
           href={href}
           className="btn btn-sm"
           onClick={(e) => {
-            track(Events.ctaClick, { location: 'sticky', native_prompt: Boolean(installPrompt) })
+            track(Events.ctaClick, { location: 'sticky', variant, native_prompt: Boolean(installPrompt) })
             if (installPrompt) {
               e.preventDefault()
               void installPrompt.prompt()

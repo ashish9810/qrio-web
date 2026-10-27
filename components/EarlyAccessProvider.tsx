@@ -1,5 +1,6 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import {
   createContext,
   useCallback,
@@ -11,7 +12,7 @@ import {
   useSyncExternalStore,
 } from 'react'
 import { APP_LIVE } from '@/lib/content'
-import { Events, initAnalytics, track, type CtaLocation } from '@/lib/analytics'
+import { Events, initAnalytics, track, trackPageView, type CtaLocation } from '@/lib/analytics'
 import { captureUtm } from '@/lib/utm'
 import type { Platform } from '@/lib/validation'
 import EarlyAccessModal from './EarlyAccessModal'
@@ -57,6 +58,12 @@ export default function EarlyAccessProvider({ children }: { children: React.Reac
     captureUtm()
     initAnalytics()
   }, [])
+
+  // One page view per route, including client-side navigation.
+  const pathname = usePathname()
+  useEffect(() => {
+    trackPageView()
+  }, [pathname])
 
   const openModal = useCallback((location: CtaLocation, opener?: HTMLElement | null) => {
     openerRef.current = opener ?? (document.activeElement as HTMLElement | null)

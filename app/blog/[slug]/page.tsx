@@ -4,10 +4,11 @@ import { notFound } from 'next/navigation'
 import BlogCard from '@/components/BlogCard'
 import BlogCta from '@/components/BlogCta'
 import BlogMarkdown from '@/components/BlogMarkdown'
+import ReadDepth from '@/components/ReadDepth'
 import StoryCard from '@/components/StoryCard'
 import { getStories } from '@/lib/archive'
 import { formatDate, getAllPosts, getPost } from '@/lib/blog'
-import { BLOG, SITE_NAME, SITE_URL } from '@/lib/content'
+import { AUTHOR, BLOG, SITE_NAME, SITE_URL } from '@/lib/content'
 import { mostRelated } from '@/lib/related'
 
 type PageProps = { params: Promise<{ slug: string }> }
@@ -49,7 +50,8 @@ export default async function BlogPost({ params }: PageProps) {
 
   const url = `${SITE_URL}/blog/${post.slug}`
   const more = getAllPosts().filter((p) => p.slug !== post.slug && p.status === 'published').slice(0, 2)
-  const author = { '@type': 'Organization', name: BLOG.author, url: SITE_URL }
+  const author = { '@type': 'Person', name: AUTHOR.name, url: `${SITE_URL}${AUTHOR.path}` }
+  const organization = { '@type': 'Organization', name: SITE_NAME, url: SITE_URL }
   const stories = mostRelated(`${post.title} ${post.description}`, getStories(), (s) => `${s.title} ${s.brief}`, (s) => s.date)
 
   const jsonLd: object[] = [
@@ -66,7 +68,7 @@ export default async function BlogPost({ params }: PageProps) {
       url,
       author,
       publisher: {
-        ...author,
+        ...organization,
         logo: { '@type': 'ImageObject', url: `${SITE_URL}/apple-touch-icon.png` },
       },
     },
@@ -95,6 +97,7 @@ export default async function BlogPost({ params }: PageProps) {
   return (
     <article className="mx-auto max-w-[720px] px-5 py-12 md:py-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <ReadDepth pageType="blog" format={post.format} />
 
       {post.status === 'draft' && (
         <p className="mb-6 rounded-xl border border-dashed border-accent/40 bg-accent-soft px-4 py-3 text-sm text-deep">
@@ -116,7 +119,11 @@ export default async function BlogPost({ params }: PageProps) {
         {post.title}
       </h1>
       <p className="mt-4 text-[13px] text-muted">
-        By {BLOG.author} &middot; Published {formatDate(post.date)}
+        By{' '}
+        <Link href={AUTHOR.path} className="underline-offset-2 hover:text-ink hover:underline">
+          {AUTHOR.name}
+        </Link>{' '}
+        &middot; Published {formatDate(post.date)}
         {post.updated !== post.date && <> &middot; Updated {formatDate(post.updated)}</>} &middot;{' '}
         {post.readMinutes} min read
       </p>

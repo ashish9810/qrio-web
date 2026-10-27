@@ -4,12 +4,13 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import ArticleMarkdown from '@/components/ArticleMarkdown'
 import StoryCard from '@/components/StoryCard'
+import ReadDepth from '@/components/ReadDepth'
 import StoryCta from '@/components/StoryCta'
 import BlogCard from '@/components/BlogCard'
 import { getAllPosts } from '@/lib/blog'
 import { mostRelated } from '@/lib/related'
 import { formatStoryDate, getRelated, getStories, getStory } from '@/lib/archive'
-import { SITE_NAME, SITE_URL } from '@/lib/content'
+import { AUTHOR, SITE_NAME, SITE_URL } from '@/lib/content'
 
 type PageProps = { params: Promise<{ slug: string }> }
 
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: story.title,
       description: story.description,
       publishedTime: story.date,
-      authors: [SITE_NAME],
+      authors: [AUTHOR.name],
       // The image comes from opengraph-image.tsx (1200x630, cover plus headline).
     },
     twitter: { card: 'summary_large_image', title: story.title, description: story.description },
@@ -75,7 +76,7 @@ export default async function StoryPage({ params }: PageProps) {
       articleSection: story.category.label,
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
       url,
-      author: publisher,
+      author: { '@type': 'Person', name: AUTHOR.name, url: `${SITE_URL}${AUTHOR.path}` },
       publisher: { ...publisher, logo: { '@type': 'ImageObject', url: `${SITE_URL}/apple-touch-icon.png` } },
       image: [`${url}/opengraph-image`, ...(story.cover ? [`${SITE_URL}${story.cover}`] : [])],
     },
@@ -94,6 +95,7 @@ export default async function StoryPage({ params }: PageProps) {
   return (
     <article className="mx-auto max-w-[720px] px-5 py-12 md:py-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <ReadDepth pageType="story" />
 
       <nav aria-label="Breadcrumb" className="text-[13px] text-muted">
         <Link href="/" className="hover:text-ink">Home</Link> /{' '}
@@ -104,7 +106,11 @@ export default async function StoryPage({ params }: PageProps) {
       <p className="eyebrow mt-6">{story.category.label}</p>
       <h1 className="mt-2.5 font-serif text-[clamp(32px,5vw,44px)] leading-[1.15] font-medium tracking-[-0.02em]">{story.title}</h1>
       <p className="mt-4 text-[13px] text-muted">
-        By {SITE_NAME} &middot; {formatStoryDate(story.date)} &middot; {story.readMinutes} min read
+        By{' '}
+        <Link href={AUTHOR.path} className="underline-offset-2 hover:text-ink hover:underline">
+          {AUTHOR.name}
+        </Link>{' '}
+        &middot; {formatStoryDate(story.date)} &middot; {story.readMinutes} min read
       </p>
 
       {story.cover && (

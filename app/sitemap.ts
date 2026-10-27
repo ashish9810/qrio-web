@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getActiveCategories, getStories } from '@/lib/archive'
 import { getAllPosts } from '@/lib/blog'
-import { SITE_URL } from '@/lib/content'
+import { AUTHOR, SITE_URL } from '@/lib/content'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
@@ -36,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
+    { url: `${SITE_URL}${AUTHOR.path}`, changeFrequency: 'monthly' as const, priority: 0.4 },
     {
       url: `${SITE_URL}/delete-account`,
       lastModified: now,

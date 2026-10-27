@@ -11,6 +11,8 @@ import matter from 'gray-matter'
  *   updated:     YYYY-MM-DD last meaningful edit (optional)
  *   category:    one of CATEGORIES
  *   status:      draft | published
+ *   format:      one of FORMATS (optional; defaults from the category). Used to
+ *                compare which kind of post earns clicks and installs.
  *   faq:         optional list of { q, a } rendered as an FAQ and as FAQ markup
  *
  * Drafts are only visible in `next dev` (with a banner). Production builds
@@ -24,6 +26,22 @@ export const CATEGORIES = [
   'Behind Qrio',
 ] as const
 
+/**
+ * Post formats being tested against each other (the weekly check compares
+ * search clicks and Download clicks per format and shifts the mix):
+ * guide = evergreen how-to, trending = explainer of a story in the news,
+ * comparison = honest "best apps / alternatives" list, brand = about Qrio.
+ */
+export const FORMATS = ['guide', 'trending', 'comparison', 'brand'] as const
+export type Format = (typeof FORMATS)[number]
+
+function defaultFormat(category: string, slug: string): Format {
+  if (category === 'Explained') return 'trending'
+  if (category === 'Behind Qrio') return 'brand'
+  if (/(^|-)apps(-|$)|^best-/.test(slug)) return 'comparison'
+  return 'guide'
+}
+
 export type BlogPost = {
   slug: string
   title: string
@@ -31,6 +49,7 @@ export type BlogPost = {
   date: string
   updated: string
   category: string
+  format: Format
   status: 'draft' | 'published'
   faq: { q: string; a: string }[]
   body: string
@@ -53,6 +72,7 @@ function parse(file: string): BlogPost {
     date: iso(data.date),
     updated: iso(data.updated ?? data.date),
     category: String(data.category ?? 'Doomscrolling'),
+    format: FORMATS.includes(data.format) ? data.format : defaultFormat(String(data.category ?? ''), slug),
     status: data.status === 'published' ? 'published' : 'draft',
     faq: Array.isArray(data.faq) ? data.faq : [],
     body: content.trim(),

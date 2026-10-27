@@ -5,6 +5,8 @@ export const Events = {
   waitlistSubmit: 'Web Waitlist Submit',
   creatorFormSubmit: 'Web Creator Form Submit',
   scrollDepth: 'Web Scroll Depth',
+  stickyShown: 'Web Sticky Bar Shown',
+  stickyDismissed: 'Web Sticky Bar Dismissed',
 } as const
 
 export type CtaLocation = 'header' | 'hero' | 'final' | 'blog' | 'story' | 'sticky'
@@ -49,8 +51,8 @@ export function getWebId(): string {
 /**
  * Loads mixpanel-browser once the browser is idle, so it never competes with
  * the hero for bandwidth. Events fired before it is ready are queued.
- * Page views (with UTM tags) are tracked automatically, including client-side
- * navigation. localStorage only: no cookies are set.
+ * Page views (with UTM tags) come from trackPageView, called on every route
+ * change. localStorage only: no cookies are set.
  */
 export function initAnalytics() {
   if (started || typeof window === 'undefined') return
@@ -63,11 +65,13 @@ export function initAnalytics() {
       // No trailing slashes, so the proxy path is not redirected first.
       api_routes: { track: 'track', engage: 'engage', groups: 'groups', record: 'record' },
       persistence: 'localStorage',
-      track_pageview: 'url-with-path',
+      // Page views are sent by trackPageView (after the super properties are set).
+      track_pageview: false,
       ip: true,
     })
     mixpanel.register({ platform: 'web', web_id: getWebId() })
     client = mixpanel
+    if (pendingPageView) mixpanel.track_pageview()
     for (const [event, props] of queue.splice(0)) mixpanel.track(event, props)
   }
 
@@ -76,6 +80,15 @@ export function initAnalytics() {
   } else {
     setTimeout(() => void start(), 1500)
   }
+}
+
+let pendingPageView = false
+
+/** Mixpanel's standard web page view (with UTM tags), for the current URL. */
+export function trackPageView() {
+  if (!started) return
+  if (client) client.track_pageview()
+  else pendingPageView = true
 }
 
 export function track(event: string, props?: Props) {

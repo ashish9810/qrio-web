@@ -201,12 +201,20 @@ export const FAQ = {
   ],
 }
 
-/** Shown on blog posts and in feeds. Swap for a real person's name to build trust. */
+/** The named author of the blog and the Stories archive (an author page builds trust with readers and search engines). */
+export const AUTHOR = {
+  name: 'Ashish Kumar',
+  path: '/authors/ashish-kumar',
+  role: 'Founder of Qrio',
+  bio: 'Ashish Kumar is the founder of Qrio, a free Android app of short videos on business, startups and the world. He edits the Qrio blog and the Stories archive, and is responsible for everything published on this site.',
+}
+
+/** Shown on blog posts and in feeds. */
 export const BLOG = {
   title: 'Qrio Blog',
   description:
     'Practical guides on doomscrolling, staying informed on business, startups and world news, and getting smarter in minutes a day.',
-  author: 'Qrio',
+  author: AUTHOR.name,
   cta: {
     heading: 'Get smarter in a minute a day',
     body: 'Qrio is a free Android app of short videos on business, startups and the world. Fresh videos every day, nothing to read.',

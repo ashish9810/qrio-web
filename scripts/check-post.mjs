@@ -14,6 +14,7 @@ const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md') && (wanted.len
 
 const BANNED = /\b(learn\w*|educat\w*|explainer\w*|knowledge|upskill\w*|intellectual\w*|reels?)\b/i
 const CATEGORIES = ['Doomscrolling', 'Staying informed', 'Explained', 'Behind Qrio']
+const FORMATS = ['guide', 'trending', 'comparison', 'brand']
 let failed = false
 
 for (const file of files) {
@@ -30,6 +31,7 @@ for (const file of files) {
   if (dl < 120 || dl > 160) problems.push(`description is ${dl} characters, want 120 to 160`)
   if (!/^\d{4}-\d{2}-\d{2}$/.test(iso(data.date))) problems.push('date must be YYYY-MM-DD')
   if (!CATEGORIES.includes(data.category)) problems.push(`category must be one of: ${CATEGORIES.join(', ')}`)
+  if (data.format !== undefined && !FORMATS.includes(data.format)) problems.push(`format must be one of: ${FORMATS.join(', ')}`)
   if (!['draft', 'published'].includes(data.status)) problems.push('status must be draft or published')
   if (raw.includes('—')) problems.push('contains an em dash')
   const banned = visible.match(new RegExp(BANNED, 'gi'))
