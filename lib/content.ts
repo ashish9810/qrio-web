@@ -61,9 +61,9 @@ export const SOCIAL_LINKS = {
 // ---------------------------------------------------------------------------
 
 export const SEO = {
-  title: 'Qrio: Short videos that make you smarter every day',
+  title: 'Qrio App: Short Videos on Business, Startups and the World',
   description:
-    'Swipe through quick stories on business, startups and the world, made by invited creators. Free on Android.',
+    'Qrio is a free Android app of short videos on business, startups and the world, made by invited creators. Swipe, get smarter, skip the doomscroll.',
   ogAlt: 'Qrio. Short videos that make you smarter every day.',
 }
 
