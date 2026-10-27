@@ -46,7 +46,7 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | 12 | apps-to-replace-instagram-reels | Apps to replace Instagram Reels when you want to feel smarter | Doomscrolling | alternatives to reels | published |
 | 13 | news-diet | What a healthy news diet looks like | Staying informed | healthy news diet | published |
 | 14 | why-we-are-building-qrio | Why we are building Qrio | Behind Qrio | brand, trust | published |
-| 15 | how-we-pick-topics | How we pick what goes into a Qrio video | Behind Qrio | trust | todo |
+| 15 | how-we-pick-topics | How we pick what goes into a Qrio video | Behind Qrio | trust | published |
 | 16 | become-a-qrio-creator | How to become a Founding Creator on Qrio | Behind Qrio | creator recruiting | todo |
 
 After row 16, or whenever a big story is breaking in business, startups or geopolitics, draft a topic post tied to a Qrio video theme (for example a company, a deal, a policy). Use the `Explained` category, verify every fact from at least two sources, and keep it balanced.
