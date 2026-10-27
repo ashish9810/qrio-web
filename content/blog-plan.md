@@ -1,6 +1,8 @@
 # Qrio blog plan
 
-This file drives the daily blog drafts. Each morning one post is drafted from the top of the queue, saved as a draft in `content/blog/`, and reviewed with Ashish in chat. Nothing is published until Ashish says so.
+This file drives the blog. Three times a week (Monday, Wednesday, Friday) the scheduled task researches, writes and publishes one post (Ashish authorised auto-publishing on 2026-10-15 and three stronger posts a week instead of daily on 2026-10-27). The author shown on every post is Ashish Kumar.
+
+Each post has a `format` (guide, trending, comparison or brand). Formats are an experiment: the weekly SEO check compares them and writes "Next week's post mix" in the newest report in `seo-weekly/`, which the blog task follows.
 
 ## Goal
 
@@ -20,10 +22,10 @@ Young working professionals and students in Indian cities (23 to 32): tech, star
 - Link sources inline and list them under `## Sources`.
 - Prefer primary sources (the paper, the report, the official site) over blog summaries.
 - Be fair to competitors. Balanced lists are cited more and are more honest. If Qrio is mentioned, add a one-line disclosure that we make it.
-- 1,100 to 1,700 words. Include one table or list where it helps. Add 3 or 4 FAQ items in the frontmatter, each answer under 60 words.
+- 1,200 to 1,900 words. Include one table or list where it helps. Add 3 or 4 FAQ items in the frontmatter, each answer under 60 words.
 - Link to other published Qrio posts where relevant (use relative links like `/blog/slug`).
 - India context where it is real and sourced. Do not force it.
-- Frontmatter: title, description (120 to 160 characters), date, category, status: draft, faq.
+- Frontmatter: title, description (120 to 160 characters), date, category, format, status: draft, faq.
 - Categories: Doomscrolling, Staying informed, Explained, Behind Qrio.
 
 ## Queue
