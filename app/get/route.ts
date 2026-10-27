@@ -59,7 +59,10 @@ async function reelPreview(id: string): Promise<Preview | null> {
     const title = first.length > 90 ? `${first.slice(0, 87)}…` : first
     return {
       title: title || `${creator} on Qrio`,
-      description: `by ${creator} on Qrio. Short videos on geopolitics, business and startups.`,
+      description:
+        creator === 'Qrio'
+          ? 'Watch on Qrio. Short videos on geopolitics, business and startups.'
+          : `by ${creator}. Watch on Qrio: short videos on geopolitics, business and startups.`,
       image: data.thumb_url as string,
       tall: true,
     }
@@ -100,7 +103,11 @@ function previewPage(target: string, p: Preview = PREVIEW, reel?: string) {
   return new Response(html, {
     headers: {
       'content-type': 'text/html; charset=utf-8',
-      'cache-control': 'public, max-age=300, s-maxage=3600',
+      // Never cached by the CDN: it keys on the URL, not the user agent, so a
+      // cached preview (made for WhatsApp's bot) would be served to real
+      // visitors and skip opening the app.
+      'cache-control': 'private, no-store',
+      vary: 'User-Agent',
     },
   })
 }
@@ -176,5 +183,8 @@ export async function GET(request: Request) {
       `S.browser_fallback_url=${encodeURIComponent(target)};end`
     return openAppPage(intent, target)
   }
-  return Response.redirect(target, 307)
+  return new Response(null, {
+    status: 307,
+    headers: { location: target, 'cache-control': 'no-store', vary: 'User-Agent' },
+  })
 }
