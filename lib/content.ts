@@ -29,6 +29,7 @@ export function playStoreUrl(
   medium: string,
   utm?: { source?: string | null; campaign?: string | null },
   webId?: string,
+  reel?: string,
 ) {
   const referrer = new URLSearchParams({
     utm_source: utm?.source || 'website',
@@ -37,6 +38,8 @@ export function playStoreUrl(
   })
   // The visitor's analytics id (see lib/analytics.ts), so the install can be joined to the visit.
   if (webId) referrer.set('web_id', webId)
+  // A shared video: the app opens it after install (deferred deep link).
+  if (reel) referrer.set('reel', reel)
   return `${PLAY_STORE_URL}&referrer=${encodeURIComponent(referrer.toString())}`
 }
 

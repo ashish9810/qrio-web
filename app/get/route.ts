@@ -1,4 +1,5 @@
 import { playStoreUrl, SITE_NAME, SITE_URL } from '@/lib/content'
+import { getSupabase } from '@/lib/supabase'
 
 /**
  * Short link for posts and bios: qrioapp.in/get. Redirects to Google Play with
@@ -19,6 +20,11 @@ import { playStoreUrl, SITE_NAME, SITE_URL } from '@/lib/content'
  * Play's card, so they get a small page with Qrio's own title and image
  * (public/og/get.jpg, 1080x1080) instead. Everyone else is redirected as
  * before.
+ *
+ * One video: ?reel=<id> (the app's Share and Copy link). The app opens that
+ * video when installed; otherwise Play, and after install the app reads the
+ * id from the install referrer and opens it (deferred deep link). Link
+ * previews show that video's thumbnail and caption.
  */
 const PREVIEW_BOTS =
   /bot|crawler|spider|facebookexternalhit|facebot|whatsapp|telegram|slack|discord|linkedin|pinterest|skypeuripreview|vkshare|embedly|quora link|preview|iframely/i
@@ -34,28 +40,56 @@ const PREVIEW = {
 const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 
-function previewPage(target: string) {
-  const url = `${SITE_URL}/get`
+type Preview = { title: string; description: string; image: string; tall?: boolean }
+
+/** Title, caption and thumbnail of a published video, for its link preview. */
+async function reelPreview(id: string): Promise<Preview | null> {
+  try {
+    const { data } = await getSupabase()
+      .from('reels')
+      .select('caption, thumb_url, status, creators(name)')
+      .eq('id', id)
+      .eq('status', 'published')
+      .maybeSingle()
+    if (!data) return null
+    const creator = (data.creators as { name?: string } | null)?.name ?? 'Qrio'
+    const caption = (data.caption ?? '').replace(/\s+/g, ' ').trim()
+    // Title: the caption's first sentence (what the video is about).
+    const first = caption.split(/(?<=[.!?])\s/)[0] ?? ''
+    const title = first.length > 90 ? `${first.slice(0, 87)}…` : first
+    return {
+      title: title || `${creator} on Qrio`,
+      description: `by ${creator} on Qrio. Short videos on geopolitics, business and startups.`,
+      image: data.thumb_url as string,
+      tall: true,
+    }
+  } catch {
+    return null
+  }
+}
+
+function previewPage(target: string, p: Preview = PREVIEW, reel?: string) {
+  const url = reel ? `${SITE_URL}/get?reel=${reel}` : `${SITE_URL}/get`
   const html = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>${esc(PREVIEW.title)}</title>
-<meta name="description" content="${esc(PREVIEW.description)}">
+<title>${esc(p.title)}</title>
+<meta name="description" content="${esc(p.description)}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(SITE_NAME)}">
 <meta property="og:url" content="${esc(url)}">
-<meta property="og:title" content="${esc(PREVIEW.title)}">
-<meta property="og:description" content="${esc(PREVIEW.description)}">
-<meta property="og:image" content="${esc(PREVIEW.image)}">
+<meta property="og:title" content="${esc(p.title)}">
+<meta property="og:description" content="${esc(p.description)}">
+<meta property="og:image" content="${esc(p.image)}">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="${PREVIEW.imageSize}">
-<meta property="og:image:height" content="${PREVIEW.imageSize}">
-<meta property="og:image:alt" content="Qrio: get smarter every day. Short videos on geopolitics, startups and business.">
+<meta property="og:image:width" content="${p.tall ? 1080 : PREVIEW.imageSize}">
+<meta property="og:image:height" content="${p.tall ? 1920 : PREVIEW.imageSize}">
+<meta property="og:image:alt" content="${esc(p.title)}">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="${esc(PREVIEW.title)}">
-<meta name="twitter:description" content="${esc(PREVIEW.description)}">
-<meta name="twitter:image" content="${esc(PREVIEW.image)}">
+<meta name="twitter:title" content="${esc(p.title)}">
+<meta name="twitter:description" content="${esc(p.description)}">
+<meta name="twitter:image" content="${esc(p.image)}">
 <link rel="canonical" href="${esc(url)}">
 <script>location.replace(${JSON.stringify(target)})</script>
 </head>
@@ -106,7 +140,9 @@ location.href = ${JSON.stringify(intent)}
   })
 }
 
-export function GET(request: Request) {
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
+export async function GET(request: Request) {
   const url = new URL(request.url)
   const params = url.searchParams
   const source = params.get('utm_source')
@@ -115,16 +151,25 @@ export function GET(request: Request) {
   // analytics id, so the install still credits that spot (see lib/appLink.ts).
   const from = (params.get('from') ?? '').replace(/[^a-z0-9_]/gi, '').slice(0, 30)
   const webId = (params.get('web_id') ?? '').replace(/[^a-f0-9]/gi, '').slice(0, 32)
-  const target = playStoreUrl(from || 'short_link', { source, campaign }, webId || undefined)
+  const reelParam = params.get('reel') ?? ''
+  const reel = UUID.test(reelParam) ? reelParam.toLowerCase() : undefined
+  const target = playStoreUrl(
+    from || (reel ? 'share' : 'short_link'),
+    { source, campaign },
+    webId || undefined,
+    reel,
+  )
   const ua = request.headers.get('user-agent') ?? ''
   if (PREVIEW_BOTS.test(ua)) {
-    return previewPage(target)
+    const p = reel ? await reelPreview(reel) : null
+    return previewPage(target, p ?? PREVIEW, reel)
   }
   if (/android/i.test(ua)) {
     // Only the tags travel to the app; nothing else from the query string.
     const tags = new URLSearchParams()
     if (source) tags.set('utm_source', source.slice(0, 60))
     if (campaign) tags.set('utm_campaign', campaign.slice(0, 60))
+    if (reel) tags.set('reel', reel)
     const query = tags.toString() ? `?${tags}` : ''
     const intent =
       `intent://www.qrioapp.in/get${query}#Intent;scheme=https;package=com.qrio.qrio;` +
