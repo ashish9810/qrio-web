@@ -1,46 +1,74 @@
 /** Event names. Keep them stable: renaming one starts a fresh series. */
 export const Events = {
-  pageView: 'page_view',
-  ctaClick: 'cta_click',
-  modalOpen: 'modal_open',
-  waitlistSubmit: 'waitlist_submit',
-  creatorFormSubmit: 'creator_form_submit',
+  ctaClick: 'Web Download Click',
+  modalOpen: 'Web Early Access Open',
+  waitlistSubmit: 'Web Waitlist Submit',
+  creatorFormSubmit: 'Web Creator Form Submit',
+  scrollDepth: 'Web Scroll Depth',
 } as const
 
-export type CtaLocation = 'header' | 'hero' | 'final' | 'blog'
+export type CtaLocation = 'header' | 'hero' | 'final' | 'blog' | 'story' | 'sticky'
 
 type Props = Record<string, string | number | boolean>
-type PostHog = typeof import('posthog-js').default
+type Mixpanel = typeof import('mixpanel-browser').default
+
+/**
+ * The app's Mixpanel project, so the website and the app sit in one place and
+ * a funnel can run from a blog visit to app usage. The token is public by
+ * design (the app ships it too). Every website event carries platform=web.
+ */
+const MIXPANEL_TOKEN = 'b2dda4b0bbf735b905a338a7e40d508c'
+
+/** Same-site path that next.config.ts forwards to Mixpanel, so ad blockers do not drop events. */
+const PROXY_PATH = '/mp'
+
+const WEB_ID_KEY = 'qrio_web_id'
 
 let started = false
-let client: PostHog | null = null
+let client: Mixpanel | null = null
 const queue: [string, Props | undefined][] = []
 
 /**
- * No-op unless POSTHOG_KEY is set. posthog-js is loaded lazily once the browser
- * is idle, so it never competes with the hero for bandwidth. Events fired
- * before it is ready are queued and sent afterwards.
- *
- * Autocapture and session recording are off and storage is localStorage only,
- * so no cookies are set and no banner is needed. We send only the explicit
- * events above, never emails or numbers.
+ * A random id for this browser, also put in the Play Store referrer. The app
+ * saves the raw referrer on first open (Supabase install_sources.referrer), so
+ * a website visit can be joined to the install it led to.
  */
-export function initAnalytics(key?: string, host?: string) {
-  if (started || !key || typeof window === 'undefined') return
+export function getWebId(): string {
+  try {
+    let id = localStorage.getItem(WEB_ID_KEY)
+    if (!id) {
+      id = Array.from(crypto.getRandomValues(new Uint8Array(8)), (b) => b.toString(16).padStart(2, '0')).join('')
+      localStorage.setItem(WEB_ID_KEY, id)
+    }
+    return id
+  } catch {
+    return ''
+  }
+}
+
+/**
+ * Loads mixpanel-browser once the browser is idle, so it never competes with
+ * the hero for bandwidth. Events fired before it is ready are queued.
+ * Page views (with UTM tags) are tracked automatically, including client-side
+ * navigation. localStorage only: no cookies are set.
+ */
+export function initAnalytics() {
+  if (started || typeof window === 'undefined') return
   started = true
 
   const start = async () => {
-    const { default: posthog } = await import('posthog-js')
-    posthog.init(key, {
-      api_host: host || 'https://us.i.posthog.com',
-      capture_pageview: false,
-      autocapture: false,
-      disable_session_recording: true,
+    const { default: mixpanel } = await import('mixpanel-browser')
+    mixpanel.init(MIXPANEL_TOKEN, {
+      api_host: `${window.location.origin}${PROXY_PATH}`,
+      // No trailing slashes, so the proxy path is not redirected first.
+      api_routes: { track: 'track', engage: 'engage', groups: 'groups', record: 'record' },
       persistence: 'localStorage',
-      person_profiles: 'identified_only',
+      track_pageview: 'url-with-path',
+      ip: true,
     })
-    client = posthog
-    for (const [event, props] of queue.splice(0)) posthog.capture(event, props)
+    mixpanel.register({ platform: 'web', web_id: getWebId() })
+    client = mixpanel
+    for (const [event, props] of queue.splice(0)) mixpanel.track(event, props)
   }
 
   if ('requestIdleCallback' in window) {
@@ -52,6 +80,6 @@ export function initAnalytics(key?: string, host?: string) {
 
 export function track(event: string, props?: Props) {
   if (!started) return
-  if (client) client.capture(event, props)
+  if (client) client.track(event, props)
   else queue.push([event, props])
 }

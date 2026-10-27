@@ -45,8 +45,11 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | 11 | how-to-follow-indian-startup-news | How to keep up with Indian startup news | Staying informed | indian startup news | published |
 | 12 | apps-to-replace-instagram-reels | Apps to replace Instagram Reels when you want to feel smarter | Doomscrolling | alternatives to reels | published |
 | 13 | news-diet | What a healthy news diet looks like | Staying informed | healthy news diet | published |
-| 14 | why-we-are-building-qrio | Why we are building Qrio | Behind Qrio | brand, trust | published |
+| 14 | short-video-apps-for-business-news-india | Best short video apps for business and world news in India | Staying informed | short video app business news india, apps like inshorts | todo |
+| 14b | why-we-are-building-qrio | Why we are building Qrio | Behind Qrio | brand, trust | published |
 | 15 | how-we-pick-topics | How we pick what goes into a Qrio video | Behind Qrio | trust | published |
 | 16 | become-a-qrio-creator | How to become a Founding Creator on Qrio | Behind Qrio | creator recruiting | todo |
+
+Row 14 (short video apps) is an honest comparison list: include real alternatives (for example Inshorts, Seekho, YouTube Shorts channels, newsletters), verify each app's details on its own store page, be fair about where each is better, and add a one-line disclosure that we make Qrio. Research found no credible page ranking for this query, and AI assistants cite lists like it most.
 
 After row 16, or whenever a big story is breaking in business, startups or geopolitics, draft a topic post tied to a Qrio video theme (for example a company, a deal, a policy). Use the `Explained` category, verify every fact from at least two sources, and keep it balanced.

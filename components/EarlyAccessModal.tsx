@@ -95,7 +95,7 @@ export default function EarlyAccessModal({
         return
       }
       track(Events.waitlistSubmit, {
-        platform,
+        platform_detected: platform,
         has_email: Boolean(result.value.email),
         has_whatsapp: Boolean(result.value.whatsapp),
       })

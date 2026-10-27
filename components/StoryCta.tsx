@@ -1,4 +1,5 @@
 import CtaButton from './CtaButton'
+import QrInstall from './QrInstall'
 
 /** End-of-story call to action. Points readers who like the written version to the videos. */
 export default function StoryCta() {
@@ -8,7 +9,8 @@ export default function StoryCta() {
       <p className="mx-auto mt-3 mb-6 max-w-[460px] text-[#b9b9cf]">
         Qrio is a free Android app of short videos on business, startups and the world. Fresh videos every day, made by creators we invite.
       </p>
-      <CtaButton location="blog" />
+      <CtaButton location="story" />
+      <QrInstall dark />
     </aside>
   )
 }

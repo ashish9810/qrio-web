@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
   images: {
     qualities: [60, 75],
   },
+  // Website analytics go to Mixpanel through this site, so ad blockers do not drop them.
+  async rewrites() {
+    return [
+      { source: '/mp/:path*', destination: 'https://api-js.mixpanel.com/:path*' },
+    ]
+  },
   async redirects() {
     return [
       // The old About page is gone. The /explainers/* story URLs are kept, so rankings carry over.

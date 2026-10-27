@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from 'react'
 import { CTA, playStoreUrl } from '@/lib/content'
-import { Events, track, type CtaLocation } from '@/lib/analytics'
+import { Events, getWebId, track, type CtaLocation } from '@/lib/analytics'
 import { getUtm } from '@/lib/utm'
 import { useEarlyAccess } from './EarlyAccessProvider'
 
@@ -21,26 +21,33 @@ export default function CtaButton({
   location: CtaLocation
   small?: boolean
 }) {
-  const { showPlayStore, openModal } = useEarlyAccess()
+  const { platform, showPlayStore, openModal } = useEarlyAccess()
   const className = `btn${small ? ' btn-sm' : ''}`
 
   // The plain link on the server, the campaign-tagged link once in the browser.
   const href = useSyncExternalStore(
     subscribeNoop,
-    () => playStoreUrl(location, getUtm()),
+    () => playStoreUrl(location, getUtm(), getWebId()),
     () => playStoreUrl(location),
   )
 
   if (showPlayStore) {
     return (
-      <a href={href} className={className} onClick={() => track(Events.ctaClick, { location })}>
+      <a href={href} className={className} onClick={() => track(Events.ctaClick, { location, platform_detected: platform })}>
         {CTA.playStore}
       </a>
     )
   }
 
   return (
-    <button type="button" className={className} onClick={(e) => openModal(location, e.currentTarget)}>
+    <button
+      type="button"
+      className={className}
+      onClick={(e) => {
+        track(Events.ctaClick, { location, platform_detected: platform })
+        openModal(location, e.currentTarget)
+      }}
+    >
       {CTA.earlyAccess}
     </button>
   )

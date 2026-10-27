@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import EarlyAccessProvider from '@/components/EarlyAccessProvider'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import StickyAppBar from '@/components/StickyAppBar'
 import { SEO, SITE_NAME, SITE_URL, SOCIAL_LINKS } from '@/lib/content'
 import './globals.css'
 
@@ -41,7 +42,14 @@ export const metadata: Metadata = {
     title: SEO.title,
     description: SEO.description,
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    // Large image previews are required for Google Discover.
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
+  },
+  // Lets Android and link previews know about the Play app.
+  appLinks: { android: { package: 'com.qrio.qrio', app_name: SITE_NAME } },
 }
 
 export const viewport: Viewport = {
@@ -74,13 +82,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <EarlyAccessProvider
-          posthogKey={process.env.POSTHOG_KEY}
-          posthogHost={process.env.POSTHOG_HOST}
-        >
+        <EarlyAccessProvider>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <StickyAppBar />
         </EarlyAccessProvider>
         {/* Vercel Web Analytics: cookieless page views, visitors and referrers (free Hobby tier) */}
         <Analytics />

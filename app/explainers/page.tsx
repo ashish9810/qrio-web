@@ -50,7 +50,7 @@ export default function StoriesHub() {
       <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {stories.slice(0, 12).map((s, i) => (
           <li key={s.slug}>
-            <StoryCard story={s} priority={i === 0} />
+            <StoryCard story={s} priority={i < 2} />
           </li>
         ))}
       </ul>

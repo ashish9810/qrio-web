@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { ABOUT, CREATORS, FAQ, FINAL_CTA, HOW, FEATURED_VIDEOS, TOPICS } from '@/lib/content'
 import CtaButton from './CtaButton'
+import QrInstall from './QrInstall'
 import CreatorForm from './CreatorForm'
 import SampleVideo from './SampleVideo'
 import Reveal from './Reveal'
@@ -183,6 +184,7 @@ export function FinalCta() {
       <div className="mx-auto max-w-[1100px] px-5">
         <h2 className={`${h2Class} mx-auto mb-[30px] max-w-[700px]`}>{FINAL_CTA.heading}</h2>
         <CtaButton location="final" />
+        <QrInstall />
       </div>
     </section>
   )

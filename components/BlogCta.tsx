@@ -1,5 +1,6 @@
 import { BLOG } from '@/lib/content'
 import CtaButton from './CtaButton'
+import QrInstall from './QrInstall'
 
 /** End-of-post call to action. */
 export default function BlogCta() {
@@ -8,6 +9,7 @@ export default function BlogCta() {
       <h2 className="font-serif text-[28px] leading-[1.15] font-medium">{BLOG.cta.heading}</h2>
       <p className="mx-auto mt-3 mb-6 max-w-[460px] text-[#b9b9cf]">{BLOG.cta.body}</p>
       <CtaButton location="blog" />
+      <QrInstall dark />
     </aside>
   )
 }

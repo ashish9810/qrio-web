@@ -5,6 +5,9 @@ import { notFound } from 'next/navigation'
 import ArticleMarkdown from '@/components/ArticleMarkdown'
 import StoryCard from '@/components/StoryCard'
 import StoryCta from '@/components/StoryCta'
+import BlogCard from '@/components/BlogCard'
+import { getAllPosts } from '@/lib/blog'
+import { mostRelated } from '@/lib/related'
 import { formatStoryDate, getRelated, getStories, getStory } from '@/lib/archive'
 import { SITE_NAME, SITE_URL } from '@/lib/content'
 
@@ -39,14 +42,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: story.description,
       publishedTime: story.date,
       authors: [SITE_NAME],
-      ...(story.cover ? { images: [`${SITE_URL}${story.cover}`] } : {}),
+      // The image comes from opengraph-image.tsx (1200x630, cover plus headline).
     },
-    twitter: {
-      card: 'summary_large_image',
-      title: story.title,
-      description: story.description,
-      ...(story.cover ? { images: [`${SITE_URL}${story.cover}`] } : {}),
-    },
+    twitter: { card: 'summary_large_image', title: story.title, description: story.description },
   }
 }
 
@@ -57,6 +55,12 @@ export default async function StoryPage({ params }: PageProps) {
 
   const url = `${SITE_URL}/explainers/${story.slug}`
   const related = getRelated(story)
+  const posts = mostRelated(
+    `${story.title} ${story.brief}`,
+    getAllPosts().filter((p) => p.status === 'published'),
+    (p) => `${p.title} ${p.description}`,
+    (p) => p.date,
+  )
   const publisher = { '@type': 'Organization', name: SITE_NAME, url: SITE_URL }
 
   const jsonLd = [
@@ -73,7 +77,7 @@ export default async function StoryPage({ params }: PageProps) {
       url,
       author: publisher,
       publisher: { ...publisher, logo: { '@type': 'ImageObject', url: `${SITE_URL}/apple-touch-icon.png` } },
-      ...(story.cover ? { image: `${SITE_URL}${story.cover}` } : {}),
+      image: [`${url}/opengraph-image`, ...(story.cover ? [`${SITE_URL}${story.cover}`] : [])],
     },
     {
       '@context': 'https://schema.org',
@@ -139,6 +143,19 @@ export default async function StoryPage({ params }: PageProps) {
             {related.slice(0, 2).map((r) => (
               <li key={r.slug}>
                 <StoryCard story={r} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {posts.length > 0 && (
+        <section className="mt-12">
+          <h2 className="font-serif text-[26px] leading-[1.15] font-medium">From the Qrio blog</h2>
+          <ul className="mt-5 grid gap-5 sm:grid-cols-2">
+            {posts.map((p) => (
+              <li key={p.slug}>
+                <BlogCard post={p} />
               </li>
             ))}
           </ul>

@@ -22,18 +22,21 @@ export const PLAY_STORE_URL =
 /**
  * Play Store link with an install referrer, so Play Console's acquisition
  * reports show which installs came from this website. `medium` is where the
- * click happened (header, hero, blog and so on). A visitor's own utm_source and
+ * click happened (header, hero, blog, story and so on). A visitor's own utm_source and
  * utm_campaign (for example from an Instagram link) are passed through.
  */
 export function playStoreUrl(
   medium: string,
   utm?: { source?: string | null; campaign?: string | null },
+  webId?: string,
 ) {
   const referrer = new URLSearchParams({
     utm_source: utm?.source || 'website',
     utm_medium: `site_${medium}`,
     utm_campaign: utm?.campaign || 'organic',
   })
+  // The visitor's analytics id (see lib/analytics.ts), so the install can be joined to the visit.
+  if (webId) referrer.set('web_id', webId)
   return `${PLAY_STORE_URL}&referrer=${encodeURIComponent(referrer.toString())}`
 }
 

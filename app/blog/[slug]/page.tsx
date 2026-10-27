@@ -4,8 +4,11 @@ import { notFound } from 'next/navigation'
 import BlogCard from '@/components/BlogCard'
 import BlogCta from '@/components/BlogCta'
 import BlogMarkdown from '@/components/BlogMarkdown'
+import StoryCard from '@/components/StoryCard'
+import { getStories } from '@/lib/archive'
 import { formatDate, getAllPosts, getPost } from '@/lib/blog'
 import { BLOG, SITE_NAME, SITE_URL } from '@/lib/content'
+import { mostRelated } from '@/lib/related'
 
 type PageProps = { params: Promise<{ slug: string }> }
 
@@ -23,7 +26,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: post.description,
     alternates: { canonical: `/blog/${post.slug}` },
     // A draft previewed in dev must never be indexed.
-    robots: post.status === 'draft' ? { index: false, follow: false } : undefined,
+    // Only drafts override the site-wide robots settings (which allow large image previews).
+    ...(post.status === 'draft' ? { robots: { index: false, follow: false } } : {}),
     openGraph: {
       type: 'article',
       url: `${SITE_URL}/blog/${post.slug}`,
@@ -46,6 +50,7 @@ export default async function BlogPost({ params }: PageProps) {
   const url = `${SITE_URL}/blog/${post.slug}`
   const more = getAllPosts().filter((p) => p.slug !== post.slug && p.status === 'published').slice(0, 2)
   const author = { '@type': 'Organization', name: BLOG.author, url: SITE_URL }
+  const stories = mostRelated(`${post.title} ${post.description}`, getStories(), (s) => `${s.title} ${s.brief}`, (s) => s.date)
 
   const jsonLd: object[] = [
     {
@@ -56,6 +61,7 @@ export default async function BlogPost({ params }: PageProps) {
       datePublished: post.date,
       dateModified: post.updated,
       inLanguage: 'en',
+      image: [`${url}/opengraph-image`],
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
       url,
       author,
@@ -142,6 +148,19 @@ export default async function BlogPost({ params }: PageProps) {
             {more.map((p) => (
               <li key={p.slug}>
                 <BlogCard post={p} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {stories.length > 0 && (
+        <section className="mt-12">
+          <h2 className="font-serif text-[26px] leading-[1.15] font-medium">Stories worth reading next</h2>
+          <ul className="mt-5 grid gap-5 sm:grid-cols-2">
+            {stories.map((s) => (
+              <li key={s.slug}>
+                <StoryCard story={s} />
               </li>
             ))}
           </ul>

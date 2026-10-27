@@ -43,15 +43,7 @@ function detectPlatform(): Platform {
 
 const subscribeNoop = () => () => {}
 
-export default function EarlyAccessProvider({
-  posthogKey,
-  posthogHost,
-  children,
-}: {
-  posthogKey?: string
-  posthogHost?: string
-  children: React.ReactNode
-}) {
+export default function EarlyAccessProvider({ children }: { children: React.ReactNode }) {
   // 'other' on the server and during hydration, the real platform afterwards.
   const platform = useSyncExternalStore<Platform>(
     subscribeNoop,
@@ -63,13 +55,11 @@ export default function EarlyAccessProvider({
 
   useEffect(() => {
     captureUtm()
-    initAnalytics(posthogKey, posthogHost)
-    track(Events.pageView, { path: window.location.pathname })
-  }, [posthogKey, posthogHost])
+    initAnalytics()
+  }, [])
 
   const openModal = useCallback((location: CtaLocation, opener?: HTMLElement | null) => {
     openerRef.current = opener ?? (document.activeElement as HTMLElement | null)
-    track(Events.ctaClick, { location })
     track(Events.modalOpen, { location })
     setOpen(true)
   }, [])
