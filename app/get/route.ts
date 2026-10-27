@@ -111,7 +111,11 @@ export function GET(request: Request) {
   const params = url.searchParams
   const source = params.get('utm_source')
   const campaign = params.get('utm_campaign')
-  const target = playStoreUrl('short_link', { source, campaign })
+  // From the site's own buttons: where the button was and the visitor's
+  // analytics id, so the install still credits that spot (see lib/appLink.ts).
+  const from = (params.get('from') ?? '').replace(/[^a-z0-9_]/gi, '').slice(0, 30)
+  const webId = (params.get('web_id') ?? '').replace(/[^a-f0-9]/gi, '').slice(0, 32)
+  const target = playStoreUrl(from || 'short_link', { source, campaign }, webId || undefined)
   const ua = request.headers.get('user-agent') ?? ''
   if (PREVIEW_BOTS.test(ua)) {
     return previewPage(target)

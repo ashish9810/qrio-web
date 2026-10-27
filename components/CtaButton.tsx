@@ -4,6 +4,7 @@ import { useSyncExternalStore } from 'react'
 import { CTA, playStoreUrl } from '@/lib/content'
 import { Events, getWebId, track, type CtaLocation } from '@/lib/analytics'
 import { getUtm } from '@/lib/utm'
+import { getAppUrl, isAndroid } from '@/lib/appLink'
 import { useEarlyAccess } from './EarlyAccessProvider'
 
 const subscribeNoop = () => () => {}
@@ -27,7 +28,7 @@ export default function CtaButton({
   // The plain link on the server, the campaign-tagged link once in the browser.
   const href = useSyncExternalStore(
     subscribeNoop,
-    () => playStoreUrl(location, getUtm(), getWebId()),
+    () => getAppUrl(location, getUtm(), getWebId(), isAndroid()),
     () => playStoreUrl(location),
   )
 
