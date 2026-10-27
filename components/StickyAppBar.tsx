@@ -6,6 +6,7 @@ import { useEffect, useState, useSyncExternalStore } from 'react'
 import { playStoreUrl } from '@/lib/content'
 import { Events, getWebId, track } from '@/lib/analytics'
 import { getUtm } from '@/lib/utm'
+import { getAppUrl, isAndroid } from '@/lib/appLink'
 import { useEarlyAccess } from './EarlyAccessProvider'
 
 const DISMISS_KEY = 'qrio_app_bar_dismissed'
@@ -55,7 +56,7 @@ export default function StickyAppBar() {
 
   const href = useSyncExternalStore(
     subscribeNoop,
-    () => playStoreUrl('sticky', getUtm(), getWebId()),
+    () => getAppUrl('sticky', getUtm(), getWebId(), isAndroid()),
     () => playStoreUrl('sticky'),
   )
 
