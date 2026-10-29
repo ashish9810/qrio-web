@@ -460,6 +460,19 @@ body {
   font-weight: 600;
   color: var(--color-ink);
 }
+/* Photos in stories: full width, with the next paragraph as the caption and credit */
+.prose-qrio img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  background: var(--color-accent-soft);
+}
+.prose-qrio p:has(> img:only-child) + p {
+  margin-top: 0.5em;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
 .prose-qrio hr {
   border: 0;
   border-top: 1px solid var(--color-line);

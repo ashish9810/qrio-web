@@ -118,6 +118,11 @@ export default async function StoryPage({ params }: PageProps) {
           <Image src={story.cover} alt={story.title} fill priority sizes="(max-width: 768px) 100vw, 720px" quality={75} className="object-cover" />
         </div>
       )}
+      {story.cover && story.coverCredit && (
+        <div className="mt-2 text-[12px] text-muted [&_a]:underline [&_a]:underline-offset-2">
+          <ArticleMarkdown markdown={story.coverCredit} />
+        </div>
+      )}
 
       <div className="mt-9">
         <div className="prose-qrio">

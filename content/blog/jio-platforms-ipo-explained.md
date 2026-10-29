@@ -17,6 +17,8 @@ faq:
 
 **The short answer:** Jio Platforms, the telecom and digital arm of Reliance Industries, is raising up to ₹30,213 crore by selling new shares to the public. That makes it the largest IPO in Indian history, and the demand was heavy.
 
+**Update, 29 October 2026:** Jio Platforms listed on 28 October at ₹1,358, a 21.36% premium to the ₹1,119 issue price, and closed its first day near ₹1,417 on the BSE ([Inc42](https://inc42.com/buzz/jio-platforms-lists-at-21-36-premium-after-indias-largest-ipo)). We covered listing day, and what the 1.38 crore applicants actually bought, in [this story](/explainers/jio-platforms-listed-at-a-21-percent-premium-here-is-what-138-crore-applicants-actually-bought).
+
 This is a news summary, not investment advice. Below: what is on offer, where the money goes, what the subscription numbers say and what is still not settled.
 
 ## What is the Jio Platforms IPO?

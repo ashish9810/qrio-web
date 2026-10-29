@@ -32,6 +32,8 @@ export type Story = {
   description: string
   brief: string
   cover: string
+  /** Photo credit shown under the cover (markdown), required for licensed photos. */
+  coverCredit: string
   sources: string[]
   body: string
   readMinutes: number
@@ -89,6 +91,7 @@ export function getStories(): Story[] {
         description: snippet(String(data.brief ?? ''), String(data.description ?? '')),
         brief: String(data.brief ?? '').trim(),
         cover: String(data.cover ?? ''),
+        coverCredit: String(data.coverCredit ?? '').trim(),
         sources: Array.isArray(data.sources) ? data.sources : [],
         body,
         readMinutes: Math.max(1, Math.round(body.split(/\s+/).length / 200)),
