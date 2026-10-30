@@ -47,7 +47,7 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | 11 | how-to-follow-indian-startup-news | How to keep up with Indian startup news | Staying informed | indian startup news | published |
 | 12 | apps-to-replace-instagram-reels | Apps to replace Instagram Reels when you want to feel smarter | Doomscrolling | alternatives to reels | published |
 | 13 | news-diet | What a healthy news diet looks like | Staying informed | healthy news diet | published |
-| 14 | short-video-apps-for-business-news-india | Best short video apps for business and world news in India | Staying informed | short video app business news india, apps like inshorts | todo |
+| 14 | short-video-apps-for-business-news-india | Best short video apps for business and world news in India | Staying informed | short video app business news india, apps like inshorts | published |
 | 14b | why-we-are-building-qrio | Why we are building Qrio | Behind Qrio | brand, trust | published |
 | 15 | how-we-pick-topics | How we pick what goes into a Qrio video | Behind Qrio | trust | published |
 | 16 | become-a-qrio-creator | How to become a Founding Creator on Qrio | Behind Qrio | creator recruiting | todo |
