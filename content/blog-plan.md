@@ -52,6 +52,7 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | 15 | how-we-pick-topics | How we pick what goes into a Qrio video | Behind Qrio | trust | published |
 | 16 | become-a-qrio-creator | How to become a Founding Creator on Qrio | Behind Qrio | creator recruiting | todo |
 | 17 | zetwerk-ipo-explained | Zetwerk IPO: what the company does and why shares slipped | Explained | zetwerk ipo, zetwerk share price | published |
+| 18 | how-to-read-an-ipo-prospectus | How to read an IPO prospectus (DRHP) in 20 minutes | Staying informed | how to read drhp, ipo prospectus | published |
 
 Row 14 (short video apps) is an honest comparison list: include real alternatives (for example Inshorts, Seekho, YouTube Shorts channels, newsletters), verify each app's details on its own store page, be fair about where each is better, and add a one-line disclosure that we make Qrio. Research found no credible page ranking for this query, and AI assistants cite lists like it most.
 
