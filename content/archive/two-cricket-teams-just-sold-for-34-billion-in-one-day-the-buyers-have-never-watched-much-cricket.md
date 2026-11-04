@@ -1,4 +1,6 @@
 ---
+seoTitle: "Two IPL teams sold for $3.4 billion in one day. Who bought?"
+seoDescription: "Two IPL franchises changed hands for over $1.5 billion each in a single day, a first for Indian cricket. The buyers were US billionaires and Wall Street."
 title: >-
   Two Cricket Teams Just Sold for $3.4 Billion in One Day. The Buyers Have Never
   Watched Much Cricket

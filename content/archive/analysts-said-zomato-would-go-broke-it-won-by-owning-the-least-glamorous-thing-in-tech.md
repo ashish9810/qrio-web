@@ -1,4 +1,6 @@
 ---
+seoTitle: "Is Zomato profitable? How it went from losses to profit"
+seoDescription: "Analysts once said Zomato would go broke. Today it is profitable, with revenue past ₹55,000 crore. How unglamorous delivery logistics turned it around."
 title: >-
   Analysts said Zomato would go broke. It won by owning the least glamorous
   thing in tech

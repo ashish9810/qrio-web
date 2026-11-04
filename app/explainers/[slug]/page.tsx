@@ -31,21 +31,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const story = getStory(slug)
   if (!story) return {}
 
+  const title = story.seoTitle ?? story.title
   return {
-    title: story.title,
+    title,
     description: story.description,
     alternates: { canonical: `/explainers/${story.slug}` },
     openGraph: {
       type: 'article',
       url: `${SITE_URL}/explainers/${story.slug}`,
       siteName: SITE_NAME,
-      title: story.title,
+      title,
       description: story.description,
       publishedTime: story.date,
       authors: [AUTHOR.name],
       // The image comes from opengraph-image.tsx (1200x630, cover plus headline).
     },
-    twitter: { card: 'summary_large_image', title: story.title, description: story.description },
+    twitter: { card: 'summary_large_image', title, description: story.description },
   }
 }
 

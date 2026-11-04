@@ -1,4 +1,6 @@
 ---
+seoTitle: "Jamnagar, India's oil city, is becoming its AI capital"
+seoDescription: "Jamnagar is India's oil city, home to one of the world's largest refineries. Now Reliance is building a giant AI data center campus there. Here is why."
 title: India's biggest oil city is quietly becoming its AI capital
 category: business
 date: '2026-06-26T00:22:06.405Z'

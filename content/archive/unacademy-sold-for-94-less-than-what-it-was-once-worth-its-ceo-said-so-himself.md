@@ -1,4 +1,6 @@
 ---
+seoTitle: "Unacademy sold to upGrad for $200M, 94% below its peak"
+seoDescription: "Unacademy was bought by upGrad in an all-stock deal worth just over $200 million, about 94% below its 2021 peak valuation of $3.44 billion."
 title: >-
   Unacademy sold for 94% less than what it was once worth. Its CEO said so
   himself

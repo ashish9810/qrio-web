@@ -30,6 +30,8 @@ export type Story = {
   category: ArchiveCategory
   date: string // full ISO timestamp
   description: string
+  /** Optional <title> for search results, written to match what people search. The page headline stays `title`. */
+  seoTitle?: string
   brief: string
   cover: string
   /** Photo credit shown under the cover (markdown), required for licensed photos. */
@@ -88,7 +90,10 @@ export function getStories(): Story[] {
         title: String(data.title),
         category: categoryFor(String(data.category)),
         date: String(data.date),
-        description: snippet(String(data.brief ?? ''), String(data.description ?? '')),
+        description: data.seoDescription
+          ? String(data.seoDescription).trim()
+          : snippet(String(data.brief ?? ''), String(data.description ?? '')),
+        seoTitle: data.seoTitle ? String(data.seoTitle).trim() : undefined,
         brief: String(data.brief ?? '').trim(),
         cover: String(data.cover ?? ''),
         coverCredit: String(data.coverCredit ?? '').trim(),

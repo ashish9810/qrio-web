@@ -1,6 +1,6 @@
 ---
 title: "Alternative to doomscrolling: 7 things to do when you reach for your phone"
-description: "The best alternative to doomscrolling is not quitting your phone, it is swapping what you scroll. Seven options that work, what research says, and a plan."
+description: "What is the opposite of doomscrolling? Swapping what you scroll, not quitting your phone. Seven alternatives that work, what research says, and a plan."
 date: 2026-10-12
 category: Doomscrolling
 status: published

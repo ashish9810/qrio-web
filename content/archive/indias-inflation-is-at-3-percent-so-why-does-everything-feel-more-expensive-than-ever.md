@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why is everything so expensive in India if inflation is 3%?"
+seoDescription: "Official inflation is near 3.5%, yet rent, school fees and eating out keep rising. Why the inflation you feel is higher than the number, explained."
 title: >-
   India's inflation is at 3 Percent. So why does everything feel more expensive
   than ever?

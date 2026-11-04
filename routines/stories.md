@@ -26,6 +26,8 @@ STEPS
 
 4. WRITE content/archive/<slug>.md. The slug is the title in lowercase words joined by hyphens (no dates, never reuse an existing slug). Frontmatter (YAML, same as the examples):
    title (sentence case, a curiosity hook that is still accurate, no full stop at the end),
+   seoTitle (what shows in Google, 60 characters or fewer: the words people actually search for this topic, usually the company or subject plus the question, e.g. "Is Zomato profitable? How it went from losses to profit" or "Unacademy sold to upGrad for $200M, 94% below its peak". Check Google autocomplete and what currently ranks. Must be accurate, no full stop at the end. The curiosity `title` stays as the page headline),
+   seoDescription (120 to 160 characters: answer the searcher's question directly in the first sentence, using the same search words),
    category (one of: business, geopolitics, indiamacro, tech, finance),
    date (now, full ISO timestamp in UTC like '2026-11-03T04:00:00.000Z'),
    brief (90 to 130 words, answers the main question directly in the first two sentences; it becomes the search snippet),
