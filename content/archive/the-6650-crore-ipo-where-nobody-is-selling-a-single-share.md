@@ -1,4 +1,6 @@
 ---
+seoTitle: "Oyo's ₹6,650 crore IPO: why no investor is selling shares"
+seoDescription: "Oyo parent Prism wants to raise ₹6,650 crore in its IPO, but SoftBank and Microsoft are not selling any shares and 75% of the money will repay old loans."
 title: 'The ₹6,650 crore IPO where nobody is selling a single share'
 category: business
 date: '2026-07-03T11:06:38.049Z'

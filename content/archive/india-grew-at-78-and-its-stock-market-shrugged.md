@@ -1,4 +1,6 @@
 ---
+seoTitle: "India GDP grows 7.8% but the stock market shrugs. Why?"
+seoDescription: "India's GDP grew 7.8% in the June quarter, beating the RBI's 7% projection, yet the Sensex fell 417 points. Foreign investors have pulled $24.6 billion out."
 title: India grew at 7.8% and its stock market shrugged
 category: indiamacro
 date: '2026-09-04T00:30:00.021Z'

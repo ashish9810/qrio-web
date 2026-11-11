@@ -1,4 +1,6 @@
 ---
+seoTitle: "SpaceX IPO: is the largest IPO ever worth the hype?"
+seoDescription: "SpaceX raised $75 billion on June 12 in the biggest IPO in history and closed worth over $2 trillion. Its filings say 93% of its future is AI, not space."
 title: SpaceX is the largest IPO ever. But is the hype bigger than the business?
 category: business
 date: '2026-06-14T11:27:35.027Z'

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Valar Atomics raises $1B to build nuclear reactors for AI"
+seoDescription: "Valar Atomics, founded by 27-year-old Isaiah Taylor, raised a $1 billion Series B led by Sequoia to mass-produce small nuclear reactors for AI data centers."
 title: >-
   A 27-year-old high school dropout just raised $1 billion to mass-produce
   nuclear reactors for AI

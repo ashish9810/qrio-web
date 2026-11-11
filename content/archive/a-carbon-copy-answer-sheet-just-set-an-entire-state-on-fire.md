@@ -1,4 +1,6 @@
 ---
+seoTitle: "Jharkhand JPSC exam row: the OMR sheet behind the protests"
+seoDescription: "Jharkhand students are protesting the 14th JPSC prelims after a viral OMR sheet showed a candidate cleared it attempting only 48 of 100 questions."
 title: A carbon copy answer sheet just set an entire state on fire
 category: indiamacro
 date: '2026-08-14T00:30:00.022Z'

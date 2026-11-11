@@ -1,4 +1,6 @@
 ---
+seoTitle: "Microsoft cuts 4,800 jobs and insists AI is not the reason"
+seoDescription: "Microsoft laid off 4,800 employees on July 6, 2026, and a leaked memo told managers to say the roles were not being replaced by AI. Here is why that matters."
 title: >-
   A technology titan just terminated thousands of white collar jobs while
   explicitly banning its human resource teams from mentioning artificial

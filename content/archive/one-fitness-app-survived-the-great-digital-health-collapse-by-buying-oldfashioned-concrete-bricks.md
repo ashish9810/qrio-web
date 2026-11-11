@@ -1,4 +1,6 @@
 ---
+seoTitle: "Cult.fit files for ₹950 crore IPO after betting on gyms"
+seoDescription: "Cult.fit filed its draft for a ₹950 crore IPO on July 7, 2026. While digital fitness apps collapsed, it survived by buying up physical gyms."
 title: >-
   One fitness app survived the great digital health collapse by buying
   old-fashioned concrete bricks

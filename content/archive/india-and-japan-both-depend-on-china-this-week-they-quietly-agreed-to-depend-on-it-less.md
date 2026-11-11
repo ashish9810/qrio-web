@@ -1,4 +1,6 @@
 ---
+seoTitle: "India and Japan team up to cut dependence on China"
+seoDescription: "At their 16th annual summit, India and Japan's PM Sanae Takaichi agreed to build alternatives to China together in chips, minerals, AI, defence and energy."
 title: >-
   India and Japan both depend on China. This week they quietly agreed to depend
   on it less

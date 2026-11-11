@@ -1,4 +1,6 @@
 ---
+seoTitle: "Meta fined $942 million in New Mexico child safety case"
+seoDescription: "A New Mexico court raised Meta's penalty to about $942 million in a child safety case and ordered product changes for minors, like hidden like counts."
 title: >-
   A court fined Meta $942 million, and the fine is the least important part of
   the ruling

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Will AI layoffs in India hurt the companies making them?"
+seoDescription: "Indian companies can lift productivity 40% with AI. But if every firm cuts white-collar jobs at once, they shrink the middle-class demand they rely on."
 title: Indian corporate leaders are walking directly into a multi-million job trap
 category: tech
 date: '2026-07-05T08:01:21.184Z'

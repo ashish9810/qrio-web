@@ -1,4 +1,6 @@
 ---
+seoTitle: "India-EU trade deal: what gets cheaper and who loses"
+seoDescription: "India and the EU will sign a trade deal by the end of 2026, making European cars, wine, whisky and olive oil cheaper, while Indian carmakers' shares fell."
 title: >-
   India just struck the biggest trade deal in its history. It could not have
   come at a better time

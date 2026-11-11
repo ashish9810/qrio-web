@@ -1,4 +1,6 @@
 ---
+seoTitle: "SCO summit 2026: Modi, Xi and Putin in Bishkek"
+seoDescription: "Modi, Xi Jinping and Vladimir Putin met in Bishkek, Kyrgyzstan for the 26th SCO summit on August 31 and September 1, 2026. Here is what still divides them."
 title: 'Modi, Xi, and Putin shared a stage today. What they didn''t share matters more'
 category: indiamacro
 date: '2026-09-01T00:30:00.052Z'

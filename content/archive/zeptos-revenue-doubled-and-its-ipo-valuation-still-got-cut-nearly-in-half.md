@@ -1,4 +1,6 @@
 ---
+seoTitle: "Zepto IPO: why its valuation fell nearly by half"
+seoDescription: "Zepto is heading for an IPO at about $3.5 to $4 billion, down from $7 billion nine months ago, even though revenue more than doubled to ₹22,624 crore."
 title: Zepto's revenue doubled and its IPO valuation still got cut nearly in half
 category: business
 date: '2026-07-30T00:30:00.021Z'

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why AMD is investing up to $5 billion in Anthropic"
+seoDescription: "AMD committed up to $5 billion in equity into Anthropic in a deal to deploy up to 2 gigawatts of AMD Instinct MI450 chips from 2027. Here is why it pays."
 title: 'AMD is paying Anthropic, to use it''s chips and the payment is of $5B'
 category: tech
 date: '2026-08-02T00:30:00.029Z'

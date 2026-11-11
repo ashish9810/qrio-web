@@ -1,4 +1,6 @@
 ---
+seoTitle: "Spain wins the 2026 World Cup, but FIFA wins the money"
+seoDescription: "Spain beat Argentina 1-0 to win the 2026 World Cup, but FIFA is set to bank over 8 billion dollars in revenue, up 56% from Qatar 2022. Where the money went."
 title: Spain lifted the World Cup but the biggest winner never kicked a ball
 category: business
 date: '2026-07-22T07:44:29.470Z'

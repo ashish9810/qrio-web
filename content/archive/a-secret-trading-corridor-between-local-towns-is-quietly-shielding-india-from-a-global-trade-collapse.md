@@ -1,4 +1,6 @@
 ---
+seoTitle: "India's smaller industrial cities are powering its economy"
+seoDescription: "India's market cap added 1 lakh crore rupees in a week, and the spending power behind it is coming from secondary industrial cities, not Mumbai or Bengaluru."
 title: >-
   A secret trading corridor between local towns is quietly shielding India from
   a global trade collapse

@@ -1,4 +1,6 @@
 ---
+seoTitle: "India plans its first salt cavern oil reserves in Rajasthan"
+seoDescription: "India is preparing its first salt cavern strategic oil reserves in Rajasthan, cheaper than rock caverns, and will let global oil firms lease the space."
 title: >-
   India is carving massive holes in Rajasthan's salt deposits to turn oil
   storage into a profit engine

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Sonam Wangchuk's hunger strike: what he is fighting for"
+seoDescription: "Sonam Wangchuk, whose life inspired the hero of 3 Idiots, is on a hunger strike in Delhi over India's broken exams and for his home region, Ladakh."
 title: >-
   The man who inspired "3 Idiots" is on a hunger strike. This is what he is
   fighting for

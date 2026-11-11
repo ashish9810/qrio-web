@@ -1,4 +1,6 @@
 ---
+seoTitle: "Jio Platforms IPO lists at 21% premium: what investors got"
+seoDescription: "Jio Platforms listed at ₹1,358, 21% above its ₹1,119 IPO price, after India's biggest IPO at ₹30,213 crore. Most of the money is going to pay off debt."
 title: >-
   Jio Platforms listed at a 21% premium. Here is what 1.38 crore applicants
   actually bought

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why is the UK economy struggling so much?"
+seoDescription: "Britain's economy has barely grown for years while its debt has ballooned and towns cut services. Why the UK is struggling and why its big fixes backfired."
 title: Britain once ruled the world. Today it can't fix its own economy
 category: geopolitics
 date: '2026-06-27T21:26:47.710Z'

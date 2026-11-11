@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why Bira 91 collapsed: the IPO rename that backfired"
+seoDescription: "Bira 91 founder Ankur Jain stepped down and gave up his family's 17.8% stake in B9 Beverages. The trigger was a 2024 rename made to satisfy IPO rules."
 title: >-
   Bira 91 tried to get IPO-ready and the paperwork ended up destroying the
   company

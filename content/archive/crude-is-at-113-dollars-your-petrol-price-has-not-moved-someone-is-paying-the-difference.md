@@ -1,4 +1,6 @@
 ---
+seoTitle: "Crude at $113, petrol prices unchanged: who pays the gap?"
+seoDescription: "Brent crude is near $113 a barrel but petrol in Delhi is still ₹102.12 a litre. State oil companies lose about ₹530 crore a day. Here is who pays the gap."
 title: Crude is at $113. Your petrol price has not moved. Someone is paying the difference
 category: indiamacro
 date: '2026-10-29T13:10:00.000Z'

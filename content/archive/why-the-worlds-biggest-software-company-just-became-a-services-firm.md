@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why Microsoft is sending engineers into customer offices"
+seoDescription: "Microsoft put $2.5 billion and 6,000 engineers into a team that works inside customer offices to help them use AI. Amazon did the same with $1 billion."
 title: Why the world's biggest software company just became a services firm
 category: tech
 date: '2026-07-04T10:11:59.064Z'

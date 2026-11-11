@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why IndiGo lost ₹1,879 crore despite 26% revenue growth"
+seoDescription: "IndiGo lost ₹1,879 crore in July to September 2026 even as revenue rose 25.9% to ₹23,364 crore. The main reason: jet fuel cost 67% more than a year earlier."
 title: IndiGo earned 26% more and still lost ₹1,879 crore. One bill explains it
 category: business
 date: '2026-10-29T13:20:00.000Z'

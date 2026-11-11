@@ -1,4 +1,6 @@
 ---
+seoTitle: "Who is John Ternus, Apple's new CEO after Tim Cook?"
+seoDescription: "Tim Cook stepped down as Apple CEO on September 1, 2026, and hardware engineer John Ternus, at Apple since 2001, took over. Why picking an engineer matters."
 title: >-
   Apple picked an engineer to run the company right when everyone else is
   picking AI talkers

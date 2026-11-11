@@ -1,4 +1,6 @@
 ---
+seoTitle: "SpaceX revenue up 92% but its stock fell. Why?"
+seoDescription: "SpaceX reported revenue of $7.8 billion, up 92%, in its first earnings as a public company, yet its stock fell over 8% as capital spending hit $18.3 billion."
 title: SpaceX made 92% more money this quarter and its stock crashed anyway
 category: business
 date: '2026-08-06T00:30:00.016Z'

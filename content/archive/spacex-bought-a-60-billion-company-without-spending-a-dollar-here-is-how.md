@@ -1,4 +1,6 @@
 ---
+seoTitle: "SpaceX buys Cursor for $60 billion in stock, not cash"
+seoDescription: "After its record IPO, SpaceX used its soaring stock to buy AI coding company Cursor for $60 billion without spending any cash. Why a rocket company wanted it."
 title: SpaceX bought a $60 billion company without spending a dollar. Here is how
 category: tech
 date: '2026-06-19T09:48:03.817Z'

@@ -1,4 +1,6 @@
 ---
+seoTitle: "India's fertility rate falls to 1.9, below replacement level"
+seoDescription: "India's fertility rate has fallen to 1.9 children per woman, below the 2.1 needed to keep a population stable. What happened to others that got there first."
 title: >-
   Amid Everything Else India is Juggling, an Unexpected Problem Just Crossed a
   Line No One Saw Coming

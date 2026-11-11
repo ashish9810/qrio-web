@@ -1,4 +1,6 @@
 ---
+seoTitle: "India set to miss its $1 trillion export target"
+seoDescription: "India's exports are projected at about $850 billion this year, says GTRI, about $150 billion short of the government's $1 trillion target. Here is why."
 title: >-
   India promised the world $1 trillion in exports this year. It fell $150
   billion short

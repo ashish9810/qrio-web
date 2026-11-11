@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why is the rupee falling when India's economy is booming?"
+seoDescription: "India's GDP grew 7.7% in 2025-26, the fastest among big economies, yet the rupee fell to nearly 97 to the dollar. Why both are true at the same time."
 title: >-
   India is the world's fastest-growing major economy. Its currency just hit a
   record low

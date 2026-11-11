@@ -1,4 +1,6 @@
 ---
+seoTitle: "Affle buys Perion for $420M. Over half is Perion's own cash"
+seoDescription: "Indian adtech firm Affle is buying Israel's Perion for about $420 million in cash. Perion held $228.3 million in cash and securities, about 54% of the price."
 title: Affle is paying $420 million for Perion. More than half of it is already in Perion's bank
 category: business
 date: '2026-11-03T04:30:00.000Z'

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Google raised $84.75 billion. Why did its stock fall?"
+seoDescription: "Google asked investors for $80 billion and upsized the raise to $84.75 billion in 48 hours, yet its stock fell. Why a company this profitable needs the money."
 title: >-
   Google asked the market for $80 billion. The market said yes but the stock
   fell anyway

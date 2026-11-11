@@ -1,4 +1,6 @@
 ---
+seoTitle: "India's Semicon 2.0: ₹1.27 lakh crore push for chips"
+seoDescription: "India approved ₹1.27 lakh crore for Semicon 2.0, its updated semiconductor mission covering chip design, materials and training, aiming for 10% of global chips."
 title: >-
   India launched Semicon 2.0 to dominate the global chip market by the end of
   the decade

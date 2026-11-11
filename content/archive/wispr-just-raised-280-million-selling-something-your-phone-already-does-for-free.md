@@ -1,4 +1,6 @@
 ---
+seoTitle: "Wispr raises $280M at $2B for its Flow dictation app"
+seoDescription: "Wispr raised a $280 million Series B at a $2 billion valuation, led by Menlo Ventures, for Flow, a dictation app. Why investors pay for what phones do free."
 title: >-
   Wispr just raised $280 million selling something your phone already does for
   free

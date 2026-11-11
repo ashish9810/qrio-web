@@ -1,4 +1,6 @@
 ---
+seoTitle: "Kerala floods 2026: why the Red alert came too late"
+seoDescription: "Kerala got 184.2mm of rain in three days, 232% above normal, and 14 died across Kerala and Karnataka. The Red alert came only after the disaster had begun."
 title: Kerala's flood warning arrived after the flood already hit
 category: indiamacro
 date: '2026-08-04T00:45:00.021Z'

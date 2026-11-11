@@ -1,4 +1,6 @@
 ---
+seoTitle: "Asian Paints vs Birla Opus: how it lost a third of its value"
+seoDescription: "Asian Paints held nearly 60% of India's paint market for decades. Then Birla Opus took almost 7% in one year and Asian Paints lost a third of its value."
 title: 'For 50 Years, No One Could Touch Asian Paints. Then a Richer Giant Walked In'
 category: business
 date: '2026-06-07T09:08:18.811Z'

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Apple Intelligence in China will run on Alibaba's AI"
+seoDescription: "China approved Apple Intelligence only after Apple agreed to use an AI model built by Alibaba, hosted inside China and compliant with Chinese content rules."
 title: Apple just agreed to give iPhones two different brains just for China
 category: business
 date: '2026-07-20T01:00:00.023Z'

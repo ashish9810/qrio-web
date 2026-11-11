@@ -1,4 +1,6 @@
 ---
+seoTitle: "India-UK trade deal comes into force: who benefits"
+seoDescription: "The India-UK trade agreement is now in force, removing nearly all import tariffs in key sectors and giving Indian textile and apparel exporters a big boost."
 title: >-
   Two historical trading rivals just dismantled a mountain of import taxes to
   outrun regional competitors

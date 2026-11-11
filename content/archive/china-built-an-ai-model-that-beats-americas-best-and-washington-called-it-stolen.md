@@ -1,4 +1,6 @@
 ---
+seoTitle: "Kimi K3: did China's Moonshot AI copy Anthropic's Fable?"
+seoDescription: "The White House accused China's Moonshot AI of distilling Anthropic's Fable to build Kimi K3, a 2.8 trillion parameter open model that tops a coding benchmark."
 title: >-
   China built an AI model that beats America's best and Washington called it
   stolen

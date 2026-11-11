@@ -1,4 +1,6 @@
 ---
+seoTitle: "NEET 2026 paper leak: the full story and the real problem"
+seoDescription: "NEET-UG was cancelled in May 2026 after a paper leak, re-held in June, and led to the education minister's resignation. Here is the full story of the crisis."
 title: 'Fundamental problem in NEET exam, full story explained'
 category: indiamacro
 date: '2026-07-29T00:30:00.021Z'

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why Meta put $900 million into CRED to hire Kunal Shah"
+seoDescription: "Meta invested $900 million in CRED for a 20% stake with no board seat or data access. The real prize was founder Kunal Shah, who now runs WhatsApp."
 title: 'Meta just paid $900 million to hire one man, not to buy a company'
 category: business
 date: '2026-06-23T08:48:06.500Z'

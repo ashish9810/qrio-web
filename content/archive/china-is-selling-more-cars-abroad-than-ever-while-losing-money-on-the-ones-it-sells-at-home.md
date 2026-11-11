@@ -1,4 +1,6 @@
 ---
+seoTitle: "China's car exports hit a record as home sales fall"
+seoDescription: "Chery exported 202,533 cars in July 2026, a Chinese record, while China's domestic car sales fell for a tenth month and industry margins shrank to 2.9%."
 title: >-
   China is selling more cars abroad than ever while losing money on the ones it
   sells at home

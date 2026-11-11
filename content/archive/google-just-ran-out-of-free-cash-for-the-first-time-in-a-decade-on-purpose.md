@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why Alphabet's free cash flow turned negative in Q2 2026"
+seoDescription: "Alphabet's free cash flow turned negative at -$5.9 billion in Q2 2026, a first in about a decade, as it raised AI spending guidance to $195 to $205 billion."
 title: 'Google just ran out of free cash for the first time in a decade, on purpose'
 category: business
 date: '2026-08-03T22:30:00.036Z'

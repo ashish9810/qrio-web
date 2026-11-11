@@ -1,4 +1,6 @@
 ---
+seoTitle: "The strategy of owning rival brands that made billionaires"
+seoDescription: "Some of the largest fortunes on earth come from one strategy: a company launches many separate brands that compete with each other in the same market."
 title: One strategy has quietly made more billionaires than almost any other
 category: business
 date: '2026-06-11T11:43:40.800Z'

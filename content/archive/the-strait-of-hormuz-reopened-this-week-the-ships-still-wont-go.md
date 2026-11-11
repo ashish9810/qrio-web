@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why ships still avoid the Strait of Hormuz after it reopened"
+seoDescription: "The US and Iran signed a deal to reopen the Strait of Hormuz, which carries a fifth of the world's oil, but ships still are not going through. Here is why."
 title: The Strait of Hormuz reopened this week. The ships still won't go
 category: geopolitics
 date: '2026-06-21T08:21:24.385Z'

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why electricity, not chips, is the real limit on AI"
+seoDescription: "Big US tech firms will spend over $500 billion on AI this year, but the real bottleneck is electricity: a grid connection for a data centre takes five years."
 title: 'The AI Race Has Quietly Become a Fight Over Electricity, Not Chips'
 category: tech
 date: '2026-06-03T18:55:19.186Z'

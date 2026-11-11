@@ -1,4 +1,6 @@
 ---
+seoTitle: "Nepal glacier floods wipe out Gyirong Port on China border"
+seoDescription: "A glacier collapse near the Nepal-Tibet border killed at least 390 people and wiped out Gyirong Port, which handled nearly a third of China-Nepal trade."
 title: A melting glacier just erased Nepal's escape route from India
 category: geopolitics
 date: '2026-08-31T00:30:00.016Z'

@@ -1,4 +1,6 @@
 ---
+seoTitle: "How Aditya Birla shook up paints and cables in one year"
+seoDescription: "Aditya Birla Group took nearly 7% of India's paint market in a year with Birla Opus, then a cables plan alone sent five rival stocks down by up to 21%."
 title: >-
   One indian conglomerate rattled two different industries in a single year. It
   used the same playbook both times

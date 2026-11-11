@@ -1,4 +1,6 @@
 ---
+seoTitle: "Moody's sees 2.5% global growth and a K-shaped AI economy"
+seoDescription: "Moody's Analytics expects global growth to slow to 2.5% this year. Economies tied to AI and tech supply chains are pulling ahead while traditional sectors lag."
 title: >-
   The global economy is splitting into a two speed machine where artificial
   intelligence value chains decide which nations escape a recession

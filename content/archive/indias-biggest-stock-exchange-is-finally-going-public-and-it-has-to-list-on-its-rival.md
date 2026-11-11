@@ -1,4 +1,6 @@
 ---
+seoTitle: "NSE IPO cleared by SEBI: size, valuation and listing"
+seoDescription: "SEBI cleared the National Stock Exchange IPO on September 4, an offer for sale worth about Rs 30,000 crore that would be the largest in Indian history."
 title: >-
   India's biggest stock exchange is finally going public and it has to list on
   its rival

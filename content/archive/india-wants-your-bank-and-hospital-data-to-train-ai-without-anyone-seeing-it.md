@@ -1,4 +1,6 @@
 ---
+seoTitle: "India's DEPA plan to train AI on bank and hospital data"
+seoDescription: "India's draft DEPA for AI Training would let startups train AI on bank, hospital and government data inside a sealed room without seeing the raw records."
 title: India wants your bank and hospital data to train AI without anyone seeing it
 category: tech
 date: '2026-10-31T09:00:00.000Z'

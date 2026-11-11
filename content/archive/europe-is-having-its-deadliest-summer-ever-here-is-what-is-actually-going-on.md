@@ -1,4 +1,6 @@
 ---
+seoTitle: "Europe heatwave: why the deadliest summer hit so hard"
+seoDescription: "A record heatwave in Europe has killed thousands, stopped trains and shut parts of hospitals. Why Europe was not built for heat and why people are protesting."
 title: Europe is having its deadliest summer ever. Here is what is actually going on
 category: geopolitics
 date: '2026-07-01T19:26:47.742Z'

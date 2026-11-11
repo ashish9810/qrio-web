@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why the US wants stablecoins: they fund its government debt"
+seoDescription: "A 2025 US law requires stablecoins to be backed by government debt, and issuers already hold $155 billion of it. Here is why America wants crypto to spread."
 title: The Hidden Reason Why America Wants the World Hooked on Crypto
 category: geopolitics
 date: '2026-06-03T18:54:47.836Z'

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Petrol cut by ₹5 and diesel by ₹3 a litre: the real reason"
+seoDescription: "Petrol prices in India fell by ₹5 a litre, diesel by ₹3 and commercial gas cylinders by ₹183.50. The reason for the relief traces back to Qatar, not Delhi."
 title: >-
   India just dropped its prices by ₹5 a litre for petrol and ₹3 a litre for
   diesel

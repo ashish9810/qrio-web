@@ -1,4 +1,6 @@
 ---
+seoTitle: "Canada retaliates with up to 50% tariffs on US goods"
+seoDescription: "Canada will impose retaliatory tariffs of up to 50% on nearly 700 US products from September 8, 2026, matching Trump's tariffs dollar for dollar."
 title: >-
   Canada just matched Trump's tariffs dollar for dollar, and it's not backing
   down

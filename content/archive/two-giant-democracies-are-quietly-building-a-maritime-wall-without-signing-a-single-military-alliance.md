@@ -1,4 +1,6 @@
 ---
+seoTitle: "India-Indonesia pact: a maritime wall without an alliance"
+seoDescription: "On July 7, 2026, Modi and Indonesia's President Prabowo Subianto launched an economic and security pact in Jakarta that protects sea trade without an alliance."
 title: >-
   Two giant democracies are quietly building a maritime wall without signing a
   single military alliance

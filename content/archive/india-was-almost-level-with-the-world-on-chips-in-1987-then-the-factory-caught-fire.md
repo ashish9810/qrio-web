@@ -1,4 +1,6 @@
 ---
+seoTitle: "India's chip history: the 1987 fire that set it back decades"
+seoDescription: "In 1987 India was nearly level with the world in making chips, until a fire at its main lab set it back decades. What is different about the new factories."
 title: >-
   India was almost level with the world on chips in 1987. Then the factory
   caught fire

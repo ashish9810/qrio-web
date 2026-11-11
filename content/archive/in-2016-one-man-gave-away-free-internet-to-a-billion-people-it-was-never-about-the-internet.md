@@ -1,4 +1,6 @@
 ---
+seoTitle: "Reliance Jio's free data strategy and its AI playbook"
+seoDescription: "Reliance launched Jio with free calls and nearly free data in 2016 and now has over 500 million subscribers. Now it is running the same play with AI."
 title: >-
   In 2016, one man gave away free internet to a billion people. It was never
   about the internet

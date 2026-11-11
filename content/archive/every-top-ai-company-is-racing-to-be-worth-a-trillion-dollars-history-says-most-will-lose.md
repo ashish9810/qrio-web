@@ -1,4 +1,6 @@
 ---
+seoTitle: "Will the trillion-dollar AI race end like the dot-com boom?"
+seoDescription: "OpenAI, Anthropic and others are chasing trillion-dollar valuations, taking 14% of global venture money. The 1990s internet boom suggests most will lose."
 title: >-
   Every Top AI Company Is Racing to Be Worth a Trillion Dollars. History Says
   Most Will Lose

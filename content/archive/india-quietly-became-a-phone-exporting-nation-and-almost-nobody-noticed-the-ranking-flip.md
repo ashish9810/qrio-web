@@ -1,4 +1,6 @@
 ---
+seoTitle: "Mobile phones are now India's biggest export"
+seoDescription: "India's mobile phone exports rose 165-fold in a decade to ₹2.59 lakh crore in 2025-26, making phones the country's single largest exported item."
 title: >-
   India quietly became a phone exporting nation, and almost nobody noticed the
   ranking flip

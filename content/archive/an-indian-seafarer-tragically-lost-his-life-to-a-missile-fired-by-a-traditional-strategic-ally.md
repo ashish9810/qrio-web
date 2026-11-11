@@ -1,4 +1,6 @@
 ---
+seoTitle: "Indian seafarer killed in Iranian missile strike on tankers"
+seoDescription: "An Iranian missile strike on oil tankers in the Strait of Hormuz killed an Indian seafarer and critically injured eight, testing India's ties with Iran."
 title: >-
   An Indian seafarer tragically lost his life to a missile fired by a
   traditional strategic ally

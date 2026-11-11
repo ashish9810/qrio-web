@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why gold rose 15% in a month and central banks keep buying"
+seoDescription: "Gold rose about 15% in August 2026 to $4,633.90 an ounce, while central banks bought a net 288.9 tonnes in Q2, the strongest second quarter on record."
 title: >-
   Gold just had its best month in years, and governments are buying more than
   anyone else

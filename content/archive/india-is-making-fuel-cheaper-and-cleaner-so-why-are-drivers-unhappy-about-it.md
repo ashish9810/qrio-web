@@ -1,4 +1,6 @@
 ---
+seoTitle: "E85 petrol in India: cheaper and cleaner, so why the worry?"
+seoDescription: "India launched E85, petrol with up to 85% ethanol, priced about ₹20 a litre below normal petrol. Drivers worry about lower mileage and older engines."
 title: India Is Making Fuel Cheaper and Cleaner. So Why Are Drivers Unhappy About It?
 category: indiamacro
 date: '2026-06-10T09:54:36.877Z'

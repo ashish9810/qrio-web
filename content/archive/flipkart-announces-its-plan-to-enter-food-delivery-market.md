@@ -1,4 +1,6 @@
 ---
+seoTitle: "Flipkart enters food delivery on ONDC, starting in Bengaluru"
+seoDescription: "Flipkart will enter food delivery with a Bengaluru pilot built on the ONDC network. Swiggy shares fell 7% and Zomato nearly 3% before its first order."
 title: Flipkart announces it's plan to enter food delivery market
 category: business
 date: '2026-07-27T00:30:00.022Z'

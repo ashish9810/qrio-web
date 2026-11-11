@@ -1,4 +1,6 @@
 ---
+seoTitle: "How China uses rare earths as a trade war weapon"
+seoDescription: "China processes 90% of the world's rare earths, 17 metals used in EVs, fighter jets and AI servers. How export limits turned them into a trade war weapon."
 title: How China Turned a Group of Little-Known Metals Into Its Most Powerful Weapon
 category: geopolitics
 date: '2026-06-02T18:53:19.985Z'

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Oura IPO: why the ring maker wants a $16 billion valuation"
+seoDescription: "Oura filed to list on Nasdaq as OURA at a valuation above $16 billion. Revenue rose 74% to $1.21 billion in nine months, with net income of about $61 million."
 title: 'Oura wants $16 billion for a ring, and one number explains why'
 category: finance
 date: '2026-09-09T00:30:00.017Z'

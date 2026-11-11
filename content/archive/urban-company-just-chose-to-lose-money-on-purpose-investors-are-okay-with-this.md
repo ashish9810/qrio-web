@@ -1,4 +1,6 @@
 ---
+seoTitle: "Urban Company posts Rs 92 crore loss on its InstaHelp bet"
+seoDescription: "Urban Company posted a Rs 92 crore net loss for the June 2026 quarter as revenue rose 44% to Rs 528 crore. The loss came from InstaHelp, its 15 minute service."
 title: >-
   Urban Company just chose to lose money on purpose. Investors are okay with
   this

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why India is easing rules on Chinese investment"
+seoDescription: "India imported $132 billion of goods from China last year, a trade gap of over $100 billion, and is now easing rules on Chinese investment and technicians."
 title: India just realised the fastest way to need China less is to buy more from it
 category: geopolitics
 date: '2026-08-12T00:30:00.021Z'

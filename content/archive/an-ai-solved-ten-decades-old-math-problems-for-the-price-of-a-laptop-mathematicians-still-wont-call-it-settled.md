@@ -1,4 +1,6 @@
 ---
+seoTitle: "Did OpenAI's AI really solve 10 open math problems?"
+seoDescription: "OpenAI says its Astra model solved ten long unsolved math and computer science problems for about $2,000 in compute, checked by Lean, but not peer reviewed."
 title: >-
   An AI solved ten decades old math problems for the price of a laptop.
   Mathematicians still won't call it settled

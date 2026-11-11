@@ -1,4 +1,6 @@
 ---
+seoTitle: "US national debt crosses $40 trillion: what it means"
+seoDescription: "The US national debt passed $40 trillion in August 2026, about $117,000 per American, with interest costs near $1.1 trillion a year, more than defense."
 title: >-
   America's debt just crossed $40 trillion, and almost nobody in Washington
   wants to talk about it

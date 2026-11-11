@@ -1,4 +1,6 @@
 ---
+seoTitle: "Delimitation 2026: why south Indian states may lose seats"
+seoDescription: "India froze parliamentary seats per state for 50 years. The freeze ends in 2026, and southern states that had fewer children may lose seats to the north."
 title: >-
   For 50 years, India rewarded states that had fewer children. That reward is
   about to be taken away

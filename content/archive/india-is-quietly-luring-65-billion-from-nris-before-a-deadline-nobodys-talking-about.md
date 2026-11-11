@@ -1,4 +1,6 @@
 ---
+seoTitle: "RBI's FCNR(B) scheme pulls in $65 billion from NRIs"
+seoDescription: "An RBI swap window lets banks offer NRIs up to 7.10% on FCNR(B) deposits, tax-free in India, and $65.4 billion flowed in through August 21, 2026."
 title: >-
   India is quietly luring $65 billion from NRIs before a deadline nobody's
   talking about

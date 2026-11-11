@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why Walmart stock fell 9% despite beating earnings"
+seoDescription: "Walmart stock fell about 9% on August 20, 2026, its worst day in over four years, despite beating estimates. US comparable sales grew just 2.6%."
 title: >-
   Walmart beat every number that matters and still had its worst day in four
   years

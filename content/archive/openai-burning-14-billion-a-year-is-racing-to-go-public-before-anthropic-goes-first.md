@@ -1,4 +1,6 @@
 ---
+seoTitle: "OpenAI IPO at over $1 trillion: racing Anthropic to list"
+seoDescription: "OpenAI is preparing an IPO above $1 trillion despite a projected $14 billion loss in 2026, while Anthropic posted its first positive operating income."
 title: >-
   OpenAI burning $14 billion a year is racing to go public before 'Anthropic' 
   goes first

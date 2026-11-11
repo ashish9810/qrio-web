@@ -1,4 +1,6 @@
 ---
+seoTitle: "Stripe agrees to buy OpenRouter for over $7 billion"
+seoDescription: "Stripe has agreed to buy AI model router OpenRouter for over $7 billion, three months after it raised money at a $1.3 billion valuation in May 2026."
 title: >-
   A startup worth $1.3 billion in May is worth over $7 billion in August, and
   Stripe is buying it

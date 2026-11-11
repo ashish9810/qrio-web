@@ -1,4 +1,6 @@
 ---
+seoTitle: "FIFA World Cup India TV rights: why Zee paid under half"
+seoDescription: "FIFA asked for $100 million for World Cup TV rights in India and settled with Zee Entertainment for less than half. Here is why the numbers never worked."
 title: FIFA wanted $100 million from India. It settled for less than half
 category: business
 date: '2026-06-05T15:51:29.789Z'

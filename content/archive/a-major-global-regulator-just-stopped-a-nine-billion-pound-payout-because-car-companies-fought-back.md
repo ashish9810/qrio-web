@@ -1,4 +1,6 @@
 ---
+seoTitle: "UK car finance payout: why the FCA's £9.1bn scheme froze"
+seoDescription: "The FCA's £9.1 billion car finance compensation scheme, with an average payout of £830 per borrower, has been frozen after car companies pushed back."
 title: >-
   A major global regulator just stopped a nine billion pound payout because car
   companies fought back

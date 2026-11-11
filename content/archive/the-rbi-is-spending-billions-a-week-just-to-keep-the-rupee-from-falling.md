@@ -1,4 +1,6 @@
 ---
+seoTitle: "How the RBI is spending billions to defend the rupee"
+seoDescription: "The rupee has fallen about 8.76% in a year and hit a record low near 97 per dollar. The RBI is selling dollars almost daily and pulled in about $41 billion."
 title: The RBI is spending billions a week just to keep the rupee from falling
 category: indiamacro
 date: '2026-08-05T00:30:00.021Z'

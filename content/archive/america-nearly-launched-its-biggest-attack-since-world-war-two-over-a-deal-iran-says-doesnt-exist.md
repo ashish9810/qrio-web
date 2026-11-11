@@ -1,4 +1,6 @@
 ---
+seoTitle: "Trump called off an Iran attack. Iran denies any US talks"
+seoDescription: "On August 2, 2026, Trump said he called off a major attack on Iran over a deal on Hormuz and its nuclear program. Iran denied any US talks were scheduled."
 title: >-
   America nearly launched its biggest attack since World War Two, over a deal
   Iran says doesn't exist

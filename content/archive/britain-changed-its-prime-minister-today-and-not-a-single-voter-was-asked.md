@@ -1,4 +1,6 @@
 ---
+seoTitle: "Andy Burnham becomes UK prime minister without an election"
+seoDescription: "Andy Burnham became the UK's prime minister after Keir Starmer resigned, winning the Labour leadership unopposed. How it happened without a general election."
 title: Britain changed its prime minister today and not a single voter was asked
 category: geopolitics
 date: '2026-07-23T00:30:00.015Z'

@@ -1,4 +1,6 @@
 ---
+seoTitle: "India lets Amazon and Flipkart hold inventory for exports"
+seoDescription: "India relaxed FDI rules on July 23 so Amazon and Flipkart can hold their own inventory, but only to export Indian-made goods. Trader body CAIT objects."
 title: >-
   India let Amazon and Flipkart hold their own inventory, but only to sell it
   abroad

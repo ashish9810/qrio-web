@@ -1,4 +1,6 @@
 ---
+seoTitle: "Why the US government shut down Anthropic's Fable 5 AI"
+seoDescription: "Anthropic launched Fable 5 on June 9. Three days later the US government ordered it switched off worldwide with 90 minutes' notice, citing a safety risk."
 title: >-
   Anthropic's most powerful AI lasted 76 hours. Then the US government shut it
   down

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Navi's first institutional round: $100M from Prosus"
+seoDescription: "Sachin Bansal's fintech Navi raised $100 million from Prosus at about a $1.3 billion valuation, its first institutional round after eight years self-funded."
 title: >-
   Sachin Bansal ran his fintech alone for eight years before taking anyone's
   money

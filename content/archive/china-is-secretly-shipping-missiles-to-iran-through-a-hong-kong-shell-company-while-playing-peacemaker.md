@@ -1,4 +1,6 @@
 ---
+seoTitle: "Is China selling missiles to Iran via a Hong Kong firm?"
+seoDescription: "Reuters reported Iran agreed to buy 300 to 400 Chinese shoulder fired missiles for $60 to $70 million via a Hong Kong firm. China calls it groundless."
 title: >-
   China is secretly shipping missiles to Iran through a Hong Kong shell company,
   while playing peacemaker

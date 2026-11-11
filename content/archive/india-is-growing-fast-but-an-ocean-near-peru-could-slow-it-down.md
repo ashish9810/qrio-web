@@ -1,4 +1,6 @@
 ---
+seoTitle: "How El Niño could slow India's economy this year"
+seoDescription: "El Niño, a warming of the ocean near Peru, weakens India's monsoon and makes food dearer. Forecasters expect a strong one, and India has cut its rain forecast."
 title: India is growing fast. But an ocean near Peru could slow it down
 category: indiamacro
 date: '2026-06-18T09:02:59.463Z'

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Australia clears uranium exports to India after decades"
+seoDescription: "Australia signed the final paperwork for long-term uranium exports to India during Modi's Melbourne visit, one of 18 agreements, including a minerals corridor."
 title: >-
   Australia guards the world's largest uranium reserves. It just opened the
   vault to India
