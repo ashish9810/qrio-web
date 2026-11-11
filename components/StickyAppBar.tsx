@@ -81,7 +81,7 @@ export default function StickyAppBar() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-card/95 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] backdrop-blur">
       <div className="mx-auto flex max-w-[720px] items-center gap-3">
-        <Image src="/icons/icon-192.png" alt="" width={40} height={40} className="rounded-[10px]" />
+        <Image src="/icons/icon-192.png" alt="Qrio app icon" width={40} height={40} className="rounded-[10px]" />
         <p className="flex-1 text-[14px] leading-snug">
           <strong>Qrio app</strong>
           <br />

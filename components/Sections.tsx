@@ -74,6 +74,7 @@ export function Topics() {
                 <div className={`vcard tone-${video.tone}`}>
                   <SampleVideo
                     src={video.video}
+                    alt={`Video by ${video.name}: ${video.title}`}
                     poster={video.poster}
                     focus={video.focus}
                     sizes="(max-width: 768px) 46vw, 260px"
@@ -86,7 +87,7 @@ export function Topics() {
                     <div className="vcard-creator">
                       <Image
                         src={video.avatar}
-                        alt=""
+                        alt={video.name}
                         width={22}
                         height={22}
                         className="vcard-avatar"

@@ -14,6 +14,7 @@ import { useEffect, useRef, useState } from 'react'
  */
 export default function SampleVideo({
   src,
+  alt,
   poster,
   focus,
   sizes,
@@ -21,6 +22,8 @@ export default function SampleVideo({
   eager = false,
 }: {
   src: string
+  /** Describes the video poster (search engines flag images without alt text). */
+  alt: string
   poster: string
   focus: string
   sizes: string
@@ -96,7 +99,7 @@ export default function SampleVideo({
     <div ref={wrapRef} className="absolute inset-0">
       <Image
         src={poster}
-        alt=""
+        alt={alt}
         fill
         sizes={sizes}
         quality={60}

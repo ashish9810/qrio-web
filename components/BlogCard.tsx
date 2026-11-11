@@ -21,7 +21,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
 
       {/* Qrio logo: the app icon next to the wordmark */}
       <div className="flex items-center justify-center gap-3 py-9" aria-hidden="true">
-        <Image src="/apple-touch-icon.png" alt="" width={56} height={56} className="rounded-[14px]" />
+        <Image src="/apple-touch-icon.png" alt="Qrio" width={56} height={56} className="rounded-[14px]" />
         <span className="font-serif text-[44px] leading-none font-semibold tracking-[-0.03em] text-ink">Qrio</span>
       </div>
 

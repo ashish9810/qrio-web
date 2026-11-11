@@ -22,7 +22,7 @@ export default function StoryCard({
         {story.cover && (
           <Image
             src={story.cover}
-            alt=""
+            alt={story.title}
             fill
             sizes="(max-width: 768px) 100vw, 340px"
             quality={60}

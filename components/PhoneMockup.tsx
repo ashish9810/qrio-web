@@ -60,6 +60,7 @@ export default function PhoneMockup() {
             <div key={video.title} className={`reel tone-${video.tone}`}>
               <SampleVideo
                 src={video.video}
+                alt={`Video by ${video.name}: ${video.title}`}
                 poster={video.poster}
                 focus={video.focus}
                 sizes="270px"
@@ -94,7 +95,7 @@ export default function PhoneMockup() {
                 <div className="reel-creator">
                   <Image
                     src={video.avatar}
-                    alt=""
+                    alt={video.name}
                     width={26}
                     height={26}
                     className="reel-avatar"
