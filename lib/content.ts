@@ -22,20 +22,31 @@ export const PLAY_STORE_URL =
 /**
  * Play Store link with an install referrer, so Play Console's acquisition
  * reports show which installs came from this website. `medium` is where the
- * click happened (header, hero, blog, story and so on). A visitor's own utm_source and
- * utm_campaign (for example from an Instagram link) are passed through.
+ * click happened (header, hero, blog, story and so on). A visitor's own utm_source,
+ * utm_medium, utm_campaign and utm_content (for example from an Instagram
+ * story link) are passed through unchanged; the site spot then goes in utm_term.
  */
 export function playStoreUrl(
   medium: string,
-  utm?: { source?: string | null; campaign?: string | null },
+  utm?: {
+    source?: string | null
+    campaign?: string | null
+    medium?: string | null
+    content?: string | null
+  },
   webId?: string,
   reel?: string,
 ) {
   const referrer = new URLSearchParams({
     utm_source: utm?.source || 'website',
-    utm_medium: `site_${medium}`,
+    // The link's own medium (bio, story, creator_story...) wins; otherwise
+    // where on the site the click happened.
+    utm_medium: utm?.medium || `site_${medium}`,
     utm_campaign: utm?.campaign || 'organic',
   })
+  if (utm?.content) referrer.set('utm_content', utm.content)
+  // Where on the site the click happened, kept even when the link had its own medium.
+  if (utm?.medium) referrer.set('utm_term', `site_${medium}`)
   // The visitor's analytics id (see lib/analytics.ts), so the install can be joined to the visit.
   if (webId) referrer.set('web_id', webId)
   // A shared video: the app opens it after install (deferred deep link).

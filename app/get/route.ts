@@ -152,8 +152,12 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 export async function GET(request: Request) {
   const url = new URL(request.url)
   const params = url.searchParams
-  const source = params.get('utm_source')
-  const campaign = params.get('utm_campaign')
+  const clean = (v: string | null) =>
+    v ? v.replace(/[^a-z0-9_.:\-]/gi, '').slice(0, 60) || null : null
+  const source = clean(params.get('utm_source'))
+  const campaign = clean(params.get('utm_campaign'))
+  const medium = clean(params.get('utm_medium'))
+  const content = clean(params.get('utm_content'))
   // From the site's own buttons: where the button was and the visitor's
   // analytics id, so the install still credits that spot (see lib/appLink.ts).
   const from = (params.get('from') ?? '').replace(/[^a-z0-9_]/gi, '').slice(0, 30)
@@ -162,7 +166,7 @@ export async function GET(request: Request) {
   const reel = UUID.test(reelParam) ? reelParam.toLowerCase() : undefined
   const target = playStoreUrl(
     from || (reel ? 'share' : 'short_link'),
-    { source, campaign },
+    { source, campaign, medium, content },
     webId || undefined,
     reel,
   )
@@ -176,6 +180,8 @@ export async function GET(request: Request) {
     const tags = new URLSearchParams()
     if (source) tags.set('utm_source', source.slice(0, 60))
     if (campaign) tags.set('utm_campaign', campaign.slice(0, 60))
+    if (medium) tags.set('utm_medium', medium)
+    if (content) tags.set('utm_content', content)
     if (reel) tags.set('reel', reel)
     const query = tags.toString() ? `?${tags}` : ''
     const intent =
