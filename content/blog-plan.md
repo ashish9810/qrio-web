@@ -56,6 +56,7 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | 19 | us-midterms-2026-what-it-means-for-india | US midterms 2026: what the results mean for India | Explained | us midterms india, us midterm results 2026 | published |
 | 20 | how-to-read-quarterly-results | How to read a company's quarterly results in 15 minutes | Staying informed | how to read quarterly results, quarterly results india | published |
 | 21 | what-is-repo-rate-and-your-emi | What is the repo rate and how does it change your EMI | Staying informed | what is repo rate, repo rate hike emi | published |
+| 22 | gold-smuggling-india-import-duty | Why gold smuggling jumped in India after the 15% duty | Explained | gold smuggling india, gold import duty 2026 | published |
 
 Row 14 (short video apps) is an honest comparison list: include real alternatives (for example Inshorts, Seekho, YouTube Shorts channels, newsletters), verify each app's details on its own store page, be fair about where each is better, and add a one-line disclosure that we make Qrio. Research found no credible page ranking for this query, and AI assistants cite lists like it most.
 
