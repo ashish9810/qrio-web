@@ -1,5 +1,6 @@
 ---
 title: "Jio Platforms IPO: what it is, how big it is and what to watch"
+seoTitle: "What is the Jio Platforms IPO? Meaning, size and demand"
 description: "Jio Platforms is raising up to ₹30,213 crore in India's biggest IPO. Here is what the issue is, where the money goes and what the demand tells us."
 date: 2026-10-25
 category: Explained

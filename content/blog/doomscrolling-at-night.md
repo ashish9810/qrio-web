@@ -1,5 +1,6 @@
 ---
 title: "Doomscrolling at night: how to break the bedtime scroll"
+seoTitle: "How to stop doomscrolling at night and before bed"
 description: "Why you doomscroll at night, why night mode is not the fix, and simple steps that help you put the phone down and sleep, based on what the research shows."
 date: 2026-10-16
 category: Doomscrolling

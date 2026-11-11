@@ -7,6 +7,8 @@ import matter from 'gray-matter'
  *
  *   title:       headline (no full stop at the end)
  *   description: 140 to 160 characters, used for search results and sharing
+ *   seoTitle:    optional <title> for search results (60 characters or fewer),
+ *                written with the words people search; the page headline stays `title`
  *   date:        YYYY-MM-DD first published
  *   updated:     YYYY-MM-DD last meaningful edit (optional)
  *   category:    one of CATEGORIES
@@ -45,6 +47,7 @@ function defaultFormat(category: string, slug: string): Format {
 export type BlogPost = {
   slug: string
   title: string
+  seoTitle?: string
   description: string
   date: string
   updated: string
@@ -68,6 +71,7 @@ function parse(file: string): BlogPost {
   return {
     slug,
     title: String(data.title ?? slug),
+    seoTitle: data.seoTitle ? String(data.seoTitle).trim() : undefined,
     description: String(data.description ?? ''),
     date: iso(data.date),
     updated: iso(data.updated ?? data.date),

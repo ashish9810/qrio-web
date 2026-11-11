@@ -15,7 +15,10 @@ import { APP_LIVE } from '@/lib/content'
 import { Events, initAnalytics, track, trackPageView, type CtaLocation } from '@/lib/analytics'
 import { captureUtm } from '@/lib/utm'
 import type { Platform } from '@/lib/validation'
-import EarlyAccessModal from './EarlyAccessModal'
+import dynamic from 'next/dynamic'
+
+// Loaded only when someone opens it, so its code is not on the homepage's critical path.
+const EarlyAccessModal = dynamic(() => import('./EarlyAccessModal'))
 
 type EarlyAccessContextValue = {
   platform: Platform

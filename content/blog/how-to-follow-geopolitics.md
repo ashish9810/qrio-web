@@ -1,5 +1,6 @@
 ---
 title: "How to follow geopolitics without reading the news all day"
+seoTitle: "How to follow geopolitics: best sources and a simple routine"
 description: "You can follow geopolitics in under an hour a week with a few anchor regions, four simple questions and one weekly deep read. Here is the routine."
 date: 2026-10-21
 category: Staying informed

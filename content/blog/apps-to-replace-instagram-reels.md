@@ -1,5 +1,6 @@
 ---
 title: "Apps to replace your Instagram scroll when you want to feel smarter"
+seoTitle: "Apps to replace Instagram scrolling that make you smarter"
 description: "Apps to swap for the Instagram short-video feed: news in 60 words, Wikipedia, TED, book summaries and more, with what each costs you in time and money."
 date: 2026-10-23
 category: Doomscrolling

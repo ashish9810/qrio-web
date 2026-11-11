@@ -27,6 +27,11 @@ for (const file of files) {
 
   if (!data.title) problems.push('missing title')
   if (String(data.title ?? '').trim().endsWith('.')) problems.push('title ends with a full stop')
+  if (data.seoTitle !== undefined) {
+    const st = String(data.seoTitle).trim()
+    if (st.length > 60) problems.push(`seoTitle is ${st.length} characters (max 60)`)
+    if (st.endsWith('.')) problems.push('seoTitle ends with a full stop')
+  }
   const dl = String(data.description ?? '').length
   if (dl < 120 || dl > 160) problems.push(`description is ${dl} characters, want 120 to 160`)
   if (!/^\d{4}-\d{2}-\d{2}$/.test(iso(data.date))) problems.push('date must be YYYY-MM-DD')

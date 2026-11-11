@@ -13,20 +13,11 @@ const DISMISS_KEY = 'qrio_app_bar_dismissed'
 const subscribeNoop = () => () => {}
 
 /**
- * A/B test of the bar's line. A visitor always gets the same variant (from
- * their web_id). The weekly check compares "Web Sticky Bar Shown" with
- * "Web Download Click" (location sticky) per variant; keep the winner.
+ * The bar's line. An A/B test against "Get smarter in a minute a day. Free on
+ * Android." ran 27 Oct to 11 Nov and was stopped: the bar is shown about 10
+ * times a week, far short of the 300 shows per version a fair test needs.
  */
-const VARIANTS = {
-  a: 'Stories like this as 1-minute videos. Free.',
-  b: 'Get smarter in a minute a day. Free on Android.',
-} as const
-type Variant = keyof typeof VARIANTS
-
-function readVariant(): Variant {
-  const id = getWebId()
-  return id && parseInt(id.slice(-1), 16) % 2 === 1 ? 'b' : 'a'
-}
+const LINE = 'Stories like this as 1-minute videos. Free.'
 
 function readDismissed(): boolean {
   try {
@@ -52,7 +43,6 @@ export default function StickyAppBar() {
   // Hidden on the server and during hydration; afterwards, unless dismissed recently.
   const dismissedEarlier = useSyncExternalStore(subscribeNoop, readDismissed, () => true)
   const [closed, setClosed] = useState(false)
-  const variant = useSyncExternalStore<Variant>(subscribeNoop, readVariant, () => 'a')
 
   const href = useSyncExternalStore(
     subscribeNoop,
@@ -73,14 +63,14 @@ export default function StickyAppBar() {
   }, [])
 
   useEffect(() => {
-    if (visible) track(Events.stickyShown, { variant })
-  }, [visible, variant, pathname])
+    if (visible) track(Events.stickyShown)
+  }, [visible, pathname])
 
   if (!visible) return null
 
   const dismiss = () => {
     setClosed(true)
-    track(Events.stickyDismissed, { variant })
+    track(Events.stickyDismissed)
     try {
       localStorage.setItem(DISMISS_KEY, String(Date.now() + 7 * 24 * 60 * 60 * 1000))
     } catch {
@@ -95,13 +85,13 @@ export default function StickyAppBar() {
         <p className="flex-1 text-[14px] leading-snug">
           <strong>Qrio app</strong>
           <br />
-          <span className="text-muted">{VARIANTS[variant]}</span>
+          <span className="text-muted">{LINE}</span>
         </p>
         <a
           href={href}
           className="btn btn-sm"
           onClick={(e) => {
-            track(Events.ctaClick, { location: 'sticky', variant, native_prompt: Boolean(installPrompt) })
+            track(Events.ctaClick, { location: 'sticky', native_prompt: Boolean(installPrompt) })
             if (installPrompt) {
               e.preventDefault()
               void installPrompt.prompt()

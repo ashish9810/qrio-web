@@ -63,7 +63,7 @@ export default function PhoneMockup() {
                 poster={video.poster}
                 focus={video.focus}
                 sizes="270px"
-                fetchPriority={index === 0 ? 'auto' : 'low'}
+                fetchPriority={index === 0 ? 'high' : 'low'}
                 eager={index === 0}
               />
               <div className="reel-shade" />

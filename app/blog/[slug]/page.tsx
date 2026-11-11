@@ -22,8 +22,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = getPost(slug)
   if (!post) return {}
 
+  const title = post.seoTitle ?? post.title
   return {
-    title: post.title,
+    title,
     description: post.description,
     alternates: { canonical: `/blog/${post.slug}` },
     // A draft previewed in dev must never be indexed.
@@ -33,13 +34,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: 'article',
       url: `${SITE_URL}/blog/${post.slug}`,
       siteName: SITE_NAME,
-      title: post.title,
+      title,
       description: post.description,
       publishedTime: post.date,
       modifiedTime: post.updated,
       authors: [BLOG.author],
     },
-    twitter: { card: 'summary_large_image', title: post.title, description: post.description },
+    twitter: { card: 'summary_large_image', title, description: post.description },
   }
 }
 

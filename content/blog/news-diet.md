@@ -1,6 +1,7 @@
 ---
 title: "What a healthy news diet looks like"
-description: "A healthy news diet is small, varied and regular: set times, a few trusted sources and more explanation than alarm. Here is the research and a sample plan."
+seoTitle: "News diet: what it means and how to build a healthy one"
+description: "A news diet is how much news you take in, from where and when. A healthy one is small, varied and regular. What research says, plus a sample plan."
 date: 2026-10-24
 category: Staying informed
 status: published

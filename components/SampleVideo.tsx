@@ -24,7 +24,7 @@ export default function SampleVideo({
   poster: string
   focus: string
   sizes: string
-  fetchPriority?: 'auto' | 'low'
+  fetchPriority?: 'high' | 'auto' | 'low'
   /** Above the fold: load the poster straight away instead of lazily. */
   eager?: boolean
 }) {
