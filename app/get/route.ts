@@ -1,3 +1,6 @@
+import { after } from 'next/server'
+import { Events } from '@/lib/analytics'
+import { trackServer } from '@/lib/analytics-server'
 import { playStoreUrl, SITE_NAME, SITE_URL } from '@/lib/content'
 import { getSupabase } from '@/lib/supabase'
 
@@ -175,6 +178,22 @@ export async function GET(request: Request) {
     const p = reel ? await reelPreview(reel) : null
     return previewPage(target, p ?? PREVIEW, reel)
   }
+  // One event per human click on the link: bio and shared links, video
+  // shares, and the site's own buttons (from=...). Counted after the
+  // redirect is sent, so it never slows it down.
+  after(() =>
+    trackServer(Events.shortLinkOpen, {
+      via: from ? 'site_button' : reel ? 'video_share' : 'short_link',
+      from: from || undefined,
+      utm_source: source ?? undefined,
+      utm_campaign: campaign ?? undefined,
+      utm_medium: medium ?? undefined,
+      utm_content: content ?? undefined,
+      device: /android/i.test(ua) ? 'android' : /iphone|ipad|ipod/i.test(ua) ? 'ios' : 'other',
+      country: request.headers.get('x-vercel-ip-country') ?? undefined,
+      web_id: webId || undefined,
+    }),
+  )
   if (/android/i.test(ua)) {
     // Only the tags travel to the app; nothing else from the query string.
     const tags = new URLSearchParams()

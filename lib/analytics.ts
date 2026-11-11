@@ -7,6 +7,10 @@ export const Events = {
   scrollDepth: 'Web Scroll Depth',
   stickyShown: 'Web Sticky Bar Shown',
   stickyDismissed: 'Web Sticky Bar Dismissed',
+  installPrompt: 'Web Install Prompt',
+  internalClick: 'Web Internal Click',
+  outboundClick: 'Web Outbound Click',
+  shortLinkOpen: 'Web Short Link Open',
 } as const
 
 export type CtaLocation = 'header' | 'hero' | 'final' | 'blog' | 'story' | 'sticky'
@@ -19,7 +23,7 @@ type Mixpanel = typeof import('mixpanel-browser').default
  * a funnel can run from a blog visit to app usage. The token is public by
  * design (the app ships it too). Every website event carries platform=web.
  */
-const MIXPANEL_TOKEN = 'b2dda4b0bbf735b905a338a7e40d508c'
+export const MIXPANEL_TOKEN = 'b2dda4b0bbf735b905a338a7e40d508c'
 
 /** Same-site path that next.config.ts forwards to Mixpanel, so ad blockers do not drop events. */
 const PROXY_PATH = '/mp'

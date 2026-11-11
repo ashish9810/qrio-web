@@ -94,7 +94,10 @@ export default function StickyAppBar() {
             track(Events.ctaClick, { location: 'sticky', native_prompt: Boolean(installPrompt) })
             if (installPrompt) {
               e.preventDefault()
-              void installPrompt.prompt()
+              void installPrompt.prompt().then(async () => {
+                const choice = await (installPrompt as InstallPrompt & { userChoice?: Promise<{ outcome: string }> }).userChoice
+                if (choice) track(Events.installPrompt, { outcome: choice.outcome })
+              })
             }
           }}
         >

@@ -62,6 +62,25 @@ export default function EarlyAccessProvider({ children }: { children: React.Reac
     initAnalytics()
   }, [])
 
+  // Clicks between articles (the related cards and in-text links) and out to
+  // sources, so we can see whether cross-linking keeps readers on the site.
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const link = (e.target as Element | null)?.closest?.('a')
+      const href = link?.getAttribute('href')
+      if (!href) return
+      const from = window.location.pathname
+      if (/^\/(blog|explainers)\/[^/]+/.test(href) && !href.startsWith('/explainers/topic/')) {
+        if (/^\/(blog|explainers)\/[^/]+/.test(from)) track(Events.internalClick, { from, to: href })
+      } else if (/^https?:\/\//.test(href)) {
+        const host = new URL(href).hostname
+        if (!/qrioapp\.in$|play\.google\.com$/.test(host)) track(Events.outboundClick, { from, host })
+      }
+    }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
+  }, [])
+
   // One page view per route, including client-side navigation.
   const pathname = usePathname()
   useEffect(() => {
