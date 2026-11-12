@@ -67,6 +67,19 @@ export default function Footer() {
           </li>
         </ul>
       </div>
+      {/* Launch directory badge (Launch Orbit). Kept small and last so it never competes with the app links. */}
+      <div className="mx-auto mt-6 flex max-w-[1100px] px-5">
+        <a href="https://launchorbit.co" target="_blank" rel="noopener noreferrer">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://launchorbit.co/api/badge?theme=light&v=10"
+            alt="View this product on Launch Orbit"
+            width={240}
+            height={64}
+            loading="lazy"
+          />
+        </a>
+      </div>
     </footer>
   )
 }
