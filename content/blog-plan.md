@@ -16,7 +16,7 @@ Young working professionals and students in Indian cities (23 to 32): tech, star
 
 - Calm, smart, warm, plain English. Short sentences. Never preachy.
 - No em dashes anywhere. No full stop at the end of any heading or title.
-- Never use the words: learn, educational, explainer, knowledge, upskill, intellectual, Reels. (Words inside URLs are fine.)
+- Never use the words: educational, explainer, knowledge, upskill, intellectual. (Words inside URLs are fine.) Since 12 Nov 2026 "learn" and "reels" are allowed and match the brand line "Reels that make you smarter"; use them naturally, not in every post.
 - Open with a direct answer in the first two sentences. Then headings that match real questions people type.
 - Every number, study or claim must come from a source that was actually opened and read. Never write a statistic from memory. If a figure cannot be verified, leave it out. Say plainly when research is only correlational.
 - Link sources inline and list them under `## Sources`.

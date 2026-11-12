@@ -12,7 +12,8 @@ const dir = path.join(process.cwd(), 'content', 'blog')
 const wanted = process.argv.slice(2)
 const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md') && (wanted.length === 0 || wanted.includes(f.replace(/\.md$/, ''))))
 
-const BANNED = /\b(learn\w*|educat\w*|explainer\w*|knowledge|upskill\w*|intellectual\w*|reels?)\b/i
+// 'learn' and 'reels' allowed since 12 Nov 2026 (brand line: "Reels that make you smarter").
+const BANNED = /\b(educat\w*|explainer\w*|knowledge|upskill\w*|intellectual\w*)\b/i
 const CATEGORIES = ['Doomscrolling', 'Staying informed', 'Explained', 'Behind Qrio']
 const FORMATS = ['guide', 'trending', 'comparison', 'brand']
 let failed = false
