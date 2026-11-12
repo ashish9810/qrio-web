@@ -13,7 +13,7 @@ export const Events = {
   shortLinkOpen: 'Web Short Link Open',
 } as const
 
-export type CtaLocation = 'header' | 'hero' | 'final' | 'blog' | 'story' | 'sticky'
+export type CtaLocation = 'header' | 'hero' | 'final' | 'blog' | 'story' | 'sticky' | 'watch'
 
 type Props = Record<string, string | number | boolean>
 type Mixpanel = typeof import('mixpanel-browser').default

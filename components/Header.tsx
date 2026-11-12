@@ -23,6 +23,9 @@ export default function Header() {
           <Link href="/#creators" className="hover:text-ink">
             For creators
           </Link>
+          <Link href="/watch" className="hidden hover:text-ink md:inline">
+            Watch
+          </Link>
           <Link href="/explainers" className="hidden hover:text-ink md:inline">
             Stories
           </Link>

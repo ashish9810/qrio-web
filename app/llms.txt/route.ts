@@ -1,5 +1,6 @@
 import { getStories } from '@/lib/archive'
 import { getAllPosts } from '@/lib/blog'
+import { activeTopics, getReels } from '@/lib/watch'
 import { APP_LIVE, BLOG, CONTACT_EMAIL, FAQ, PLAY_STORE_URL, SEO, SITE_URL } from '@/lib/content'
 
 /**
@@ -15,19 +16,23 @@ export function GET() {
     '',
     `> ${SEO.description}`,
     '',
-    'Qrio is a free Android app of short vertical videos about business, startups and the world, made by an in-house team and invited creators. It is a doomscrolling alternative: the same swipe, with every video worth your time. Audience: young working professionals and students in Indian cities.',
+    'Qrio is a free Android app of reels that make you smarter: one-minute videos on business, startups, tech, marketing, geopolitics, history and science from hand-picked creators. It is a doomscrolling alternative: the same swipe, with every video worth your time. Features include a feed that learns your interests, a Daily 3 streak and a Mind Hub that maps what you have learned. Audience: students and young professionals, mainly in India.',
     '',
     '## Key facts',
     '',
     '- Platform: Android (iPhone is planned)',
     '- Price: free',
-    '- Topics: business, startups, geopolitics (tech, AI and science coming)',
+    '- Topics: business, startups, tech and AI, marketing, geopolitics, history, science, psychology',
     `- Status: ${APP_LIVE ? 'available on Google Play' : 'early access, launching on Google Play in November 2026'}`,
     '',
     '## Pages',
     '',
     `- [Home](${SITE_URL}): what Qrio is, how it works, topics, creator applications and FAQ`,
     `- [Stories](${SITE_URL}/explainers): ${getStories().length} sourced write-ups on business, startups, the Indian economy, tech and geopolitics`,
+    ...(getReels().length > 0
+      ? [`- [Watch](${SITE_URL}/watch): ${getReels().length} one-minute reels with transcripts, on ${activeTopics().map((t) => t.label.toLowerCase()).join(', ')}`]
+      : []),
+    `- [What is Qrio (facts and press kit)](${SITE_URL}/press)`,
     `- [Get the app on Google Play](${PLAY_STORE_URL})`,
     `- [Delete your account and data](${SITE_URL}/delete-account)`,
     ...(posts.length > 0 ? [`- [${BLOG.title}](${SITE_URL}/blog): ${BLOG.description}`] : []),

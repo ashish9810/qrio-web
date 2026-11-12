@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import BlogCard from '@/components/BlogCard'
 import BlogCta from '@/components/BlogCta'
+import RelatedReels from '@/components/RelatedReels'
 import BlogMarkdown from '@/components/BlogMarkdown'
 import ReadDepth from '@/components/ReadDepth'
 import StoryCard from '@/components/StoryCard'
@@ -147,6 +148,7 @@ export default async function BlogPost({ params }: PageProps) {
         </section>
       )}
 
+      <RelatedReels text={`${post.title} ${post.description}`} />
       <BlogCta />
 
       {more.length > 0 && (

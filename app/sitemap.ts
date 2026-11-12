@@ -2,11 +2,13 @@ import type { MetadataRoute } from 'next'
 import { getActiveCategories, getStories } from '@/lib/archive'
 import { getAllPosts } from '@/lib/blog'
 import { AUTHOR, SITE_URL } from '@/lib/content'
+import { activeTopics, getReels, reelsIn } from '@/lib/watch'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
   const posts = getAllPosts().filter((p) => p.status === 'published')
   const stories = getStories()
+  const reels = getReels()
 
   return [
     { url: SITE_URL, lastModified: now, changeFrequency: 'weekly', priority: 1 },
@@ -36,6 +38,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
+    // Watch pages: one per reel, plus a page per topic.
+    ...(reels.length > 0
+      ? [
+          { url: `${SITE_URL}/watch`, lastModified: reels[0].published, changeFrequency: 'weekly' as const, priority: 0.8 },
+          ...activeTopics().map((t) => ({
+            url: `${SITE_URL}/watch/topic/${t.slug}`,
+            lastModified: reelsIn(t)[0]?.published,
+            changeFrequency: 'weekly' as const,
+            priority: 0.6,
+          })),
+          ...reels.map((r) => ({
+            url: `${SITE_URL}/watch/${r.slug}`,
+            lastModified: r.published,
+            changeFrequency: 'monthly' as const,
+            priority: 0.6,
+          })),
+        ]
+      : []),
+    { url: `${SITE_URL}/press`, changeFrequency: 'monthly' as const, priority: 0.5 },
     { url: `${SITE_URL}${AUTHOR.path}`, changeFrequency: 'monthly' as const, priority: 0.4 },
     {
       url: `${SITE_URL}/delete-account`,

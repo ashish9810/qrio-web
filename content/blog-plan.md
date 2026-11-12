@@ -6,7 +6,7 @@ Each post has a `format` (guide, trending, comparison or brand). Formats are an 
 
 ## Goal
 
-Rank on Google and get cited by AI assistants for people who want an alternative to doomscrolling, and for people who want to stay informed on business, startups and the world quickly. Every post ends with the Qrio call to action (added automatically). Qrio is a free Android app of short videos on business, startups and the world. We do not host video on the website, so posts are text only.
+Rank on Google and get cited by AI assistants for people who want an alternative to doomscrolling, and for people who want to stay informed on business, startups and the world quickly. Every post ends with the Qrio call to action (added automatically). Qrio is a free Android app of short videos on business, startups and the world. Posts are text. Since 12 Nov 2026 the site also has watch pages (/watch/<slug>, one per Qrio reel with a short preview and transcript); a "Watch on Qrio" strip of related reels is added under every post automatically, so do not embed videos in the markdown. Where a specific reel fits the post, link its watch page inline (list: content/watch.json, field slug).
 
 ## Reader
 
@@ -57,6 +57,9 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | 20 | how-to-read-quarterly-results | How to read a company's quarterly results in 15 minutes | Staying informed | how to read quarterly results, quarterly results india | published |
 | 21 | what-is-repo-rate-and-your-emi | What is the repo rate and how does it change your EMI | Staying informed | what is repo rate, repo rate hike emi | published |
 | 22 | gold-smuggling-india-import-duty | Why gold smuggling jumped in India after the 15% duty | Explained | gold smuggling india, gold import duty 2026 | published |
+| 23 | qrio-vs-youtube-shorts | Qrio vs YouTube Shorts: which is better when you want to get smarter, not just scroll | Doomscrolling | youtube shorts alternative for useful videos | todo |
+| 24 | apps-like-inshorts-but-video | Apps like Inshorts, but video: short news and business apps compared | Staying informed | apps like inshorts video | todo |
+| 25 | best-short-video-apps-for-students-india | Short video apps for students in India that are actually useful | Staying informed | useful short video apps for students | todo |
 
 Row 14 (short video apps) is an honest comparison list: include real alternatives (for example Inshorts, Seekho, YouTube Shorts channels, newsletters), verify each app's details on its own store page, be fair about where each is better, and add a one-line disclosure that we make Qrio. Research found no credible page ranking for this query, and AI assistants cite lists like it most.
 

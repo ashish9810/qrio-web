@@ -6,6 +6,7 @@ import ArticleMarkdown from '@/components/ArticleMarkdown'
 import StoryCard from '@/components/StoryCard'
 import ReadDepth from '@/components/ReadDepth'
 import StoryCta from '@/components/StoryCta'
+import RelatedReels from '@/components/RelatedReels'
 import BlogCard from '@/components/BlogCard'
 import { getAllPosts } from '@/lib/blog'
 import { mostRelated } from '@/lib/related'
@@ -146,6 +147,7 @@ export default async function StoryPage({ params }: PageProps) {
         </section>
       )}
 
+      <RelatedReels text={`${story.title} ${story.brief}`} />
       <StoryCta />
 
       {related.length > 0 && (

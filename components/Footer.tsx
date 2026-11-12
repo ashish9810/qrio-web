@@ -29,8 +29,18 @@ export default function Footer() {
             </li>
           ))}
           <li>
+            <Link href="/watch" className="hover:text-ink">
+              Watch
+            </Link>
+          </li>
+          <li>
             <Link href="/explainers" className="hover:text-ink">
               Stories
+            </Link>
+          </li>
+          <li>
+            <Link href="/press" className="hover:text-ink">
+              Press
             </Link>
           </li>
           {hasPublishedPosts() && (
