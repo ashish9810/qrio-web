@@ -34,8 +34,10 @@ def candidates(get, top):
     reels = [r for r in reels if (r.get("language") or "en") == "en"]
     def score(r):
         x = q.get(r["id"])
+        # Real watch data only (reel_quality comes from reel_seen). reels.views_count
+        # and likes_count include seeded dummy numbers, so they are never used here.
         quality = (x["completion"] * 0.6 + (1 - x["skip_rate"]) * 0.4) if x and x["viewers"] >= 3 else 0.3
-        return quality + min(r["views_count"] or 0, 200) / 2000
+        return quality + min(x["viewers"] if x else 0, 60) / 600
     reels.sort(key=score, reverse=True)
     return reels[:top]
 
