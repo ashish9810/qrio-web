@@ -1,6 +1,6 @@
 {
  "week": "2026-w46",
- "built": "2026-11-12T08:10:19.218403+00:00",
+ "built": "2026-11-12T09:49:46.203927+00:00",
  "from": "2026-11-05",
  "to": "2026-11-12",
  "items": [
@@ -10,9 +10,24 @@
    "viewers": 17
   },
   {
+   "id": "6c5c5725-02ee-427d-8c0e-2fd3dc2b225a",
+   "slug": "when-kfc-ran-out-of-chicken-the-fck-apology-ad",
+   "viewers": 15
+  },
+  {
    "id": "28d9802f-0e36-4212-bba1-9470ce98f04c",
    "slug": "the-peak-end-rule-why-people-chose-more-pain",
+   "viewers": 14
+  },
+  {
+   "id": "7807d4cc-9560-4865-9d53-7f452066e20d",
+   "slug": "the-famous-british-writer-born-in-a-small-town-in-bihar",
    "viewers": 13
+  },
+  {
+   "id": "c24d40ce-b544-444d-a6fc-c08fb0a909fb",
+   "slug": "australias-dingo-fence-the-longest-fence-in-the-world",
+   "viewers": 12
   },
   {
    "id": "b8027bf1-6d01-476f-ac5b-5c5ad7b738a0",
@@ -25,34 +40,19 @@
    "viewers": 11
   },
   {
-   "id": "db532c15-4b0f-4ad1-bd5f-487b1118d7bb",
-   "slug": "why-your-brain-needs-a-gym-in-the-age-of-ai",
-   "viewers": 10
+   "id": "2bd451c7-fd1c-4576-997b-d6414d6539ae",
+   "slug": "if-india-has-it-all-why-is-it-not-rich",
+   "viewers": 11
   },
   {
    "id": "7f2935b1-5781-464a-9ecc-df18cd0f554e",
    "slug": "who-really-won-the-iran-war-the-case-for-china",
-   "viewers": 9
+   "viewers": 10
   },
   {
-   "id": "46f63ccd-0e31-48ed-a94b-e05a05ffbff0",
-   "slug": "why-investors-ask-how-co-founders-met",
-   "viewers": 9
-  },
-  {
-   "id": "eb381441-8385-4557-81a9-e749bbbff40a",
-   "slug": "how-a-coffee-brand-made-vadodara-curious-with-mystery-flasks",
-   "viewers": 8
-  },
-  {
-   "id": "61d7c987-1791-4951-bf56-854d77399873",
-   "slug": "why-the-caspian-sea-is-actually-a-lake",
-   "viewers": 8
-  },
-  {
-   "id": "132ad343-0ea5-49a4-a9ef-44be0f879ac4",
-   "slug": "why-africa-is-14-times-bigger-than-it-looks-on-the-map",
-   "viewers": 5
+   "id": "db532c15-4b0f-4ad1-bd5f-487b1118d7bb",
+   "slug": "why-your-brain-needs-a-gym-in-the-age-of-ai",
+   "viewers": 10
   }
  ]
 }
