@@ -57,7 +57,7 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | 20 | how-to-read-quarterly-results | How to read a company's quarterly results in 15 minutes | Staying informed | how to read quarterly results, quarterly results india | published |
 | 21 | what-is-repo-rate-and-your-emi | What is the repo rate and how does it change your EMI | Staying informed | what is repo rate, repo rate hike emi | published |
 | 22 | gold-smuggling-india-import-duty | Why gold smuggling jumped in India after the 15% duty | Explained | gold smuggling india, gold import duty 2026 | published |
-| 23 | qrio-vs-youtube-shorts | Qrio vs YouTube Shorts: which is better when you want to get smarter, not just scroll | Doomscrolling | youtube shorts alternative for useful videos | todo |
+| 23 | qrio-vs-youtube-shorts | Qrio vs YouTube Shorts: which is better when you want to get smarter, not just scroll | Doomscrolling | youtube shorts alternative for useful videos | published |
 | 24 | apps-like-inshorts-but-video | Apps like Inshorts, but video: short news and business apps compared | Staying informed | apps like inshorts video | todo |
 | 25 | best-short-video-apps-for-students-india | Short video apps for students in India that are actually useful | Staying informed | useful short video apps for students | todo |
 
