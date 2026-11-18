@@ -61,6 +61,7 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | 24 | apps-like-inshorts-but-video | Apps like Inshorts, but video: short news and business apps compared | Staying informed | apps like inshorts video | todo |
 | 25 | best-short-video-apps-for-students-india | Short video apps for students in India that are actually useful | Staying informed | useful short video apps for students | todo |
 | 26 | what-is-cpi-inflation-india | What is CPI inflation and how to read India's number | Staying informed | what is cpi inflation, cpi inflation india | published |
+| 27 | wpi-inflation-india-october-2026 | Wholesale inflation hit 12.29%: what it means for you | Explained | wpi inflation, wpi inflation october 2026, wpi vs cpi | published |
 
 Row 14 (short video apps) is an honest comparison list: include real alternatives (for example Inshorts, Seekho, YouTube Shorts channels, newsletters), verify each app's details on its own store page, be fair about where each is better, and add a one-line disclosure that we make Qrio. Research found no credible page ranking for this query, and AI assistants cite lists like it most.
 
