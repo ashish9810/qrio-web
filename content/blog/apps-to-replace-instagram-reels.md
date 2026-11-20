@@ -75,7 +75,7 @@ TED is still video, which makes it an easy step from a short-video habit. But on
 
 [Blinkist](https://play.google.com/store/apps/details?id=com.blinkslabs.blinkist.android) says it has summaries of more than 7,500 books and podcasts, each taking about 15 minutes, which you can read or listen to. [Headway](https://play.google.com/store/apps/details?id=com.headway.books) offers summaries of more than 2,000 non-fiction titles, also in about 15 minutes, and pitches itself directly at people tired of "mindless doom-scrolling."
 
-Both are useful for getting the main idea of a book you were never going to finish. Be fair to the books, though. A summary is a map, not the trip. If one grabs you, read the real thing. Both apps are built around paid subscriptions, so check the price and trial terms inside the app before you sign up.
+Both are useful for getting the main idea of a book you were never going to finish. Be fair to the books, though. A summary is a map, not the trip. If one grabs you, read the real thing. Both apps are built around paid subscriptions, so check the price and trial terms inside the app before you sign up. If you are weighing the two habits directly, our [Instagram vs Blinkist comparison](/blog/blinkist-vs-instagram) looks at time, cost and what you come away with.
 
 ### Duolingo and Brilliant, for a skill
 
