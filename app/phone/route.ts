@@ -118,7 +118,9 @@ export async function GET(request: Request) {
 
   if (decision === 'bot') {
     const target = playStoreUrl(t.from, { source: t.source, campaign: t.campaign, medium: 'site_qr' })
-    return previewPage(target, PREVIEW, undefined, `${SITE_URL}/phone`)
+    const res = previewPage(target, PREVIEW, undefined, `${SITE_URL}/phone`)
+    res.headers.set('x-robots-tag', 'noindex')
+    return res
   }
 
   after(() =>
