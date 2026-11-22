@@ -1,4 +1,4 @@
-import { playStoreUrl } from './content'
+import { playStoreUrl, SITE_URL } from './content'
 
 type Utm = { source?: string | null; campaign?: string | null }
 
@@ -21,3 +21,18 @@ export function getAppUrl(medium: string, utm?: Utm, webId?: string, android = f
 }
 
 export const isAndroid = () => /Android/i.test(navigator.userAgent)
+
+/**
+ * What the "send to my phone" QR code opens: /phone, which sends Android
+ * straight to Google Play and offers iPhones the WhatsApp community. Short
+ * keys keep the code low density and easy to scan. The visitor's utm_source,
+ * campaign and analytics id ride along, so a QR install still credits the
+ * source that sent them (utm_medium becomes site_qr, utm_term site_<spot>).
+ */
+export function phoneUrl(location: string, utm?: Utm, webId?: string) {
+  const q = new URLSearchParams({ s: utm?.source || 'website' })
+  if (utm?.campaign) q.set('c', utm.campaign)
+  q.set('f', location)
+  if (webId) q.set('w', webId)
+  return `${SITE_URL}/phone?${q}`
+}

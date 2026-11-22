@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation'
 import ReelCard from '@/components/ReelCard'
 import WatchPlayer from '@/components/WatchPlayer'
 import CtaButton from '@/components/CtaButton'
-import QrInstall from '@/components/QrInstall'
 import { mostRelated } from '@/lib/related'
 import { clock, getReel, getReels, isoDuration, previewSeconds, reelsIn } from '@/lib/watch'
 import { SITE_NAME, SITE_URL } from '@/lib/content'
@@ -113,7 +112,6 @@ export default async function WatchPage({ params }: PageProps) {
             <p className="font-serif text-[22px] leading-tight">Watch the full reel free on Qrio</p>
             <p className="mt-2 mb-5 text-[14px] text-[#b9b9cf]">Reels that make you smarter: business, startups, tech and the world, one minute at a time. Free on Android.</p>
             <CtaButton location="watch" />
-            <QrInstall dark />
           </div>
 
           {reel.transcript && (

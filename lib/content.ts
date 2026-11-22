@@ -54,6 +54,9 @@ export function playStoreUrl(
   return `${PLAY_STORE_URL}&referrer=${encodeURIComponent(referrer.toString())}`
 }
 
+/** Qrio's WhatsApp community. Opens WhatsApp Web on a computer, the app on a phone. */
+export const WHATSAPP_COMMUNITY_URL = 'https://chat.whatsapp.com/Js266O4AQQM8M3GyZetXbT'
+
 export const SITE_URL = 'https://www.qrioapp.in'
 export const SITE_NAME = 'Qrio'
 
@@ -269,3 +272,25 @@ export const ERRORS = {
   instagram: 'Please enter a valid Instagram handle.',
   generic: 'Something went wrong. Please try again.',
 }
+
+/** The "send to my phone" panel (computers, iPhones and devices we are unsure of). */
+export const SEND_TO_PHONE = {
+  title: 'Get Qrio on your phone',
+  sub: 'Qrio is a free Android app. Pick one:',
+  scan: 'Scan with your phone camera',
+  scanNote: 'Opens Google Play on Android',
+  whatsapp: 'Join the WhatsApp community',
+  whatsappNote: 'Daily picks and the app link, on WhatsApp Web or your phone',
+  playWeb: 'Or open Google Play in this browser',
+  // iPhone and iPad
+  titleIos: 'Qrio is on Android for now',
+  subIos: 'iPhone is coming. Until then, get the daily picks on WhatsApp.',
+  whatsappNoteIos: 'Daily picks from Qrio, right in WhatsApp',
+  waitlist: 'Tell me when iPhone is ready',
+  // Device we could not identify
+  titleUnknown: 'Get Qrio',
+  subUnknown: 'Qrio is a free Android app.',
+  play: 'Get it on Google Play',
+  close: 'Close',
+}
+

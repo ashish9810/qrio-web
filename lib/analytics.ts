@@ -11,6 +11,12 @@ export const Events = {
   internalClick: 'Web Internal Click',
   outboundClick: 'Web Outbound Click',
   shortLinkOpen: 'Web Short Link Open',
+  sendToPhoneOpen: 'Web Send To Phone Open',
+  qrShown: 'Web QR Shown',
+  whatsappClick: 'Web WhatsApp Click',
+  playWebClick: 'Web Play Web Click',
+  phonePageOpen: 'Web Phone Page Open',
+  phonePageChoice: 'Web Phone Page Choice',
 } as const
 
 export type CtaLocation = 'header' | 'hero' | 'final' | 'blog' | 'story' | 'sticky' | 'watch'
