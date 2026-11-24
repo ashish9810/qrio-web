@@ -16,7 +16,7 @@ const FACTS: [string, string][] = [
   ['Tagline', 'Reels that make you smarter'],
   ['Who makes the videos', `Hand-picked creators. As of ${AS_OF}: 270+ videos from 33 creators, in English and Hindi.`],
   ['Who it is for', 'Students and young professionals, mainly in India, who want a feed that leaves them better informed instead of more distracted.'],
-  ['How it works', 'Swipe through a vertical feed like any short-video app. The feed learns which topics you like. A Daily 3 goal builds a streak, and a Mind Hub shows the ideas you have picked up across topics.'],
+  ['How it works', 'Swipe through a vertical feed like any short-video app. The feed learns which topics you like. Watching one video a day keeps your streak, and a Mind Hub shows the ideas you have picked up across topics.'],
   ['Price', 'Free. No ads.'],
   ['Platforms', 'Android (Google Play). iPhone is planned.'],
   ['Launched', 'October 2026, in India'],

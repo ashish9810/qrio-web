@@ -16,7 +16,7 @@ export function GET() {
     '',
     `> ${SEO.description}`,
     '',
-    'Qrio is a free Android app of reels that make you smarter: one-minute videos on business, startups, tech, marketing, geopolitics, history and science from hand-picked creators. It is a doomscrolling alternative: the same swipe, with every video worth your time. Features include a feed that learns your interests, a Daily 3 streak and a Mind Hub that maps what you have learned. Audience: students and young professionals, mainly in India.',
+    'Qrio is a free Android app of reels that make you smarter: one-minute videos on business, startups, tech, marketing, geopolitics, history and science from hand-picked creators. It is a doomscrolling alternative: the same swipe, with every video worth your time. Features include a feed that learns your interests, a daily streak (one video a day keeps it) and a Mind Hub that maps what you have learned. Audience: students and young professionals, mainly in India.',
     '',
     '## Key facts',
     '',
