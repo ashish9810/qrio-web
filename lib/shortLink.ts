@@ -17,6 +17,15 @@ export const PREVIEW = {
   imageSize: 1080,
 }
 
+/** Link preview for a shared level (?open=mind). */
+export const MIND_PREVIEW = {
+  title: "What's your level on Qrio?",
+  description:
+    'Every video you watch builds your mind. See your level and your streak. Short videos on geopolitics, business and startups.',
+  image: `${SITE_URL}/og/get.jpg`,
+  imageSize: 1080,
+}
+
 export const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 

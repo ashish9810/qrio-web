@@ -1,9 +1,9 @@
 import { after } from 'next/server'
 import { Events } from '@/lib/analytics'
 import { trackServer } from '@/lib/analytics-server'
-import { playStoreUrl } from '@/lib/content'
+import { playStoreUrl, SITE_URL } from '@/lib/content'
 import { PREVIEW_BOTS } from '@/lib/device'
-import { clean, openAppPage, PREVIEW, previewPage, type Preview } from '@/lib/shortLink'
+import { clean, MIND_PREVIEW, openAppPage, PREVIEW, previewPage, type Preview } from '@/lib/shortLink'
 import { getSupabase } from '@/lib/supabase'
 
 /**
@@ -75,14 +75,20 @@ export async function GET(request: Request) {
   const webId = (params.get('web_id') ?? '').replace(/[^a-f0-9]/gi, '').slice(0, 32)
   const reelParam = params.get('reel') ?? ''
   const reel = UUID.test(reelParam) ? reelParam.toLowerCase() : undefined
+  // ?open=mind: a shared level. Opens the Mind Hub, not the feed.
+  const open = params.get('open') === 'mind' ? 'mind' : undefined
   const target = playStoreUrl(
-    from || (reel ? 'share' : 'short_link'),
+    from || (reel || open ? 'share' : 'short_link'),
     { source, campaign, medium, content },
     webId || undefined,
     reel,
+    open,
   )
   const ua = request.headers.get('user-agent') ?? ''
   if (PREVIEW_BOTS.test(ua)) {
+    if (open && !reel) {
+      return previewPage(target, MIND_PREVIEW, undefined, `${SITE_URL}/get?open=mind`)
+    }
     const p = reel ? await reelPreview(reel) : null
     return previewPage(target, p ?? PREVIEW, reel)
   }
@@ -91,7 +97,7 @@ export async function GET(request: Request) {
   // redirect is sent, so it never slows it down.
   after(() =>
     trackServer(Events.shortLinkOpen, {
-      via: from ? 'site_button' : reel ? 'video_share' : 'short_link',
+      via: from ? 'site_button' : reel ? 'video_share' : open ? 'level_share' : 'short_link',
       from: from || undefined,
       utm_source: source ?? undefined,
       utm_campaign: campaign ?? undefined,
@@ -110,6 +116,7 @@ export async function GET(request: Request) {
     if (medium) tags.set('utm_medium', medium)
     if (content) tags.set('utm_content', content)
     if (reel) tags.set('reel', reel)
+    if (open) tags.set('open', open)
     const query = tags.toString() ? `?${tags}` : ''
     const intent =
       `intent://www.qrioapp.in/get${query}#Intent;scheme=https;package=com.qrio.qrio;` +

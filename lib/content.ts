@@ -36,6 +36,7 @@ export function playStoreUrl(
   },
   webId?: string,
   reel?: string,
+  open?: string,
 ) {
   const referrer = new URLSearchParams({
     utm_source: utm?.source || 'website',
@@ -51,6 +52,8 @@ export function playStoreUrl(
   if (webId) referrer.set('web_id', webId)
   // A shared video: the app opens it after install (deferred deep link).
   if (reel) referrer.set('reel', reel)
+  // A shared level: the app opens the Mind Hub after install.
+  if (open) referrer.set('open', open)
   return `${PLAY_STORE_URL}&referrer=${encodeURIComponent(referrer.toString())}`
 }
 
