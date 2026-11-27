@@ -59,7 +59,7 @@ Take the first row with status `todo`. After drafting set it to `drafted`. When 
 | 22 | gold-smuggling-india-import-duty | Why gold smuggling jumped in India after the 15% duty | Explained | gold smuggling india, gold import duty 2026 | published |
 | 23 | qrio-vs-youtube-shorts | Qrio vs YouTube Shorts: which is better when you want to get smarter, not just scroll | Doomscrolling | youtube shorts alternative for useful videos | published |
 | 24 | apps-like-inshorts-but-video | Apps like Inshorts, but video: short news and business apps compared | Staying informed | apps like inshorts video | published |
-| 25 | best-short-video-apps-for-students-india | Short video apps for students in India that are actually useful | Staying informed | useful short video apps for students | todo |
+| 25 | best-short-video-apps-for-students-india | Short video apps for students in India that are actually useful | Staying informed | useful short video apps for students | published |
 | 26 | what-is-cpi-inflation-india | What is CPI inflation and how to read India's number | Staying informed | what is cpi inflation, cpi inflation india | published |
 | 27 | wpi-inflation-india-october-2026 | Wholesale inflation hit 12.29%: what it means for you | Explained | wpi inflation, wpi inflation october 2026, wpi vs cpi | published |
 | 28 | blinkist-vs-instagram | Instagram vs Blinkist: which is worth your scroll time | Doomscrolling | instagram vs blinkist, blinkist vs instagram | published |
